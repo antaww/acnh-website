@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+{{/*{{.Name}}*/}}
+{{/*{{.Image}}*/}}
+{{/*{{.Name}} is {{.Gender}}*/}}
+{{/*<img src={{.Image}}>*/}}
+{{/*<img src={{.Icon}}>*/}}
+{{/*{{ (index . 0 ).Name}}*/}}
+{{range .}}
+    {{/*    {{if eq .Name "Cyrano"}}*/}}
+    {{.Name}} : <img class="chara_img" src={{.Image}}><br>
+    {{/*    {{end}}*/}}
+{{end}}
+</body>
+</html>
