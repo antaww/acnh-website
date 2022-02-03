@@ -65,6 +65,7 @@ func (rawdata *RawData) toData() Data {
 		Name:  rawdata.Name.NameEUfr,
 		Icon:  rawdata.IconUri,
 		Image: rawdata.ImageUri,
+		Catch: rawdata.CatchTranslations.CatchEUfr,
 	}
 }
 
@@ -72,6 +73,7 @@ type Data struct {
 	Name  string
 	Icon  string
 	Image string
+	Catch string
 }
 
 func main() {
@@ -88,7 +90,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	req.Header.Set("User-Agent", "seb go tuto v2")
+	req.Header.Set("User-Agent", "antaww")
 
 	//make api call
 	res, getErr := httpClient.Do(req)

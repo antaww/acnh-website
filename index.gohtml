@@ -14,7 +14,9 @@
 {{/*{{ (index . 0 ).Name}}*/}}
 {{range .}}
     {{/*    {{if eq .Name "Cyrano"}}*/}}
-    {{.Name}} : <img class="chara_img" src={{.Image}}><br>
+    {{.Name}} "{{.Catch}}"<br>
+    <img class="chara_img" src={{.Image}}><br>
+    <br>
     {{/*    {{end}}*/}}
 {{end}}
 </body>
