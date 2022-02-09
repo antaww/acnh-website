@@ -1,3 +1,7 @@
 .chara_img {
     width: 100px;
 }
+
+.chara_img:hover {
+    transform: scale(1.1);
+}

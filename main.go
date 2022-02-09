@@ -2,11 +2,13 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"html/template"
 	"io"
 	"io/ioutil"
 	"log"
 	"net/http"
+	"strings"
 	"time"
 )
 
@@ -76,8 +78,7 @@ type Data struct {
 	Catch string
 }
 
-func main() {
-
+func getCharacters() []RawData {
 	url := "https://acnhapi.com/v1a/villagers/"
 
 	httpClient := http.Client{
@@ -118,32 +119,42 @@ func main() {
 	if jsonErr != nil {
 		log.Fatal(jsonErr)
 	}
+	return response
+}
 
-	//for _, character := range response {
-	//	fmt.Println(character.Name, "gender -->", character.Gender)
-	//}
-
-	character := response
-	println(character[0].IconUri)
-
-	templ := template.Must(template.ParseFiles("index.gohtml")) //define html file
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		var values []Data
-		for _, data := range character {
-			values = append(values, data.toData())
+func acnh(name string, response []RawData) Data {
+	var index int
+	for i, data := range response {
+		if strings.ToLower(data.Name.NameEUfr) == strings.ToLower(name) {
+			index = i
 		}
+	}
+	return response[index].toData()
+}
 
-		err := templ.Execute(w, values)
-		if err != nil {
-			log.Fatal(err)
-		} //execute template
-		//fmt.Println(values.Name)
-	})
+func main() {
+	templ := template.Must(template.ParseFiles("character.gohtml")) //define html file
+
+	characters := getCharacters()
+
+	for _, character := range characters {
+		//fmt.Println(character.Name.NameEUfr)
+		http.HandleFunc(fmt.Sprintf("/%s", strings.ToLower(character.Name.NameEUfr)), func(writer http.ResponseWriter, request *http.Request) {
+			name := strings.TrimPrefix(request.URL.Path, "/")
+			ch := acnh(name, characters)
+			//fmt.Println(request.URL.Path)
+			fmt.Println(request.URL, "=", ch)
+			err := templ.Execute(writer, ch)
+			if err != nil {
+				log.Fatal(err)
+			}
+		})
+	}
 
 	css := http.FileServer(http.Dir("."))
 	http.Handle("/static/", http.StripPrefix("/static/", css))
 
-	err = http.ListenAndServe(":8010", nil)
+	err := http.ListenAndServe(":8010", nil)
 	if err != nil {
 		log.Fatal(err)
 	}
