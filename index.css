@@ -1,5 +1,6 @@
 .chara_img {
     width: 100px;
+    transition: all 0.3s;
 }
 
 .chara_img:hover {

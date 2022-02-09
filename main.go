@@ -132,17 +132,42 @@ func acnh(name string, response []RawData) Data {
 	return response[index].toData()
 }
 
+func characterExistence(name string, response []RawData) bool {
+	for _, data := range response {
+		if strings.ToLower(data.Name.NameEUfr) == strings.ToLower(name) {
+			fmt.Println("dans func : perso existant")
+			return true
+		}
+	}
+	fmt.Println("dans func : perso inexistant")
+	return false
+}
+
+type ErrStruct struct {
+	Path string
+}
+
+func errorHandler(w http.ResponseWriter, r *http.Request, status int) {
+	templ := template.Must(template.ParseFiles("error.gohtml"))
+	w.WriteHeader(status)
+	if status == http.StatusNotFound {
+
+		errData := &ErrStruct{Path: r.URL.Path}
+		err := templ.Execute(w, errData)
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
+}
+
 func main() {
 	templ := template.Must(template.ParseFiles("character.gohtml")) //define html file
 
 	characters := getCharacters()
-
 	for _, character := range characters {
-		//fmt.Println(character.Name.NameEUfr)
 		http.HandleFunc(fmt.Sprintf("/%s", strings.ToLower(character.Name.NameEUfr)), func(writer http.ResponseWriter, request *http.Request) {
 			name := strings.TrimPrefix(request.URL.Path, "/")
 			ch := acnh(name, characters)
-			//fmt.Println(request.URL.Path)
 			fmt.Println(request.URL, "=", ch)
 			err := templ.Execute(writer, ch)
 			if err != nil {
@@ -150,6 +175,17 @@ func main() {
 			}
 		})
 	}
+
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+
+		path := TrimURLPrefix(r.URL.Path)
+		if path == "favicon.ico" {
+			return
+		}
+		if !characterExistence(path, characters) {
+			errorHandler(w, r, http.StatusNotFound)
+		}
+	})
 
 	css := http.FileServer(http.Dir("."))
 	http.Handle("/static/", http.StripPrefix("/static/", css))
