@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"sort"
 	"strings"
 	"time"
 )
@@ -164,7 +165,10 @@ func main() {
 	templ := template.Must(template.ParseFiles("character.gohtml")) //define html file
 
 	characters := getCharacters()
+	array2 := []string{} //debug
 	for _, character := range characters {
+		array2 = append(array2, character.Name.NameEUfr) //debug
+
 		http.HandleFunc(fmt.Sprintf("/%s", strings.ToLower(character.Name.NameEUfr)), func(writer http.ResponseWriter, request *http.Request) {
 			name := strings.TrimPrefix(request.URL.Path, "/")
 			ch := acnh(name, characters)
@@ -175,6 +179,13 @@ func main() {
 			}
 		})
 	}
+
+	//debug print dans l'ordre alphabétique
+	sort.Strings(array2)
+	for _, character := range array2 {
+		fmt.Println(character)
+	}
+	//fin debug
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 
