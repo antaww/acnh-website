@@ -1,3 +1,19 @@
+@font-face {
+    font-family: "FinkHeavy";
+    src: url("/fonts/FinkHeavy.otf") format("opentype");
+}
+
+h1 {
+    font-family: "FinkHeavy";
+    font-size: min(60pt, 12vw);
+    /*font-family: "FinkHeavy";*/
+    font-weight: 500;
+    margin: 30px 0 -10px 0;
+    line-height: 1;
+    text-shadow: 2px 2px 3px black;
+    color: #F1E369;
+}
+
 .chara_img {
     width: 100px;
     transition: all 0.3s;

@@ -187,11 +187,16 @@ func main() {
 		}
 	})
 
-	css := http.FileServer(http.Dir("."))
-	http.Handle("/static/", http.StripPrefix("/static/", css))
+	handleDirectory(".", "/static/")
+	handleDirectory("./fonts", "/fonts/")
 
 	err := http.ListenAndServe(":8010", nil)
 	if err != nil {
 		log.Fatal(err)
 	}
+}
+
+func handleDirectory(directory, route string) {
+	fonts := http.FileServer(http.Dir(directory))
+	http.Handle(route, http.StripPrefix(route, fonts))
 }
