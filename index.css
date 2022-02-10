@@ -29,6 +29,10 @@ h1 {
     transform: scale(1.1);
 }
 
+.title {
+    text-align: center;
+}
+
 
 /*DIALOGUE*/
 
@@ -40,6 +44,10 @@ h1 {
     left: 50%;
     opacity: 0;
     animation: arrow 0.6s cubic-bezier(0.37, 0, 0.63, 1) 1.2s infinite alternate;
+}
+
+.arrow:hover {
+    cursor: pointer;
 }
 
 /*general dialogue box*/
