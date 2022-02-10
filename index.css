@@ -29,6 +29,10 @@ h1 {
     transform: scale(1.1);
 }
 
+
+/*DIALOGUE*/
+
+
 /*switch content arrow dialogue box*/
 .arrow {
     position: absolute;
@@ -120,7 +124,10 @@ h1 {
     animation: character 0.6s infinite alternate cubic-bezier(0.37, 0, 0.63, 1);
 }
 
+
 /*KEYFRAMES*/
+
+
 /*animation character bubble*/
 @keyframes character {
     from {
