@@ -23,6 +23,7 @@ h1 {
 .chara_img {
     width: 200px;
     transition: all 0.3s;
+    border-radius: 55px;
 }
 
 .chara_img:hover {
@@ -31,6 +32,17 @@ h1 {
 
 .title {
     text-align: center;
+}
+
+.subtitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subtitle img {
+    transform: rotate(-20deg);
+    margin: -20px -20px 10px;
 }
 
 
