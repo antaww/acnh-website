@@ -190,7 +190,7 @@ func main() {
 		fmt.Println(character)
 	}
 	//fin debug
-
+	//test
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 
 		path := TrimURLPrefix(r.URL.Path)
