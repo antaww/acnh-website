@@ -2,8 +2,10 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{.Name}} guide</title>
     <link rel="stylesheet" href="/static/index.css">
+    <link rel="icon" href="{{.Icon}}">
+
 </head>
 <body>
 <h1>{{.Name}}</h1>
@@ -29,8 +31,7 @@
         <div class="dialogue-blob-top"></div>
         <div class="dialogue-blob-bottom"></div>
         <div class="dialogue-text">
-            {{/*            {{.Catch}}*/}}
-            What a great night to watch the shooting stars. You should try making a wish and see what happens!
+            {{.Saying}}
         </div>
     </div>
     <div class="dialogue-character-wrap">

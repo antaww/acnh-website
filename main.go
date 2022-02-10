@@ -71,6 +71,7 @@ func (rawdata *RawData) toData() Data {
 		Catch:       rawdata.CatchTranslations.CatchEUfr,
 		BubbleColor: rawdata.BubbleColor,
 		TextColor:   rawdata.TextColor,
+		Saying:      rawdata.Saying,
 	}
 }
 
@@ -81,6 +82,7 @@ type Data struct {
 	Catch       string
 	BubbleColor string
 	TextColor   string
+	Saying      string
 }
 
 func getCharacters() []RawData {
