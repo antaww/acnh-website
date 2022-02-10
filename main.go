@@ -178,7 +178,7 @@ func main() {
 		http.HandleFunc(fmt.Sprintf("/%s", strings.ToLower(character.Name.NameEUfr)), func(writer http.ResponseWriter, request *http.Request) {
 			name := strings.TrimPrefix(request.URL.Path, "/")
 			ch := acnh(name, characters)
-			fmt.Println(request.URL, "=", ch)
+			fmt.Println(request.URL, "url request")
 			err := templ.Execute(writer, ch)
 			if err != nil {
 				log.Fatal(err)

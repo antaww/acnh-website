@@ -8,6 +8,22 @@ body {
     background-color: #1c1b4b;
 }
 
+.animated-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: fit-content;
+    background-color: #FFE0AF;
+    background-image: linear-gradient(45deg, #FFDD88 25%, transparent 25%, transparent 75%, #FFDD88 75%, #FFDD88),
+    linear-gradient(45deg, #FFDD88 25%, transparent 25%, transparent 75%, #FFDD88 75%, #FFDD88),
+    linear-gradient(45deg, transparent, transparent 50%, #FFC87F 50%, #FFC87F);
+    background-size: 100px 100px;
+    background-position: 0 0, 50px 50px, 50px 0px;
+    animation: scroll 5s linear infinite;
+}
+
 /*animal crossing title style*/
 h1 {
     font-family: "FinkHeavy";
@@ -201,5 +217,15 @@ h1 {
     }
     to {
         transform: rotate(-0.3deg) scale(0.99);
+    }
+}
+
+/*background infinite scrolling*/
+@keyframes scroll {
+    from {
+        background-position: 0 0, 50px 50px, 50px 0;
+    }
+    to {
+        background-position: -100px -100px, -50px -50px, -50px -100px;
     }
 }
