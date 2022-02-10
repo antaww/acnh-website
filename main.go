@@ -65,18 +65,22 @@ type RawData struct {
 
 func (rawdata *RawData) toData() Data {
 	return Data{
-		Name:  rawdata.Name.NameEUfr,
-		Icon:  rawdata.IconUri,
-		Image: rawdata.ImageUri,
-		Catch: rawdata.CatchTranslations.CatchEUfr,
+		Name:        rawdata.Name.NameEUfr,
+		Icon:        rawdata.IconUri,
+		Image:       rawdata.ImageUri,
+		Catch:       rawdata.CatchTranslations.CatchEUfr,
+		BubbleColor: rawdata.BubbleColor,
+		TextColor:   rawdata.TextColor,
 	}
 }
 
 type Data struct {
-	Name  string
-	Icon  string
-	Image string
-	Catch string
+	Name        string
+	Icon        string
+	Image       string
+	Catch       string
+	BubbleColor string
+	TextColor   string
 }
 
 func getCharacters() []RawData {
