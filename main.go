@@ -204,8 +204,21 @@ func main() {
 		}
 	})
 
+	http.HandleFunc("/character", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Println("debug1")
+		queries := r.URL.Query()
+		if queries.Has("name") {
+			fmt.Println("debug2")
+			name := r.URL.Query().Get("name")
+			name = strings.ToLower(name)
+			fmt.Println("name =>", name)
+			http.Redirect(w, r, fmt.Sprintf("/%s", name), http.StatusSeeOther)
+		}
+	})
+
 	handleDirectory(".", "/static/")
 	handleDirectory("./fonts", "/fonts/")
+	handleDirectory("./scripts", "/scripts/")
 
 	err := http.ListenAndServe(":8010", nil)
 	if err != nil {
