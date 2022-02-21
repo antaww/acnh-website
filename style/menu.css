@@ -2,8 +2,24 @@
     opacity: 0;
 }
 
+
+
+nav .m-menu__checkbox:checked ~ .m-menu__overlay {
+    display: block;
+}
+
+nav .m-menu__overlay {
+    background-color: rgba(103, 103, 103, 0.5);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+}
+
 #menu__toggle:checked ~ .menu__btn > span {
-    transform: rotate(45deg);
+    background-color: rgba(103, 103, 103, 0.5);
 }
 
 #menu__toggle:checked ~ .menu__box {
