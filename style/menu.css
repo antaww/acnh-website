@@ -3,7 +3,6 @@
 }
 
 
-
 nav .m-menu__checkbox:checked ~ .m-menu__overlay {
     display: block;
 }
@@ -42,15 +41,14 @@ nav .m-menu__overlay {
 }
 
 .menu__btn {
+    transform: rotate(45deg);
     display: flex;
     align-items: center;
     position: fixed;
     top: 20px;
     left: 20px;
-
     width: 26px;
     height: 26px;
-
     cursor: pointer;
     z-index: 1;
 }
