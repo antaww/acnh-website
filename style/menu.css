@@ -1,8 +1,3 @@
-#menu__toggle {
-    opacity: 0;
-}
-
-
 nav .m-menu__checkbox:checked ~ .m-menu__overlay {
     display: block;
 }
@@ -17,38 +12,36 @@ nav .m-menu__overlay {
     display: none;
 }
 
+#menu__toggle {
+    opacity: 0;
+}
+
 #menu__toggle:checked ~ .menu__btn > span {
-    background-color: rgba(103, 103, 103, 0.5);
+    transform: rotate(45deg);
 }
-
-#menu__toggle:checked ~ .menu__box {
-    fill: #1c1b4b;
-}
-
 #menu__toggle:checked ~ .menu__btn > span::before {
     top: 0;
     transform: rotate(0);
 }
-
 #menu__toggle:checked ~ .menu__btn > span::after {
     top: 0;
     transform: rotate(90deg);
 }
-
 #menu__toggle:checked ~ .menu__box {
     visibility: visible;
     left: 0;
 }
 
 .menu__btn {
-    transform: rotate(45deg);
     display: flex;
     align-items: center;
     position: fixed;
     top: 20px;
     left: 20px;
+
     width: 26px;
     height: 26px;
+
     cursor: pointer;
     z-index: 1;
 }
@@ -66,12 +59,10 @@ nav .m-menu__overlay {
 
     transition-duration: .25s;
 }
-
 .menu__btn > span::before {
     content: '';
     top: -8px;
 }
-
 .menu__btn > span::after {
     content: '';
     top: 8px;
