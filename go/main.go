@@ -13,7 +13,7 @@ import (
 	"time"
 )
 
-type RawData struct {
+type VillagerRawData struct {
 	Id       int    `json:"id"`
 	FileName string `json:"file-name"`
 	Name     struct {
@@ -63,29 +63,138 @@ type RawData struct {
 	} `json:"catch-translations"`
 }
 
-func (rawdata *RawData) toData() Data {
-	return Data{
-		Name:        rawdata.Name.NameEUfr,
-		Icon:        rawdata.IconUri,
-		Image:       rawdata.ImageUri,
-		Catch:       rawdata.CatchTranslations.CatchEUfr,
-		BubbleColor: rawdata.BubbleColor,
-		TextColor:   rawdata.TextColor,
-		Saying:      rawdata.Saying,
+type HousewareRawData struct {
+	Variant             interface{} `json:"variant"`
+	BodyTitle           interface{} `json:"body-title"`
+	Pattern             interface{} `json:"pattern"`
+	PatternTitle        interface{} `json:"pattern-title"`
+	IsDIY               bool        `json:"isDIY"`
+	CanCustomizeBody    bool        `json:"canCustomizeBody"`
+	CanCustomizePattern bool        `json:"canCustomizePattern"`
+	KitCost             interface{} `json:"kit-cost"`
+	Color1              string      `json:"color-1"`
+	Color2              string      `json:"color-2"`
+	Size                string      `json:"size"`
+	Source              string      `json:"source"`
+	SourceDetail        string      `json:"source-detail"`
+	Version             string      `json:"version"`
+	HhaConcept1         string      `json:"hha-concept-1"`
+	HhaConcept2         interface{} `json:"hha-concept-2"`
+	HhaSeries           interface{} `json:"hha-series"`
+	HhaSet              interface{} `json:"hha-set"`
+	IsInteractive       bool        `json:"isInteractive"`
+	Tag                 string      `json:"tag"`
+	IsOutdoor           bool        `json:"isOutdoor"`
+	SpeakerType         interface{} `json:"speaker-type"`
+	LightingType        interface{} `json:"lighting-type"`
+	IsCatalog           bool        `json:"isCatalog"`
+	FileName            string      `json:"file-name"`
+	VariantId           interface{} `json:"variant-id"`
+	InternalId          int         `json:"internal-id"`
+	Name                struct {
+		NameUSen string `json:"name-USen"`
+		NameEUen string `json:"name-EUen"`
+		NameEUde string `json:"name-EUde"`
+		NameEUes string `json:"name-EUes"`
+		NameUSes string `json:"name-USes"`
+		NameEUfr string `json:"name-EUfr"`
+		NameUSfr string `json:"name-USfr"`
+		NameEUit string `json:"name-EUit"`
+		NameEUnl string `json:"name-EUnl"`
+		NameCNzh string `json:"name-CNzh"`
+		NameTWzh string `json:"name-TWzh"`
+		NameJPja string `json:"name-JPja"`
+		NameKRko string `json:"name-KRko"`
+		NameEUru string `json:"name-EUru"`
+	} `json:"name"`
+	BuyPrice  int    `json:"buy-price"`
+	SellPrice int    `json:"sell-price"`
+	ImageUri  string `json:"image_uri"`
+}
+
+func (rawdata *HousewareRawData) toData() HousewareData {
+	return HousewareData{
+		SellPrice: rawdata.SellPrice,
+		ImageUri:  rawdata.ImageUri,
 	}
 }
 
-type Data struct {
-	Name        string
-	Icon        string
-	Image       string
-	Catch       string
-	BubbleColor string
-	TextColor   string
-	Saying      string
+func (rawdata *VillagerRawData) toData() Data {
+	return Data{
+		Name:         rawdata.Name.NameEUen,
+		Icon:         rawdata.IconUri,
+		Image:        rawdata.ImageUri,
+		Catch:        rawdata.CatchTranslations.CatchEUen,
+		BubbleColor:  rawdata.BubbleColor,
+		TextColor:    rawdata.TextColor,
+		Saying:       rawdata.Saying,
+		Personnality: rawdata.Personality,
+		Hobby:        rawdata.Hobby,
+	}
 }
 
-func getCharacters() []RawData {
+type HousewareData struct {
+	SellPrice int
+	ImageUri  string
+}
+
+type Data struct {
+	Name         string
+	Icon         string
+	Image        string
+	Catch        string
+	BubbleColor  string
+	TextColor    string
+	Saying       string
+	Personnality string
+	Hobby        string
+}
+
+func getHouseware() []HousewareData {
+	url := "https://acnhapi.com/v1a/houseware/"
+
+	httpClient := http.Client{
+		Timeout: time.Second * 2, // define timeout
+	}
+
+	//create request
+	req, err := http.NewRequest(http.MethodGet, url, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	req.Header.Set("User-Agent", "antaww")
+
+	//make api call
+	res, getErr := httpClient.Do(req)
+	if getErr != nil {
+		log.Fatal(getErr)
+	}
+
+	if res.Body != nil {
+		defer func(Body io.ReadCloser) {
+			err := Body.Close()
+			if err != nil {
+				log.Fatal(err)
+			}
+		}(res.Body)
+	}
+
+	//parse response
+	body, readErr := ioutil.ReadAll(res.Body)
+	if readErr != nil {
+		log.Fatal(readErr)
+	}
+
+	var response []HousewareData
+	jsonErr := json.Unmarshal(body, &response)
+	if jsonErr != nil {
+		log.Fatal(jsonErr)
+	}
+	return response
+}
+
+func getCharacters() []VillagerRawData {
 	url := "https://acnhapi.com/v1a/villagers/"
 
 	httpClient := http.Client{
@@ -121,7 +230,7 @@ func getCharacters() []RawData {
 		log.Fatal(readErr)
 	}
 
-	var response []RawData
+	var response []VillagerRawData
 	jsonErr := json.Unmarshal(body, &response)
 	if jsonErr != nil {
 		log.Fatal(jsonErr)
@@ -129,7 +238,7 @@ func getCharacters() []RawData {
 	return response
 }
 
-func acnh(name string, response []RawData) Data {
+func acnh(name string, response []VillagerRawData) Data {
 	var index int
 	for i, data := range response {
 		if strings.ToLower(data.Name.NameEUfr) == strings.ToLower(name) {
@@ -139,7 +248,7 @@ func acnh(name string, response []RawData) Data {
 	return response[index].toData()
 }
 
-func characterExistence(name string, response []RawData) bool {
+func characterExistence(name string, response []VillagerRawData) bool {
 	for _, data := range response {
 		if strings.ToLower(data.Name.NameEUfr) == strings.ToLower(name) {
 			fmt.Println("dans func : perso existant")
@@ -208,6 +317,8 @@ func main() {
 		fmt.Println("index")
 		if path == "" {
 			templ.ExecuteTemplate(w, "index.gohtml", "")
+		} else if path == "houseware" {
+			templ.ExecuteTemplate(w, "houseware.gohtml", "")
 		} else if !characterExistence(path, characters) {
 			errorHandler(w, r, http.StatusNotFound)
 		}

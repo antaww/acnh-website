@@ -6,6 +6,10 @@
     transform: rotate(45deg);
 }
 
+#menu__toggle:checked ~ .menu__box {
+    fill: #1c1b4b;
+}
+
 #menu__toggle:checked ~ .menu__btn > span::before {
     top: 0;
     transform: rotate(0);
