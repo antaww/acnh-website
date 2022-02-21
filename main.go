@@ -194,12 +194,15 @@ func main() {
 	//fin debug
 	//test
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-
+		templ := template.Must(template.ParseFiles("index.gohtml"))
 		path := TrimURLPrefix(r.URL.Path)
 		if path == "favicon.ico" {
 			return
 		}
-		if !characterExistence(path, characters) {
+		fmt.Println("index")
+		if path == "" {
+			templ.ExecuteTemplate(w, "index.gohtml", "")
+		} else if !characterExistence(path, characters) {
 			errorHandler(w, r, http.StatusNotFound)
 		}
 	})
