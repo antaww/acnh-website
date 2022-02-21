@@ -168,7 +168,14 @@ func errorHandler(w http.ResponseWriter, r *http.Request, status int) {
 }
 
 func main() {
-	templ := template.Must(template.ParseFiles("character.gohtml")) //define html file
+	templ := template.Must(template.ParseGlob("templates/*.gohtml")) //define gohtml file
+
+	// Gestion de tous les fichiers css
+	fs := http.FileServer(http.Dir("style"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
+
+	handleDirectory("./fonts", "/fonts/")
+	handleDirectory("./scripts", "/scripts/")
 
 	characters := getCharacters()
 	array2 := []string{} //debug
@@ -194,7 +201,6 @@ func main() {
 	//fin debug
 	//test
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		templ := template.Must(template.ParseFiles("index.gohtml"))
 		path := TrimURLPrefix(r.URL.Path)
 		if path == "favicon.ico" {
 			return
@@ -218,10 +224,6 @@ func main() {
 			http.Redirect(w, r, fmt.Sprintf("/%s", name), http.StatusSeeOther)
 		}
 	})
-
-	handleDirectory(".", "/static/")
-	handleDirectory("./fonts", "/fonts/")
-	handleDirectory("./scripts", "/scripts/")
 
 	err := http.ListenAndServe(":8010", nil)
 	if err != nil {
