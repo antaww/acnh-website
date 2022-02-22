@@ -1,0 +1,15 @@
+body {
+    overflow: hidden;
+}
+
+.resetti {
+    width: 30%;
+    position: relative;
+}
+
+.resetti_img {
+    transform: scale(0);
+    text-align: center;
+    animation: scale-up 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s 1 normal forwards;
+    text-align: right;
+}
