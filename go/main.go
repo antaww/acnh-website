@@ -222,12 +222,11 @@ type ErrStruct struct {
 }
 
 func errorHandler(w http.ResponseWriter, r *http.Request, status int) {
-	templ := template.Must(template.ParseFiles("error.gohtml"))
+	templ := template.Must(template.ParseGlob("templates/*.gohtml")) //define gohtml file
 	w.WriteHeader(status)
 	if status == http.StatusNotFound {
-
 		errData := &ErrStruct{Path: r.URL.Path}
-		err := templ.Execute(w, errData)
+		err := templ.ExecuteTemplate(w, "error.gohtml", errData)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -279,8 +278,10 @@ func main() {
 		fmt.Println("index")
 		if path == "" {
 			templ.ExecuteTemplate(w, "index.gohtml", "")
-		} else if !characterExistence(path, characters) {
+		}
+		if !characterExistence(path, characters) {
 			errorHandler(w, r, http.StatusNotFound)
+			fmt.Println(path, "=> introuvable")
 		}
 	})
 
