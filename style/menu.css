@@ -4,12 +4,13 @@ nav .m-menu__checkbox:checked ~ .m-menu__overlay {
 
 nav .m-menu__overlay {
     background-color: rgba(103, 103, 103, 0.5);
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     width: 100%;
     display: none;
+    z-index: 1;
 }
 
 #menu__toggle {
@@ -43,7 +44,7 @@ nav .m-menu__overlay {
     height: 26px;
 
     cursor: pointer;
-    z-index: 1;
+    z-index: 3;
 }
 
 .menu__btn > span,
@@ -87,6 +88,8 @@ nav .m-menu__overlay {
     box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
 
     transition-duration: .25s;
+
+    z-index: 2;
 }
 
 .menu__item {
