@@ -245,9 +245,10 @@ func main() {
 	handleDirectory("./scripts", "/scripts/")
 
 	characters := getCharacters()
-	array2 := []string{} //debug
+	sort.Slice(characters, func(indexFirst, indexSecond int) bool {
+		return characters[indexFirst].Name.NameEUen < characters[indexSecond].Name.NameEUen
+	})
 	for _, character := range characters {
-		array2 = append(array2, character.Name.NameEUen) //debug
 
 		http.HandleFunc(fmt.Sprintf("/%s", strings.ToLower(character.Name.NameEUen)), func(writer http.ResponseWriter, request *http.Request) {
 			name := strings.TrimPrefix(request.URL.Path, "/")
@@ -264,11 +265,11 @@ func main() {
 		templ.ExecuteTemplate(w, "charalist.gohtml", characters)
 	})
 
-	//debug print dans l'ordre alphabétique
-	sort.Strings(array2)
-	for _, character := range array2 {
-		fmt.Println(character)
-	}
+	////debug print dans l'ordre alphabétique
+	//sort.Strings(array2)
+	//for _, character := range array2 {
+	//	fmt.Println(character)
+	//}
 	//fin debug
 	//test
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
