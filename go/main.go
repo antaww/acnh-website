@@ -246,6 +246,10 @@ func main() {
 	fs := http.FileServer(http.Dir("style"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
+	// Gestion de tous les fichiers pics
+	pics := http.FileServer(http.Dir("pics"))
+	http.Handle("/image/", http.StripPrefix("/image/", pics))
+
 	handleDirectory("./fonts", "/fonts/")
 	handleDirectory("./scripts", "/scripts/")
 
