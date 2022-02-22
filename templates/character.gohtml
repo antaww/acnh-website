@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>{{.Name}} guide</title>
     <link rel="stylesheet" href="/static/index.css">
+    <link rel="stylesheet" href="/static/background_nook.css">
     <link rel="icon" href="{{.Icon}}">
     <script defer src="../scripts/index.js"></script>
 </head>
@@ -57,6 +58,9 @@
 
     <h3 style="color: {{.TextColor}}">TextColor {{.TextColor}}</h3>
     <h3 style="color: {{.BubbleColor}}">BubbleColor {{.BubbleColor}}</h3>
+    <h3>Birthday : {{.Birth}}</h3>
+    <h3>Personnality : {{.Personnality}}</h3>
+    <h3>Hobby : {{.Hobby}}</h3>
 
     <img class="chara_img" style="border: 5px solid {{.BubbleColor}};" src={{.Image}}><br>
 </div>

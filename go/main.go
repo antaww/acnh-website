@@ -130,6 +130,7 @@ func (rawdata *VillagerRawData) toData() Data {
 		Saying:       rawdata.Saying,
 		Personnality: rawdata.Personality,
 		Hobby:        rawdata.Hobby,
+		Birth:        rawdata.BirthdayString,
 	}
 }
 
@@ -148,6 +149,7 @@ type Data struct {
 	Saying       string
 	Personnality string
 	Hobby        string
+	Birth        string
 }
 
 func getCharacters() []VillagerRawData {
