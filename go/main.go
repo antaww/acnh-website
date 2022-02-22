@@ -272,8 +272,7 @@ func main() {
 		fmt.Println("index")
 		if path == "" {
 			templ.ExecuteTemplate(w, "index.gohtml", "")
-		}
-		if !characterExistence(path, characters) {
+		} else if !characterExistence(path, characters) {
 			errorHandler(w, r, http.StatusNotFound)
 			fmt.Println(path, "=> introuvable")
 		}
@@ -291,6 +290,7 @@ func main() {
 		}
 	})
 
+	fmt.Println("Server started on localhost:8010")
 	err := http.ListenAndServe(":8010", nil)
 	if err != nil {
 		log.Fatal(err)
