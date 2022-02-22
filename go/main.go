@@ -150,50 +150,6 @@ type Data struct {
 	Hobby        string
 }
 
-func getHouseware() []HousewareData {
-	url := "https://acnhapi.com/v1a/houseware/"
-
-	httpClient := http.Client{
-		Timeout: time.Second * 2, // define timeout
-	}
-
-	//create request
-	req, err := http.NewRequest(http.MethodGet, url, nil)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	req.Header.Set("User-Agent", "antaww")
-
-	//make api call
-	res, getErr := httpClient.Do(req)
-	if getErr != nil {
-		log.Fatal(getErr)
-	}
-
-	if res.Body != nil {
-		defer func(Body io.ReadCloser) {
-			err := Body.Close()
-			if err != nil {
-				log.Fatal(err)
-			}
-		}(res.Body)
-	}
-
-	//parse response
-	body, readErr := ioutil.ReadAll(res.Body)
-	if readErr != nil {
-		log.Fatal(readErr)
-	}
-
-	var response []HousewareData
-	jsonErr := json.Unmarshal(body, &response)
-	if jsonErr != nil {
-		log.Fatal(jsonErr)
-	}
-	return response
-}
-
 func getCharacters() []VillagerRawData {
 	url := "https://acnhapi.com/v1a/villagers/"
 
@@ -241,7 +197,7 @@ func getCharacters() []VillagerRawData {
 func acnh(name string, response []VillagerRawData) Data {
 	var index int
 	for i, data := range response {
-		if strings.ToLower(data.Name.NameEUfr) == strings.ToLower(name) {
+		if strings.ToLower(data.Name.NameEUen) == strings.ToLower(name) {
 			index = i
 		}
 	}
@@ -250,7 +206,7 @@ func acnh(name string, response []VillagerRawData) Data {
 
 func characterExistence(name string, response []VillagerRawData) bool {
 	for _, data := range response {
-		if strings.ToLower(data.Name.NameEUfr) == strings.ToLower(name) {
+		if strings.ToLower(data.Name.NameEUen) == strings.ToLower(name) {
 			fmt.Println("dans func : perso existant")
 			return true
 		}
@@ -289,9 +245,9 @@ func main() {
 	characters := getCharacters()
 	array2 := []string{} //debug
 	for _, character := range characters {
-		array2 = append(array2, character.Name.NameEUfr) //debug
+		array2 = append(array2, character.Name.NameEUen) //debug
 
-		http.HandleFunc(fmt.Sprintf("/%s", strings.ToLower(character.Name.NameEUfr)), func(writer http.ResponseWriter, request *http.Request) {
+		http.HandleFunc(fmt.Sprintf("/%s", strings.ToLower(character.Name.NameEUen)), func(writer http.ResponseWriter, request *http.Request) {
 			name := strings.TrimPrefix(request.URL.Path, "/")
 			ch := acnh(name, characters)
 			fmt.Println(request.URL, "url request")
@@ -301,6 +257,10 @@ func main() {
 			}
 		})
 	}
+
+	http.HandleFunc("/charalist", func(w http.ResponseWriter, r *http.Request) {
+		templ.ExecuteTemplate(w, "charalist.gohtml", characters)
+	})
 
 	//debug print dans l'ordre alphabétique
 	sort.Strings(array2)
@@ -317,8 +277,6 @@ func main() {
 		fmt.Println("index")
 		if path == "" {
 			templ.ExecuteTemplate(w, "index.gohtml", "")
-		} else if path == "houseware" {
-			templ.ExecuteTemplate(w, "houseware.gohtml", "")
 		} else if !characterExistence(path, characters) {
 			errorHandler(w, r, http.StatusNotFound)
 		}

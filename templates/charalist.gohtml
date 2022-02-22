@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>charalist</title>
+    <link rel="stylesheet" href="/static/index.css">
+
+</head>
+<body>
+<h1>charalist</h1>
+{{range .}}
+    <a href="/character?name={{.Name.NameEUen}}">
+        <img class="chara_img" style="border: 5px solid {{.BubbleColor}};" src={{.ImageUri}}>
+        {{.Name.NameEUen}}
+    </a>
+{{end}}
+
+</body>
+</html>
