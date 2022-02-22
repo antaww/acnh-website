@@ -264,13 +264,6 @@ func main() {
 		templ.ExecuteTemplate(w, "charalist.gohtml", characters)
 	})
 
-	////debug print dans l'ordre alphabétique
-	//sort.Strings(array2)
-	//for _, character := range array2 {
-	//	fmt.Println(character)
-	//}
-	//fin debug
-	//test
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		path := TrimURLPrefix(r.URL.Path)
 		if path == "favicon.ico" {
