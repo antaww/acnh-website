@@ -20,14 +20,17 @@ nav .m-menu__overlay {
 #menu__toggle:checked ~ .menu__btn > span {
     transform: rotate(45deg);
 }
+
 #menu__toggle:checked ~ .menu__btn > span::before {
     top: 0;
     transform: rotate(0);
 }
+
 #menu__toggle:checked ~ .menu__btn > span::after {
     top: 0;
     transform: rotate(90deg);
 }
+
 #menu__toggle:checked ~ .menu__box {
     visibility: visible;
     left: 0;
@@ -60,10 +63,12 @@ nav .m-menu__overlay {
 
     transition-duration: .25s;
 }
+
 .menu__btn > span::before {
     content: '';
     top: -8px;
 }
+
 .menu__btn > span::after {
     content: '';
     top: 8px;
@@ -110,4 +115,5 @@ nav .m-menu__overlay {
 
 .menu__item:hover {
     background-color: #CFD8DC;
+    font-size: 21px;
 }
