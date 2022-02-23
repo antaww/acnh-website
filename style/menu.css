@@ -89,7 +89,7 @@ nav .m-menu__overlay {
 
     list-style: none;
 
-    background-color: #ECEFF1;
+    background-color: #feed9b;
     box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
 
     transition-duration: .25s;
@@ -98,14 +98,15 @@ nav .m-menu__overlay {
 }
 
 .menu__item {
+    color: #7A673F;
+
     display: block;
     padding: 12px 24px;
 
-    color: #333;
 
     font-family: "FinkHeavy";
     letter-spacing: 1px;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 600;
 
     text-decoration: none;
@@ -114,6 +115,51 @@ nav .m-menu__overlay {
 }
 
 .menu__item:hover {
-    background-color: #CFD8DC;
-    font-size: 21px;
+    font-size: 32px;
+    background-color: #FFCF00;
+}
+
+.menu__item:hover .h {
+    animation: bounce 1s ease;
+}
+
+.menu__item:hover .o {
+    animation: bounce 1s ease .1s;
+}
+
+.menu__item:hover .m {
+    animation: bounce 1s ease .2s;
+}
+
+.menu__item:hover .e {
+    animation: bounce 1s ease .3s;
+}
+
+.h, .o, .m, .e {
+    display: inline-block;
+    letter-spacing: -7px;
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(1, 1) translateY(0);
+    }
+    10% {
+        transform: scale(1.1, .9) translateY(0);
+    }
+    30% {
+        transform: scale(.9, 1.1) translateY(-55px);
+    }
+    50% {
+        transform: scale(1.05, .95) translateY(0);
+    }
+    58% {
+        transform: scale(1, 1) translateY(-7px);
+    }
+    65% {
+        transform: scale(1, 1) translateY(0);
+    }
+    100% {
+        transform: scale(1, 1) translateY(0);
+    }
 }
