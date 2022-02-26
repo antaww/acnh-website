@@ -119,23 +119,36 @@ nav .m-menu__overlay {
     background-color: #FFCF00;
 }
 
-.menu__item:hover .h {
+.menu__item:hover .letter_one {
     animation: bounce 1s ease;
 }
 
-.menu__item:hover .o {
+.menu__item:hover .letter_two {
     animation: bounce 1s ease .1s;
 }
 
-.menu__item:hover .m {
+.menu__item:hover .letter_three {
     animation: bounce 1s ease .2s;
 }
 
-.menu__item:hover .e {
+.menu__item:hover .letter_four {
     animation: bounce 1s ease .3s;
 }
 
-.h, .o, .m, .e {
+.menu__item:hover .letter_five {
+    animation: bounce 1s ease .4s;
+}
+.menu__item:hover .letter_six {
+    animation: bounce 1s ease .5s;
+}
+.menu__item:hover .letter_seven {
+    animation: bounce 1s ease .6s;
+}
+.menu__item:hover .letter_eight {
+    animation: bounce 1s ease .7s;
+}
+
+.letter_one, .letter_two, .letter_three, .letter_four, .letter_five, .letter_six, .letter_seven, .letter_eight {
     display: inline-block;
     letter-spacing: -7px;
 }
