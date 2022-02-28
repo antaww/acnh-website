@@ -41,11 +41,11 @@
 <h1>Villagers List</h1>
 <div class="all_chara">
     {{range $index, $value := .}}
-        {{if and (gt $index 40)  (lt $index 80)}}
-            <div class="chara_box">
+        {{if lt $index 40}}
+            <div class="chara_box"  style="background-color: {{.BubbleColor}};">
                 <div class="box_content">
-                    <a href="/character?name={{$value.Name.NameEUen}}">
-                        <img class="chara_img" style="border: 5px solid {{.BubbleColor}};" src={{$value.ImageUri}}>
+                    <a href="/character?name={{$value.Name.NameEUen}}" style="background-color: 5px solid {{.BubbleColor}};">
+                        <img class="chara_img"  src={{$value.ImageUri}}>
                         <p>{{$value.Name.NameEUen}}</p>
                     </a>
                 </div>
