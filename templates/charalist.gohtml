@@ -39,15 +39,17 @@
 </div>
 
 <h1>Villagers List</h1>
-{{range .}}
-    <div class="chara_box">
-        <div class="box_content">
-            <a href="/character?name={{.Name.NameEUen}}">
-                <img class="chara_img" style="border: 5px solid {{.BubbleColor}};" src={{.ImageUri}}>
-                {{.Name.NameEUen}}
-            </a>
+{{range $index, $value := .}}
+    {{if and (gt $index 40)  (lt $index 80)}}
+        <div class="chara_box">
+            <div class="box_content">
+                <a href="/character?name={{$value.Name.NameEUen}}">
+                    <img class="chara_img" style="border: 5px solid {{.BubbleColor}};" src={{$value.ImageUri}}>
+                    {{$value.Name.NameEUen}}
+                </a>
+            </div>
         </div>
-    </div>
+    {{end}}
 {{end}}
 
 </body>
