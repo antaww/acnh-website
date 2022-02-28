@@ -42,11 +42,12 @@
 <div class="all_chara">
     {{range $index, $value := .}}
         {{if lt $index 40}}
-            <div class="chara_box"  style="background-color: {{.BubbleColor}};">
+            <div class="chara_box" style="background-color: {{.BubbleColor}};">
                 <div class="box_content">
-                    <a href="/character?name={{$value.Name.NameEUen}}" style="background-color: 5px solid {{.BubbleColor}};">
-                        <img class="chara_img"  src={{$value.ImageUri}}>
-                        <p>{{$value.Name.NameEUen}}</p>
+                    <a href="/character?name={{$value.Name.NameEUen}}"
+                       style="background-color: 5px solid {{.BubbleColor}};">
+                        <img class="chara_img" src={{$value.ImageUri}}>
+                        <p class="chara_name">{{$value.Name.NameEUen}}</p>
                     </a>
                 </div>
             </div>
