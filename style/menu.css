@@ -120,32 +120,35 @@ nav .m-menu__overlay {
 }
 
 .menu__item:hover .letter_one {
-    animation: bounce 1s ease;
+    animation: bounce .5s ease;
 }
 
 .menu__item:hover .letter_two {
-    animation: bounce 1s ease .1s;
+    animation: bounce .5s ease .1s;
 }
 
 .menu__item:hover .letter_three {
-    animation: bounce 1s ease .2s;
+    animation: bounce .5s ease .2s;
 }
 
 .menu__item:hover .letter_four {
-    animation: bounce 1s ease .3s;
+    animation: bounce .5s ease .3s;
 }
 
 .menu__item:hover .letter_five {
-    animation: bounce 1s ease .4s;
+    animation: bounce .5s ease .4s;
 }
+
 .menu__item:hover .letter_six {
-    animation: bounce 1s ease .5s;
+    animation: bounce .5s ease .5s;
 }
+
 .menu__item:hover .letter_seven {
-    animation: bounce 1s ease .6s;
+    animation: bounce .5s ease .6s;
 }
+
 .menu__item:hover .letter_eight {
-    animation: bounce 1s ease .7s;
+    animation: bounce .5s ease .7s;
 }
 
 .letter_one, .letter_two, .letter_three, .letter_four, .letter_five, .letter_six, .letter_seven, .letter_eight {
@@ -161,7 +164,7 @@ nav .m-menu__overlay {
         transform: scale(1.1, .9) translateY(0);
     }
     30% {
-        transform: scale(.9, 1.1) translateY(-55px);
+        transform: scale(.9, 1.1) translateY(-20px);
     }
     50% {
         transform: scale(1.05, .95) translateY(0);
