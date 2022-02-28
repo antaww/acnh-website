@@ -39,16 +39,19 @@
 </div>
 
 <h1>Villagers List</h1>
-{{range .}}
-    <div class="chara_box">
-        <div class="box_content">
-            <a href="/character?name={{.Name.NameEUen}}">
-                <img class="chara_img" style="border: 5px solid {{.BubbleColor}};" src={{.ImageUri}}>
-                {{.Name.NameEUen}}
-            </a>
+<div class="all_chara">
+    {{range .}}
+        <div class="chara_box">
+            <div class="box_content">
+                <a href="/character?name={{.Name.NameEUen}}">
+                    <img class="chara_img" style="border: 5px solid {{.BubbleColor}};" src={{.ImageUri}}>
+                    <p>{{.Name.NameEUen}}</p>
+                </a>
+            </div>
         </div>
-    </div>
-{{end}}
+    {{end}}
+</div>
+
 
 </body>
 </html>
