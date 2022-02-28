@@ -16,6 +16,11 @@ h3 {
     margin: 10px;
     display: flex;
     flex-wrap: wrap;
+    font-family: "FinkHeavy";
+}
+
+:any-link {
+    text-decoration: none;
 }
 
 .box_content {
