@@ -25,6 +25,11 @@ h3 {
     text-align: center !important;
 }
 
+.all_chara {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 
 /*animal crossing title style*/
 h1 {
