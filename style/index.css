@@ -30,6 +30,16 @@ h3 {
     flex-wrap: wrap;
 }
 
+.chara_name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chara_name p {
+    width: fit-content;
+}
+
 
 /*animal crossing title style*/
 h1 {
