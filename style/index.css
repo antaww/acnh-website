@@ -1,3 +1,8 @@
+* {
+    display: none !important;
+}
+
+
 /*import animal crossing font*/
 @font-face {
     font-family: "FinkHeavy";
@@ -17,6 +22,9 @@ h3 {
     display: flex;
     flex-wrap: wrap;
     font-family: "FinkHeavy";
+    background-color: #f1c883;
+    box-shadow: inset 0px 10px 24px rgba(0, 0, 0, 0.2);
+    background-clip: padding-box;
 }
 
 :any-link {
