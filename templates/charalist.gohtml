@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/static/background_nook.css">
     <link rel="stylesheet" href="/static/menu.css">
     <link rel="icon" href="http://acnhapi.com/favicon.ico">
+    <script src="../scripts/index.js" defer></script>
 </head>
 <body>
 <div class="hamburger-menu">
@@ -41,7 +42,7 @@
 <h1>Villagers List</h1>
 <div class="all_chara">
     {{range $index, $value := .}}
-        {{if lt $index 40}}
+        {{if lt $index 100}}
             <div class="chara_box" style="border: {{.BubbleColor}}99 solid 10px;
                     ">
                 <div class="box_content">
