@@ -71,8 +71,9 @@ h1 {
 }
 
 .chara_img:hover {
-    transform: scale(1.1);
+    transform: translateY(-2%);
 }
+
 
 .title {
     text-align: center;
