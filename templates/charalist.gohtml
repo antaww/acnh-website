@@ -48,7 +48,8 @@
                 <div class="box_content">
                     <a href="/character?name={{$value.Name.NameEUen}}">
                         <img class="chara_img" src={{$value.ImageUri}}>
-                        <p class="chara_name" style="color: {{$value.TextColor}}">{{$value.Name.NameEUen}}</p>
+                        <p class="chara_name" style="color: {{$value.TextColor}}"
+                           content-data="{{$value.Name.NameEUen}}">{{$value.Name.NameEUen}}</p>
                     </a>
                 </div>
             </div>
