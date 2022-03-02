@@ -40,11 +40,6 @@ func main() {
 	}
 	templ, _ := template.New("").Funcs(templateFunctions).ParseGlob("templates/*.gohtml") //define gohtml file
 
-	housesData := getHouses()
-	for _, data := range housesData {
-		println("Villagers : ", data.Name)
-		println("House Interior : ", data.NhDetails.HouseInteriorUrl, "\n")
-	}
 	// Gestion de tous les fichiers css
 	fs := http.FileServer(http.Dir("style"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
@@ -57,16 +52,29 @@ func main() {
 	handleDirectory("./scripts", "/scripts/")
 
 	characters := getCharacters()
+
+	println("\n")
+	houses := getHouses()
+
 	sort.Slice(characters, func(indexFirst, indexSecond int) bool {
 		return characters[indexFirst].Name.NameEUen < characters[indexSecond].Name.NameEUen
 	})
+	for _, chara := range characters {
+		println("Villagers : ", chara.Name.NameEUen)
+	}
+	for _, hou := range houses {
+		println("Villagers : ", hou.Name)
+		println("House Interior : ", hou.NhDetails.HouseInteriorUrl)
+	}
 	for _, character := range characters {
 
 		http.HandleFunc(fmt.Sprintf("/%s", strings.ToLower(character.Name.NameEUen)), func(writer http.ResponseWriter, request *http.Request) {
 			name := strings.TrimPrefix(request.URL.Path, "/")
-			ch := acnh(name, characters)
+			simplifiedVillager := getSimplified(name, characters, houses)
+			println("Villagers : ", simplifiedVillager.Name)
+			println("House Interior : ", simplifiedVillager.HouseInterior, "\n")
 			fmt.Println(request.URL, "url request")
-			err := templ.ExecuteTemplate(writer, "character.gohtml", ch)
+			err := templ.ExecuteTemplate(writer, "character.gohtml", simplifiedVillager)
 			if err != nil {
 				log.Fatal(err)
 			}

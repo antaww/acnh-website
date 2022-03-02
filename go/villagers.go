@@ -61,42 +61,6 @@ type VillagerRawData struct {
 	} `json:"catch-translations"`
 }
 
-type Data struct {
-	Name        string
-	Icon        string
-	Image       string
-	Catch       string
-	BubbleColor string
-	TextColor   string
-	Saying      string
-	Personality string
-	Hobby       string
-	BirthString string
-	Birth       string
-	Species     string
-	Gender      string
-	Subtype     string
-}
-
-func (rawdata *VillagerRawData) toData() Data {
-	return Data{
-		Name:        rawdata.Name.NameEUen,
-		Icon:        rawdata.IconUri,
-		Image:       rawdata.ImageUri,
-		Catch:       rawdata.CatchTranslations.CatchEUen,
-		BubbleColor: rawdata.BubbleColor,
-		TextColor:   rawdata.TextColor,
-		Saying:      rawdata.Saying,
-		Personality: rawdata.Personality,
-		Hobby:       rawdata.Hobby,
-		BirthString: rawdata.BirthdayString,
-		Birth:       rawdata.Birthday,
-		Species:     rawdata.Species,
-		Gender:      rawdata.Gender,
-		Subtype:     rawdata.Subtype,
-	}
-}
-
 func getCharacters() []VillagerRawData {
 	url := "https://acnhapi.com/v1a/villagers/"
 
@@ -141,15 +105,15 @@ func getCharacters() []VillagerRawData {
 	return response
 }
 
-func acnh(name string, response []VillagerRawData) Data {
-	var index int
-	for i, data := range response {
-		if strings.ToLower(data.Name.NameEUen) == strings.ToLower(name) {
-			index = i
-		}
-	}
-	return response[index].toData()
-}
+//func acnh(name string, response []VillagerRawData) simplifiedData {
+//	var index int
+//	for i, data := range response {
+//		if strings.ToLower(data.Name.NameEUen) == strings.ToLower(name) {
+//			index = i
+//		}
+//	}
+//	return response[index].toData()
+//}
 
 func characterExistence(name string, response []VillagerRawData) bool {
 	for _, data := range response {
