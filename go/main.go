@@ -130,7 +130,8 @@ func (rawdata *VillagerRawData) toData() Data {
 		Saying:       rawdata.Saying,
 		Personnality: rawdata.Personality,
 		Hobby:        rawdata.Hobby,
-		Birth:        rawdata.BirthdayString,
+		BirthString:  rawdata.BirthdayString,
+		Birth:        rawdata.Birthday,
 		Species:      rawdata.Species,
 		Gender:       rawdata.Gender,
 		Subtype:      rawdata.Subtype,
@@ -152,6 +153,7 @@ type Data struct {
 	Saying       string
 	Personnality string
 	Hobby        string
+	BirthString  string
 	Birth        string
 	Species      string
 	Gender       string
@@ -240,7 +242,13 @@ func errorHandler(w http.ResponseWriter, r *http.Request, status int) {
 }
 
 func main() {
-	templ := template.Must(template.ParseGlob("templates/*.gohtml")) //define gohtml file
+	templateFunctions := template.FuncMap{
+		"isBirthday": func(birthday string) bool {
+			date := time.Now().Format("2/1")
+			return birthday == date
+		},
+	}
+	templ, _ := template.New("").Funcs(templateFunctions).ParseGlob("templates/*.gohtml") //define gohtml file
 
 	// Gestion de tous les fichiers css
 	fs := http.FileServer(http.Dir("style"))
@@ -281,7 +289,7 @@ func main() {
 		}
 		fmt.Println("index")
 		if path == "" {
-			templ.ExecuteTemplate(w, "index.gohtml", "")
+			templ.ExecuteTemplate(w, "index.gohtml", characters)
 		} else if !characterExistence(path, characters) {
 			errorHandler(w, r, http.StatusNotFound)
 			fmt.Println(path, "=> introuvable")
