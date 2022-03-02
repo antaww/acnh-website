@@ -66,10 +66,6 @@ func main() {
 		})
 	}
 
-	http.HandleFunc("/charalist", func(w http.ResponseWriter, r *http.Request) {
-		templ.ExecuteTemplate(w, "charalist.gohtml", characters)
-	})
-
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		path := TrimURLPrefix(r.URL.Path)
 		if path == "favicon.ico" {
@@ -82,6 +78,10 @@ func main() {
 			errorHandler(w, r, http.StatusNotFound)
 			fmt.Println(path, "=> introuvable")
 		}
+	})
+
+	http.HandleFunc("/charalist", func(w http.ResponseWriter, r *http.Request) {
+		templ.ExecuteTemplate(w, "charalist.gohtml", characters)
 	})
 
 	http.HandleFunc("/character", func(w http.ResponseWriter, r *http.Request) {
