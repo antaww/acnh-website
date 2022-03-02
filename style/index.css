@@ -21,7 +21,6 @@ h3 {
     box-shadow: inset 0px 10px 24px rgba(0, 0, 0, 0.2);
     background-clip: padding-box;
     opacity: 0;
-    margin: auto;
 }
 
 .chara_box.animate {
@@ -39,6 +38,7 @@ h3 {
 }
 
 .all_chara {
+    justify-content: space-evenly;
     display: flex;
     flex-wrap: wrap;
 }
