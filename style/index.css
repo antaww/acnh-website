@@ -21,6 +21,7 @@ h3 {
     box-shadow: inset 0px 10px 24px rgba(0, 0, 0, 0.2);
     background-clip: padding-box;
     opacity: 0;
+    margin: auto;
 }
 
 .chara_box.animate {
@@ -46,7 +47,7 @@ h3 {
     font-size: 32px;
     margin: 0;
     margin-top: 10px;
-    letter-spacing: 2px ;
+    letter-spacing: 2px;
 }
 
 .chara_name:before {
@@ -98,10 +99,15 @@ h1 {
 }
 
 .confetti {
-    left: 50%;
+    left: -50%;
     position: absolute;
-    top: 50%;
+    top: -4%;
     transform: translate(-50%, -50%);
+    z-index: -1;
+    height: 72%;
+    filter: drop-shadow(3px 3px 2px #ffcb00);
+    animation: character 0.6s infinite alternate cubic-bezier(0.37, 0, 0.63, 1);
+
 }
 
 
