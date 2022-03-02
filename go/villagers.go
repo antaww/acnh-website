@@ -62,36 +62,38 @@ type VillagerRawData struct {
 }
 
 type Data struct {
-	Name         string
-	Icon         string
-	Image        string
-	Catch        string
-	BubbleColor  string
-	TextColor    string
-	Saying       string
-	Personnality string
-	Hobby        string
-	Birth        string
-	Species      string
-	Gender       string
-	Subtype      string
+	Name        string
+	Icon        string
+	Image       string
+	Catch       string
+	BubbleColor string
+	TextColor   string
+	Saying      string
+	Personality string
+	Hobby       string
+	BirthString string
+	Birth       string
+	Species     string
+	Gender      string
+	Subtype     string
 }
 
 func (rawdata *VillagerRawData) toData() Data {
 	return Data{
-		Name:         rawdata.Name.NameEUen,
-		Icon:         rawdata.IconUri,
-		Image:        rawdata.ImageUri,
-		Catch:        rawdata.CatchTranslations.CatchEUen,
-		BubbleColor:  rawdata.BubbleColor,
-		TextColor:    rawdata.TextColor,
-		Saying:       rawdata.Saying,
-		Personnality: rawdata.Personality,
-		Hobby:        rawdata.Hobby,
-		Birth:        rawdata.BirthdayString,
-		Species:      rawdata.Species,
-		Gender:       rawdata.Gender,
-		Subtype:      rawdata.Subtype,
+		Name:        rawdata.Name.NameEUen,
+		Icon:        rawdata.IconUri,
+		Image:       rawdata.ImageUri,
+		Catch:       rawdata.CatchTranslations.CatchEUen,
+		BubbleColor: rawdata.BubbleColor,
+		TextColor:   rawdata.TextColor,
+		Saying:      rawdata.Saying,
+		Personality: rawdata.Personality,
+		Hobby:       rawdata.Hobby,
+		BirthString: rawdata.BirthdayString,
+		Birth:       rawdata.Birthday,
+		Species:     rawdata.Species,
+		Gender:      rawdata.Gender,
+		Subtype:     rawdata.Subtype,
 	}
 }
 

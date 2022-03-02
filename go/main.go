@@ -66,7 +66,7 @@ func main() {
 			name := strings.TrimPrefix(request.URL.Path, "/")
 			ch := acnh(name, characters)
 			fmt.Println(request.URL, "url request")
-			err := templ.Execute(writer, ch)
+			err := templ.ExecuteTemplate(writer, "character.gohtml", ch)
 			if err != nil {
 				log.Fatal(err)
 			}
