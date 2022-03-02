@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"sort"
 	"strings"
+	"time"
 )
 
 type ErrStruct struct {
@@ -31,7 +32,13 @@ func handleDirectory(directory, route string) {
 }
 
 func main() {
-	templ := template.Must(template.ParseGlob("templates/*.gohtml")) //define gohtml file
+	templateFunctions := template.FuncMap{
+		"isBirthday": func(birthday string) bool {
+			date := time.Now().Format("2/1")
+			return birthday == date
+		},
+	}
+	templ, _ := template.New("").Funcs(templateFunctions).ParseGlob("templates/*.gohtml") //define gohtml file
 
 	housesData := getHouses()
 	for _, data := range housesData {
@@ -73,7 +80,7 @@ func main() {
 		}
 		fmt.Println("index")
 		if path == "" {
-			templ.ExecuteTemplate(w, "index.gohtml", "")
+			templ.ExecuteTemplate(w, "index.gohtml", characters)
 		} else if !characterExistence(path, characters) {
 			errorHandler(w, r, http.StatusNotFound)
 			fmt.Println(path, "=> introuvable")
