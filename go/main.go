@@ -66,16 +66,12 @@ func main() {
 			name := strings.TrimPrefix(request.URL.Path, "/")
 			ch := acnh(name, characters)
 			fmt.Println(request.URL, "url request")
-			err := templ.Execute(writer, ch)
+			err := templ.ExecuteTemplate(writer, "character.gohtml", ch)
 			if err != nil {
 				log.Fatal(err)
 			}
 		})
 	}
-
-	http.HandleFunc("/charalist", func(w http.ResponseWriter, r *http.Request) {
-		templ.ExecuteTemplate(w, "charalist.gohtml", characters)
-	})
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		path := TrimURLPrefix(r.URL.Path)
@@ -89,6 +85,10 @@ func main() {
 			errorHandler(w, r, http.StatusNotFound)
 			fmt.Println(path, "=> introuvable")
 		}
+	})
+
+	http.HandleFunc("/charalist", func(w http.ResponseWriter, r *http.Request) {
+		templ.ExecuteTemplate(w, "charalist.gohtml", characters)
 	})
 
 	http.HandleFunc("/character", func(w http.ResponseWriter, r *http.Request) {
