@@ -1,4 +1,4 @@
-/*import animal crossing font*/
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Patrick+Hand&family=Roboto+Mono:wght@300&family=Yanone+Kaffeesatz&display=swap'); /*import animal crossing font*/
 @font-face {
     font-family: "FinkHeavy";
     src: url("/fonts/FinkHeavy.otf") format("opentype");
@@ -38,6 +38,7 @@ h3 {
 }
 
 .all_chara {
+    justify-content: space-evenly;
     display: flex;
     flex-wrap: wrap;
 }
@@ -46,7 +47,7 @@ h3 {
     font-size: 32px;
     margin: 0;
     margin-top: 10px;
-    letter-spacing: 2px ;
+    letter-spacing: 1px;
 }
 
 .chara_name:before {
@@ -55,6 +56,20 @@ h3 {
     filter: invert(1);
     text-shadow: 2px 0 0 currentColor, -2px 0 0 currentColor, 0 2px 0 currentColor, 0 -2px 0 currentColor, 1px 1px currentColor, -1px -1px 0 currentColor, 1px -1px 0 currentColor, -1px 1px 0 currentColor;
     z-index: -1;
+}
+
+.chara_birthday {
+    color: #fff;
+    font-weight: bold;
+    line-height: 1.35;
+    text-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
+    font-family: Arvo;
+    margin: auto;
+    text-align: center;
+}
+
+.title_birthday {
+    font-size: 45px;
 }
 
 
@@ -98,10 +113,15 @@ h1 {
 }
 
 .confetti {
-    left: 50%;
+    left: -50%;
     position: absolute;
-    top: 50%;
+    top: -4%;
     transform: translate(-50%, -50%);
+    z-index: -1;
+    height: 72%;
+    filter: drop-shadow(3px 3px 2px #ffcb00);
+    animation: character 0.6s infinite alternate cubic-bezier(0.37, 0, 0.63, 1);
+
 }
 
 
@@ -286,4 +306,120 @@ h1 {
     to {
         background-position: -100px -100px, -50px -50px, -50px -100px;
     }
+}
+
+/* FIREWORKS */
+
+.firework {
+    position: absolute;
+}
+
+.explosion {
+    position: absolute;
+    left: -2px;
+    bottom: 0;
+    width: 4px;
+    height: 80px;
+    transform-origin: 50% 100%;
+    /* background-color: rgba(0,0,0,.2); */
+    overflow: hidden;
+    transform: scale(1.5);
+    transform: translateY(1.2);
+}
+
+.explosion:nth-child(1) {
+    transform: rotate(0deg) translateY(-15px);
+}
+
+.explosion:nth-child(2) {
+    transform: rotate(30deg) translateY(-15px);
+}
+
+.explosion:nth-child(3) {
+    transform: rotate(60deg) translateY(-15px);
+}
+
+.explosion:nth-child(4) {
+    transform: rotate(90deg) translateY(-15px);
+}
+
+.explosion:nth-child(5) {
+    transform: rotate(120deg) translateY(-15px);
+}
+
+.explosion:nth-child(6) {
+    transform: rotate(150deg) translateY(-15px);
+}
+
+.explosion:nth-child(7) {
+    transform: rotate(180deg) translateY(-15px);
+}
+
+.explosion:nth-child(8) {
+    transform: rotate(210deg) translateY(-15px);
+}
+
+.explosion:nth-child(9) {
+    transform: rotate(240deg) translateY(-15px);
+}
+
+.explosion:nth-child(10) {
+    transform: rotate(270deg) translateY(-15px);
+}
+
+.explosion:nth-child(11) {
+    transform: rotate(300deg) translateY(-15px);
+}
+
+.explosion:nth-child(12) {
+    transform: rotate(330deg) translateY(-15px);
+}
+
+.explosion::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 40px;
+    background-color: rgba(229, 106, 55, 0.91);
+}
+
+@keyframes explosion {
+    0% {
+        top: 100%;
+    }
+    33%, 100% {
+        top: -50%;
+    }
+}
+
+#firework1 {
+    left: 50%;
+    top: 30%;
+    transform: scale(1);
+}
+
+#firework1 .explosion::before {
+    animation: explosion 2s ease-in-out 1s;
+}
+
+#firework2 {
+    left: 40%;
+    top: 25%;
+    transform: scale(.7);
+}
+
+#firework2 .explosion::before {
+    animation: explosion 2s 1.6s ease-in-out;
+}
+
+#firework3 {
+    left: 60%;
+    top: 45%;
+    transform: scale(.4);
+}
+
+#firework3 .explosion::before {
+    animation: explosion 2s 1.4s ease-in-out;
 }

@@ -42,21 +42,67 @@
             <h1>Animal Crossing: New Horizons Guide</h1>
         </div>
 
-        <div class="all_chara">
-            {{range .}}
-                {{if isBirthday .Birthday}}
-                    <div class="chara_box" style="border: {{.BubbleColor}}99 solid 10px;">
-                        <div class="box_content">
-                            <a href="/character?name={{.Name.NameEUen}}">
-                                <img class="chara_img" src={{.ImageUri}}>
-                                <p class="chara_name" style="color: {{.TextColor}}"
-                                   content-data="{{.Name.NameEUen}}">{{.Name.NameEUen}}</p>
-                                <p class="chara_name">{{.Birthday}}</p>
-                            </a>
+        <div class="today_birthday">
+            <p class="chara_birthday title_birthday">Today's birthday!</p>
+            <div class="all_chara">
+                {{range .}}
+                    {{if isBirthday .Birthday}}
+                        <div class="chara_box" style="border: {{.BubbleColor}}99 solid 10px;">
+                            <div class="box_content">
+                                <a href="/character?name={{.Name.NameEUen}}">
+                                    <img class="chara_img" src={{.ImageUri}}>
+                                    <p class="chara_name" style="color: {{.TextColor}}"
+                                       content-data="{{.Name.NameEUen}}">{{.Name.NameEUen}}</p>
+                                </a>
+                                <p class="chara_name chara_birthday">{{.Birthday}}</p>
+                                <img class="confetti" src="/image/decorations/confetti.png">
+                            </div>
                         </div>
-                    </div>
+                    {{end}}
                 {{end}}
-            {{end}}
+            </div>
+            <div class="firework" id="firework1">
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+            </div>
+            <div class="firework" id="firework2">
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+            </div>
+            <div class="firework" id="firework3">
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+                <div class="explosion"></div>
+            </div>
         </div>
     </body>
 </html>
