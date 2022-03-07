@@ -59,12 +59,15 @@ func main() {
 	sort.Slice(characters, func(indexFirst, indexSecond int) bool {
 		return characters[indexFirst].Name.NameEUen < characters[indexSecond].Name.NameEUen
 	})
-	for _, chara := range characters {
-		println("Villagers : ", chara.Name.NameEUen)
-	}
+	//for _, chara := range characters {
+	//	println("Villagers : ", chara.Name.NameEUen)
+	//}
 	for _, hou := range houses {
-		println("Villagers : ", hou.Name)
-		println("House Interior : ", hou.NhDetails.HouseInteriorUrl)
+		//println("Villagers : ", hou.Name)
+		println("Villagers T POSE : ", hou.NhDetails.ImageUrl)
+		//println("House Interior : ", hou.NhDetails.HouseInteriorUrl)
+		//println("House Exterior : ", hou.NhDetails.HouseExteriorUrl)
+
 	}
 	for _, character := range characters {
 
@@ -89,6 +92,8 @@ func main() {
 		fmt.Println("index")
 		if path == "" {
 			templ.ExecuteTemplate(w, "index.gohtml", characters)
+		} else if path == "test" {
+			templ.ExecuteTemplate(w, "test.gohtml", houses)
 		} else if !characterExistence(path, characters) {
 			errorHandler(w, r, http.StatusNotFound)
 			fmt.Println(path, "=> introuvable")

@@ -19,6 +19,7 @@ type simplifiedData struct {
 	Subtype        string
 	FavStyles      []string
 	FavColors      []string
+	VillagerBody   string
 	HouseInterior  string
 	HouseExterior  string
 	HouseWallpaper string
@@ -45,6 +46,7 @@ func toData(villagerRawData VillagerRawData, houseRawData Houses) simplifiedData
 		Subtype:        villagerRawData.Subtype,
 		FavStyles:      houseRawData.NhDetails.FavStyles,
 		FavColors:      houseRawData.NhDetails.FavColors,
+		VillagerBody:   houseRawData.NhDetails.ImageUrl,
 		HouseInterior:  houseRawData.NhDetails.HouseInteriorUrl,
 		HouseExterior:  houseRawData.NhDetails.HouseExteriorUrl,
 		HouseWallpaper: houseRawData.NhDetails.HouseWallpaper,
@@ -55,17 +57,19 @@ func toData(villagerRawData VillagerRawData, houseRawData Houses) simplifiedData
 }
 
 func getSimplified(name string, response []VillagerRawData, houseRawData []Houses) simplifiedData {
-	var index1 int
+	var indexFirstApi int
 	for i, data := range response {
 		if strings.ToLower(data.Name.NameEUen) == strings.ToLower(name) {
-			index1 = i
+			indexFirstApi = i
+			break
 		}
 	}
-	var index2 int
+	var indexSecondApi int
 	for i, houseData := range houseRawData {
 		if strings.ToLower(houseData.Name) == strings.ToLower(name) {
-			index2 = i
+			indexSecondApi = i
+			break
 		}
 	}
-	return toData(response[index1], houseRawData[index2])
+	return toData(response[indexFirstApi], houseRawData[indexSecondApi])
 }
