@@ -4,75 +4,6 @@
     src: url("/fonts/FinkHeavy.otf") format("opentype");
 }
 
-h3 {
-    font-size: 2vw;
-}
-
-.chara_box {
-    height: 100%;
-    border-radius: 55px;
-    width: fit-content;
-    padding: 15px;
-    margin: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    font-family: "FinkHeavy";
-    background-color: #f1c883;
-    box-shadow: inset 0px 10px 24px rgba(0, 0, 0, 0.2);
-    background-clip: padding-box;
-    opacity: 0;
-}
-
-.chara_box.animate {
-    animation: scale-up 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) .05s 1 normal forwards;
-}
-
-:any-link {
-    text-decoration: none;
-}
-
-.box_content {
-    justify-content: center;
-    align-items: center;
-    text-align: center !important;
-}
-
-.all_chara {
-    justify-content: space-evenly;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.chara_name {
-    font-size: 32px;
-    margin: 0;
-    margin-top: 10px;
-    letter-spacing: 1px;
-}
-
-.chara_name:before {
-    content: attr(content-data);
-    position: absolute;
-    filter: invert(1);
-    text-shadow: 2px 0 0 currentColor, -2px 0 0 currentColor, 0 2px 0 currentColor, 0 -2px 0 currentColor, 1px 1px currentColor, -1px -1px 0 currentColor, 1px -1px 0 currentColor, -1px 1px 0 currentColor;
-    z-index: -1;
-}
-
-.chara_birthday {
-    color: #fff;
-    font-weight: bold;
-    line-height: 1.35;
-    text-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
-    font-family: Arvo;
-    margin: auto;
-    text-align: center;
-}
-
-.title_birthday {
-    font-size: 45px;
-}
-
-
 /*animal crossing title style*/
 h1 {
     font-family: "FinkHeavy";
@@ -84,46 +15,19 @@ h1 {
     color: #F1E369;
 }
 
-/*character image*/
-.chara_img {
-    box-shadow: 0 6px 5px rgba(0, 0, 0, 0.4);
-    width: 200px;
-    transition: all 0.3s;
-    border-radius: 55px;
+h3 {
+    font-size: 2vw;
 }
 
-.home_img {
-    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
-    width: 500px;
-    transition: all 0.3s;
-    margin: 10px;
-    border: 10px solid #dcdcdc;
-    transform: rotate(4deg);
+:any-link {
+    text-decoration: none;
 }
 
-.house_container {
-    bottom: 0;
-    left: 0;
-    position: relative;
-    right: 0;
-    top: 0;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-    content: "";
-    background-image: url("/image/background/pattern-characters.jpg");
-    padding: 40px;
-    margin: 40px;
-    border-radius: 16px;
+.box_content {
+    justify-content: center;
+    align-items: center;
+    text-align: center !important;
 }
-
-.house_exterior {
-    width: 50%;
-    filter: drop-shadow(0 0 0.3rem black);
-}
-
-.chara_img:hover {
-    transform: translateY(-2%);
-}
-
 
 .title {
     text-align: center;
@@ -139,123 +43,6 @@ h1 {
     transform: rotate(-20deg);
     margin: -20px -20px 10px;
 }
-
-.confetti {
-    left: -50%;
-    position: absolute;
-    top: -4%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    height: 72%;
-    filter: drop-shadow(3px 3px 2px #ffcb00);
-    animation: character 0.6s infinite alternate cubic-bezier(0.37, 0, 0.63, 1);
-
-}
-
-
-/*DIALOGUE*/
-
-
-/*switch content arrow dialogue box*/
-.arrow {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    opacity: 0;
-    animation: arrow 0.6s cubic-bezier(0.37, 0, 0.63, 1) 0.7s infinite alternate;
-}
-
-.arrow:hover {
-    cursor: pointer;
-}
-
-/*general dialogue box*/
-.dialogue {
-    position: relative;
-    display: flex;
-    max-height: 50%;
-    min-height: 300px;
-    min-width: 1024px;
-    width: 60%;
-    margin: auto;
-}
-
-/*saying box in dialogue*/
-.dialogue-text {
-    position: relative;
-    text-align: center;
-    font-weight: bold;
-    padding: 1em 1em 2em 1.5em;
-    font-family: "Hind", sans-serif;
-    font-size: 2rem;
-    line-height: 1.5em;
-    color: #6e6147;
-}
-
-/*global positionning dialogue bubbles*/
-.dialogue-blobs {
-    position: relative;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: stretch;
-    filter: url("#fancy-goo");
-    transform: scale(0);
-    -webkit-animation: scale-up 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s 1 normal forwards;
-    animation: scale-up 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s 1 normal forwards;
-}
-
-.error-blobs {
-    width: fit-content !important;
-}
-
-/*dialogue bubble edge (bottom) in dialogue*/
-.dialogue-blob-bottom {
-    position: absolute;
-    bottom: 0;
-    width: 94%;
-    height: 40%;
-    background-color: #fdf8e3;
-    border-radius: 5% 5% 20% 20%/100% 100% 100% 100%;
-    -webkit-animation: blob 1s infinite alternate cubic-bezier(0.37, 0, 0.63, 1);
-    animation: blob 1s infinite alternate cubic-bezier(0.37, 0, 0.63, 1);
-    transform-origin: center;
-}
-
-/*dialogue bubble edge (top) in dialogue*/
-.dialogue-blob-top {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 75%;
-    background-color: #fdf8e3;
-    border-radius: 40% 40% 30% 30%/150% 150% 150% 150%;
-    -webkit-animation: blob 1.5s cubic-bezier(0.37, 0, 0.63, 1) 0.3s infinite alternate;
-    animation: blob 1.5s cubic-bezier(0.37, 0, 0.63, 1) 0.3s infinite alternate;
-    transform-origin: center;
-}
-
-/*character bubble at top of dialogue*/
-.dialogue-character {
-    display: inline-block;
-    margin-right: auto;
-    padding: 0.5rem 2rem;
-    font-family: "Varela Round", sans-serif;
-    font-size: 2rem;
-    color: #482016;
-    border-radius: 30%/100% 100% 120% 120%;
-    transform: perspective(2rem) rotateX(1deg) rotateZ(-9deg) translateX(20%) translateY(-45%) scale(0);
-    -webkit-animation: fade-character 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s 1 normal forwards;
-    animation: fade-character 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s 1 normal forwards;
-}
-
-/*IMPORTANT wrappper character bubble in dialogue*/
-.dialogue-character-wrap {
-    position: absolute;
-    animation: character 0.6s infinite alternate cubic-bezier(0.37, 0, 0.63, 1);
-}
-
 
 /*KEYFRAMES*/
 
@@ -304,18 +91,6 @@ h1 {
     }
 }
 
-/*animation global dialogue apparition*/
-@keyframes scale-up {
-    0% {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
 /*animation dialogue edges*/
 @keyframes blob {
     from {
@@ -334,120 +109,4 @@ h1 {
     to {
         background-position: -100px -100px, -50px -50px, -50px -100px;
     }
-}
-
-/* FIREWORKS */
-
-.firework {
-    position: absolute;
-}
-
-.explosion {
-    position: absolute;
-    left: -2px;
-    bottom: 0;
-    width: 4px;
-    height: 80px;
-    transform-origin: 50% 100%;
-    /* background-color: rgba(0,0,0,.2); */
-    overflow: hidden;
-    transform: scale(1.5);
-    transform: translateY(1.2);
-}
-
-.explosion:nth-child(1) {
-    transform: rotate(0deg) translateY(-15px);
-}
-
-.explosion:nth-child(2) {
-    transform: rotate(30deg) translateY(-15px);
-}
-
-.explosion:nth-child(3) {
-    transform: rotate(60deg) translateY(-15px);
-}
-
-.explosion:nth-child(4) {
-    transform: rotate(90deg) translateY(-15px);
-}
-
-.explosion:nth-child(5) {
-    transform: rotate(120deg) translateY(-15px);
-}
-
-.explosion:nth-child(6) {
-    transform: rotate(150deg) translateY(-15px);
-}
-
-.explosion:nth-child(7) {
-    transform: rotate(180deg) translateY(-15px);
-}
-
-.explosion:nth-child(8) {
-    transform: rotate(210deg) translateY(-15px);
-}
-
-.explosion:nth-child(9) {
-    transform: rotate(240deg) translateY(-15px);
-}
-
-.explosion:nth-child(10) {
-    transform: rotate(270deg) translateY(-15px);
-}
-
-.explosion:nth-child(11) {
-    transform: rotate(300deg) translateY(-15px);
-}
-
-.explosion:nth-child(12) {
-    transform: rotate(330deg) translateY(-15px);
-}
-
-.explosion::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
-    height: 40px;
-    background-color: rgba(229, 106, 55, 0.91);
-}
-
-@keyframes explosion {
-    0% {
-        top: 100%;
-    }
-    33%, 100% {
-        top: -50%;
-    }
-}
-
-#firework1 {
-    left: 50%;
-    top: 30%;
-    transform: scale(1);
-}
-
-#firework1 .explosion::before {
-    animation: explosion 2s ease-in-out 1s;
-}
-
-#firework2 {
-    left: 40%;
-    top: 25%;
-    transform: scale(.7);
-}
-
-#firework2 .explosion::before {
-    animation: explosion 2s 1.6s ease-in-out;
-}
-
-#firework3 {
-    left: 60%;
-    top: 45%;
-    transform: scale(.4);
-}
-
-#firework3 .explosion::before {
-    animation: explosion 2s 1.4s ease-in-out;
 }

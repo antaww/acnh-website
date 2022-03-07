@@ -1,0 +1,51 @@
+.chara_box {
+    height: 100%;
+    border-radius: 55px;
+    width: fit-content;
+    padding: 15px;
+    margin: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: "FinkHeavy";
+    background-color: #f1c883;
+    box-shadow: inset 0px 10px 24px rgba(0, 0, 0, 0.2);
+    background-clip: padding-box;
+    opacity: 0;
+}
+
+.chara_box.animate {
+    animation: scale-up 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) .05s 1 normal forwards;
+}
+
+.all_chara {
+    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chara_name {
+    font-size: 32px;
+    margin: 0;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+.chara_name:before {
+    content: attr(content-data);
+    position: absolute;
+    filter: invert(1);
+    text-shadow: 2px 0 0 currentColor, -2px 0 0 currentColor, 0 2px 0 currentColor, 0 -2px 0 currentColor, 1px 1px currentColor, -1px -1px 0 currentColor, 1px -1px 0 currentColor, -1px 1px 0 currentColor;
+    z-index: -1;
+}
+
+/*character image*/
+.chara_img {
+    box-shadow: 0 6px 5px rgba(0, 0, 0, 0.4);
+    width: 200px;
+    transition: all 0.3s;
+    border-radius: 55px;
+}
+
+.chara_img:hover {
+    transform: translateY(-2%);
+}
