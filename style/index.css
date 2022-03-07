@@ -92,9 +92,9 @@ h1 {
     border-radius: 55px;
 }
 
-.home_img {
+.house_interior {
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
-    width: 500px;
+    width: 400px;
     transition: all 0.3s;
     margin: 10px;
     border: 10px solid #dcdcdc;
@@ -113,11 +113,20 @@ h1 {
     padding: 40px;
     margin: 40px;
     border-radius: 16px;
+    padding-bottom: 0px;
 }
 
 .house_exterior {
     width: 50%;
     filter: drop-shadow(0 0 0.3rem black);
+}
+
+.house_chara {
+    filter: drop-shadow(0 0 0.3rem black);
+    width: 12%;
+    position: relative;
+    left: -70px;
+    top: -30px;
 }
 
 .chara_img:hover {
@@ -178,6 +187,10 @@ h1 {
     min-width: 1024px;
     width: 60%;
     margin: auto;
+    margin-top: -208px;
+    transform: scale(0.8);
+    top: -40px;
+    left: 165px;
 }
 
 /*saying box in dialogue*/
