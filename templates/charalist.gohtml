@@ -1,61 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Villager List</title>
-    <link rel="stylesheet" href="/static/index.css">
-    <link rel="stylesheet" href="/static/background_nook.css">
-    <link rel="stylesheet" href="/static/menu.css">
-    <link rel="icon" href="http://acnhapi.com/favicon.ico">
-    <script src="../scripts/index.js" defer></script>
-</head>
-<body>
-<div class="hamburger-menu">
-    <nav>
+    <head>
+        <meta charset="UTF-8">
+        <title>Villager List</title>
+        <link rel="stylesheet" href="/static/index.css">
+        <link rel="stylesheet" href="/static/background_nook.css">
+        <link rel="stylesheet" href="/static/menu.css">
+        <link rel="icon" href="http://acnhapi.com/favicon.ico">
+        <script src="../scripts/index.js" defer></script>
+    </head>
+    <body>
+        <div class="hamburger-menu">
+            <nav>
 
-        <input class="m-menu__checkbox" id="menu__toggle" type="checkbox"/>
-        <label class="menu__btn" for="menu__toggle">
-            <span></span>
-        </label>
-        <label class="m-menu__overlay" for="menu"></label>
-        <ul class="menu__box">
-            <li><a class="menu__item" href="/">
-                    <div class="letter_one">H</div>
-                    <div class="letter_two">o</div>
-                    <div class="letter_three">m</div>
-                    <div class="letter_four">e</div>
-                </a></li>
-            <li><a class="menu__item" href="/charalist">
-                    <div class="letter_one">V</div>
-                    <div class="letter_two">i</div>
-                    <div class="letter_three">l</div>
-                    <div class="letter_four">l</div>
-                    <div class="letter_five">a</div>
-                    <div class="letter_six">g</div>
-                    <div class="letter_seven">e</div>
-                    <div class="letter_eight">r</div>
-                </a></li>
-        </ul>
-    </nav>
-</div>
+                <input class="m-menu__checkbox" id="menu__toggle" type="checkbox"/>
+                <label class="menu__btn" for="menu__toggle">
+                    <span></span>
+                </label>
+                <label class="m-menu__overlay" for="menu"></label>
+                <ul class="menu__box">
+                    <li><a class="menu__item" href="/">
+                            <div class="letter_one">H</div>
+                            <div class="letter_two">o</div>
+                            <div class="letter_three">m</div>
+                            <div class="letter_four">e</div>
+                        </a></li>
+                    <li><a class="menu__item" href="/charalist">
+                            <div class="letter_one">V</div>
+                            <div class="letter_two">i</div>
+                            <div class="letter_three">l</div>
+                            <div class="letter_four">l</div>
+                            <div class="letter_five">a</div>
+                            <div class="letter_six">g</div>
+                            <div class="letter_seven">e</div>
+                            <div class="letter_eight">r</div>
+                        </a></li>
+                </ul>
+            </nav>
+        </div>
 
-<h1>Villagers List</h1>
-<div class="all_chara">
-    {{range $index, $value := .}}
-        {{if lt $index 100}}
-            <div class="chara_box" style="border: {{.BubbleColor}}99 solid 10px;
-                    ">
-                <div class="box_content">
-                    <a href="/character?name={{$value.Name.NameEUen}}">
-                        <img class="chara_img" src={{$value.VillagerBody}}>
-                        <p class="chara_name" style="color: {{$value.TextColor}}"
-                           content-data="{{$value.Name.NameEUen}}">{{$value.Name.NameEUen}}</p>
-                    </a>
-                </div>
-            </div>
-        {{end}}
-    {{end}}
-</div>
 
-</body>
+        <h1>Villagers List</h1>
+        <div class="all_chara">
+            {{range $index, $value := .}}
+                {{if lt $index 100}}
+                    <div class="chara_box" style="border: {{.BubbleColor}}99 solid 10px;
+                            ">
+                        <div class="box_content">
+                            <a href="/character?name={{$value.Name.NameEUen}}">
+                                <img class="chara_img" src={{$value.ImageUri}}>
+                                <p class="chara_name" style="color: {{$value.TextColor}}"
+                                   content-data="{{$value.Name.NameEUen}}">{{$value.Name.NameEUen}}</p>
+                            </a>
+                        </div>
+                    </div>
+                {{end}}
+            {{end}}
+        </div>
+
+
+    </body>
 </html>
