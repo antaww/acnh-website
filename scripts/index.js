@@ -28,3 +28,9 @@ window.addEventListener("load", function () {
     animateVisibleElements();
 
 });
+
+const house_interior = document.querySelector(".house_interior")
+house_interior.addEventListener('click', event => {
+    console.log("house interior clicked")
+    house_interior.classList.toggle("house_interior_fullsize")
+})
