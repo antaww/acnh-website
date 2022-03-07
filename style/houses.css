@@ -19,9 +19,27 @@
     padding: 40px;
     margin: 40px;
     border-radius: 16px;
+    padding-bottom: 0px;
 }
 
 .house_exterior {
     width: 50%;
     filter: drop-shadow(0 0 0.3rem black);
+}
+
+.house_interior {
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
+    width: 400px;
+    transition: all 0.3s;
+    margin: 10px;
+    border: 10px solid #dcdcdc;
+    transform: rotate(4deg);
+}
+
+.house_chara {
+    filter: drop-shadow(0 0 0.3rem black);
+    width: 12%;
+    position: relative;
+    left: -70px;
+    top: -30px;
 }

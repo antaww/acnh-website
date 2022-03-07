@@ -49,3 +49,35 @@
 .chara_img:hover {
     transform: translateY(-2%);
 }
+
+/*animation character bubble*/
+@keyframes character {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(3px);
+    }
+}
+
+/*animation character bubble apparition*/
+@keyframes fade-character {
+    from {
+        transform: perspective(2rem) rotateX(1deg) rotateZ(0deg) translateX(20%) translateY(-45%) scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: perspective(2rem) rotateX(1deg) rotateZ(-6deg) translateX(20%) translateY(-45%) scale(1);
+        opacity: 1;
+    }
+}
+
+/*animation character bubble*/
+@keyframes character {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(3px);
+    }
+}
