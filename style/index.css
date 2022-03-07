@@ -92,6 +92,34 @@ h1 {
     border-radius: 55px;
 }
 
+.home_img {
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
+    width: 500px;
+    transition: all 0.3s;
+    margin: 10px;
+    border: 10px solid #dcdcdc;
+    transform: rotate(4deg);
+}
+
+.house_container {
+    bottom: 0;
+    left: 0;
+    position: relative;
+    right: 0;
+    top: 0;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    content: "";
+    background-image: url("/image/background/pattern-characters.jpg");
+    padding: 40px;
+    margin: 40px;
+    border-radius: 16px;
+}
+
+.house_exterior {
+    width: 50%;
+    filter: drop-shadow(0 0 0.3rem black);
+}
+
 .chara_img:hover {
     transform: translateY(-2%);
 }

@@ -15,7 +15,7 @@ type ErrStruct struct {
 }
 
 func errorHandler(w http.ResponseWriter, r *http.Request, status int) {
-	templ := template.Must(template.ParseGlob("templates/*.gohtml")) //define gohtml file
+	templ := template.Must(template.ParseGlob("templates/error.gohtml")) //define gohtml file
 	w.WriteHeader(status)
 	if status == http.StatusNotFound {
 		errData := &ErrStruct{Path: r.URL.Path}
