@@ -133,7 +133,6 @@
 {{/*        end island*/}}
 <div class="hamburger-menu">
     <nav>
-
         <input class="checkbox" id="menu__toggle" type="checkbox"/>
         <label class="button" for="menu__toggle">
             <span class="icon">&nbsp;</span>
@@ -165,6 +164,17 @@
 <form method="POST" action="">
     <label>Chercher
         <input autocomplete="off" autofill="off" name="name" type="text" value=""/>
+        <select id="menu-select">
+            <optgroup label="Sushi">
+                <option value="thon">Thon</option>
+                <option value="saumon" selected>Saumon</option>
+                <option value="crevette">Crevette</option>
+            </optgroup>
+            <optgroup label="Brochettes">
+                <option value="poulet">Poulet</option>
+                <option value="porc">Porc</option>
+            </optgroup>
+        </select>
     </label>
     <input type="submit" value="submit"/>
 </form>
