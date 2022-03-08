@@ -73,8 +73,7 @@ func main() {
 		http.HandleFunc(fmt.Sprintf("/%s", strings.ToLower(character.Name.NameEUen)), func(writer http.ResponseWriter, request *http.Request) {
 			name := strings.TrimPrefix(request.URL.Path, "/")
 			simplifiedVillager := getSimplified(name, characters, houses)
-			println("Villagers : ", simplifiedVillager.Name)
-			println("House Interior : ", simplifiedVillager.HouseInterior, "\n")
+			println("Villager : ", simplifiedVillager.Name)
 			fmt.Println(request.URL, "url request")
 			err := templ.ExecuteTemplate(writer, "character.gohtml", simplifiedVillager)
 			if err != nil {
@@ -88,7 +87,6 @@ func main() {
 		if path == "favicon.ico" {
 			return
 		}
-		fmt.Println("index")
 		if path == "" {
 			templ.ExecuteTemplate(w, "index.gohtml", characters)
 		} else if path == "test" {
@@ -118,8 +116,15 @@ func main() {
 				}
 			}
 			species := r.FormValue("species")
-			fmt.Println("espèce choisie : " + species)
-			http.Redirect(w, r, species, http.StatusSeeOther)
+			if species != "" {
+				fmt.Println("espèce choisie : " + species)
+				http.Redirect(w, r, species, http.StatusSeeOther)
+				for _, chara := range characters {
+					if strings.ToLower(chara.Species) == species {
+						println("Villagers : ", chara.Name.NameEUen, "\nspecie : ", chara.Species)
+					}
+				}
+			}
 		}
 	})
 
