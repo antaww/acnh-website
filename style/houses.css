@@ -36,6 +36,17 @@
     transform: rotate(4deg);
 }
 
+.house_interior:hover {
+    cursor: pointer;
+}
+
+.house_interior_fullsize {
+    z-index: 1;
+    position: relative;
+    transform-origin: left;
+    transform: translate(40%, -50%) scale(2.5);
+}
+
 .house_chara {
     filter: drop-shadow(0 0 0.3rem black);
     width: 12%;
