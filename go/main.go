@@ -107,17 +107,19 @@ func main() {
 		case "POST":
 			villager := r.FormValue("name")
 			fmt.Println(villager)
-			if !characterExistence(villager, characters) {
-				path = villager
-				http.Redirect(w, r, path, http.StatusSeeOther)
-				errorHandler(w, r, http.StatusNotFound)
-				fmt.Println(villager, "=> introuvable")
-			} else {
-				http.Redirect(w, r, fmt.Sprintf("/%s", strings.ToLower(villager)), http.StatusSeeOther)
+			if villager != "" {
+				if !characterExistence(villager, characters) {
+					path = villager
+					http.Redirect(w, r, path, http.StatusSeeOther)
+					errorHandler(w, r, http.StatusNotFound)
+					fmt.Println(villager, "=> introuvable")
+				} else {
+					http.Redirect(w, r, fmt.Sprintf("/%s", strings.ToLower(villager)), http.StatusSeeOther)
+				}
 			}
 			species := r.FormValue("species")
+			fmt.Println("espèce choisie : " + species)
 			http.Redirect(w, r, species, http.StatusSeeOther)
-			fmt.Println(species)
 		}
 	})
 

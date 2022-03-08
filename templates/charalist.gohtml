@@ -167,9 +167,9 @@
                 <input type="submit" value="submit"/>
             </label>
         </form>
-        <form>
+        <form method="POST">
             <select id="menu-select" onchange="this.form.submit()" name="species">
-                <optgroup label="Species" selected>
+                <option value="" selected disabled hidden>Species</option>
                     <option value="alligator">alligator</option>
                     <option value="anteater">anteater</option>
                     <option value="bear">bear</option>
@@ -205,13 +205,11 @@
                     <option value="squirrel">squirrel</option>
                     <option value="tiger">tiger</option>
                     <option value="wolf">wolf</option>
-                </optgroup>
             </select>
         </form>
 
         <div class="all_chara">
             {{range $index, $value := .}}
-                {{if lt $index 100}}
                     <div class="chara_box" style="border: {{.BubbleColor}}99 solid 10px;
                             ">
                         <div class="box_content">
@@ -222,7 +220,6 @@
                             </a>
                         </div>
                     </div>
-                {{end}}
             {{end}}
         </div>
 
