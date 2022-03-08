@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
+
+/* Ticket */
+
+.frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vw;
+    max-width: 1300px;
+    margin: auto;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+}
+
+.subline {
+    font-size: 16px;
+    letter-spacing: 0.2em;
+    margin: 0;
+}
+
+/* Ticket top */
+
+.ticket-top {
+    width: 100%;
+    padding: 29px 50px 19px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #45e3bf;
+    border-top-left-radius: 5em;
+    border-top-right-radius: 5em;
+    color: #fbfcf6;
+    font-weight: 600;
+}
+
+button {
+    min-height: 46px;
+    min-width: 160px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5em;
+    background-color: #f9d12f;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:active {
+    background-color: #e0ba21;
+}
+
+.ticket-middle {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    padding: 30px 50px;
+    background-color: #fff9e5;
+}
+
+.oneliner {
+    display: flex;
+}
+
+.counter {
+    display: none;
+    margin-top: 2px;
+    margin-left: 15px;
+    font-size: 14px;
+    align-text: bottom;
+}
+
+.divider {
+    padding: 10px;
+    grid-column-start: span 4;
+    border-bottom: 2px dashed #404040;
+}
+
+.column-small {
+    margin-top: 25px;
+    margin-left: 5px;
+    z-index: 1;
+}
+
+.column-small .category {
+    font-size: 17px;
+}
+
+.column-small p {
+    font-size: 15px;
+}
+
+.category {
+    display: inline-block;
+    margin-bottom: 3px;
+    margin-left: -5px;
+    padding: 2px 8px;
+    border-radius: 5em;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: #f8eebc;
+}
+
+.bg-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.2;
+    background: url(https://i.redd.it/y5mzeig307b41.png);
+    background-size: cover;
+}
+
+/* Ticket bottom */
+
+.ticket-bottom {
+    width: 100%;
+    padding: 10px 50px;
+    border-bottom-left-radius: 5em;
+    border-bottom-right-radius: 5em;
+    background-color: #5cbff7;
+}
+
+.logo {
+    width: 100%;
+}
+
+.logo img {
+    width: 160px;
+}
+
+.places{
+    font-size: 2em;
+    color: black;
+    font-weight: bold;
+    margin: 0;
+}
+
+.headline-slim {
+    font-size: 20px;
+    letter-spacing: 0.2em;
+    margin: 0;
+}
+
+#portrait{
+    /*box-shadow: 0 6px 5px rgba(0, 0, 0, 0.4);*/
+    width: 100px;
+    transition: all 0.3s;
+    border-radius: 55px;
+    margin-left: auto;
+}
+
+.stamp{
+    z-index: 5;
+}
