@@ -62,13 +62,12 @@ func main() {
 	//for _, chara := range characters {
 	//	println("Villagers : ", chara.Name.NameEUen)
 	//}
-	for _, hou := range houses {
-		//println("Villagers : ", hou.Name)
-		println("Villagers T POSE : ", hou.NhDetails.ImageUrl)
-		//println("House Interior : ", hou.NhDetails.HouseInteriorUrl)
-		//println("House Exterior : ", hou.NhDetails.HouseExteriorUrl)
-
-	}
+	//for _, hou := range houses {
+	//println("Villagers : ", hou.Name)
+	//println("Villagers T POSE : ", hou.NhDetails.ImageUrl)
+	//println("House Interior : ", hou.NhDetails.HouseInteriorUrl)
+	//println("House Exterior : ", hou.NhDetails.HouseExteriorUrl)
+	//}
 	for _, character := range characters {
 
 		http.HandleFunc(fmt.Sprintf("/%s", strings.ToLower(character.Name.NameEUen)), func(writer http.ResponseWriter, request *http.Request) {
@@ -101,7 +100,24 @@ func main() {
 	})
 
 	http.HandleFunc("/charalist", func(w http.ResponseWriter, r *http.Request) {
-		templ.ExecuteTemplate(w, "charalist.gohtml", characters)
+		path := TrimURLPrefix(r.URL.Path)
+		switch r.Method {
+		case "GET":
+			templ.ExecuteTemplate(w, "charalist.gohtml", characters)
+		case "POST":
+			villager := r.FormValue("name")
+			fmt.Println(villager)
+			if !characterExistence(villager, characters) {
+				path = villager
+				http.Redirect(w, r, path, http.StatusSeeOther)
+				errorHandler(w, r, http.StatusNotFound)
+				fmt.Println(villager, "=> introuvable")
+			} else {
+				http.Redirect(w, r, fmt.Sprintf("/%s", strings.ToLower(villager)), http.StatusSeeOther)
+
+			}
+
+		}
 	})
 
 	http.HandleFunc("/character", func(w http.ResponseWriter, r *http.Request) {

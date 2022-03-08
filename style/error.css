@@ -7,6 +7,16 @@ body {
     position: relative;
 }
 
+.dialogue_error {
+    position: relative;
+    display: flex;
+    max-height: 50%;
+    min-height: 300px;
+    min-width: 1024px;
+    width: 60%;
+    margin: auto;
+}
+
 .resetti_img {
     transform: scale(0);
     text-align: center;

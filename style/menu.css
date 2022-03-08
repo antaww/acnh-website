@@ -139,7 +139,7 @@ nav .m-menu__overlay {
 .button {
     user-select: none;
     position: relative;
-    background-color: rgba(255, 207, 0, 0.96);
+    background-color: #f1e369;
     height: 3rem;
     width: 3rem;
     border-radius: 50%;
@@ -154,8 +154,10 @@ nav .m-menu__overlay {
 }
 
 .checkbox:checked ~ .button {
-    background-color: rgba(255, 207, 0, 0.39);
+    background-color: #feed9b;
+    box-shadow: 0px 0px 0px #9e8b57 inset;
 }
+
 
 /* functionality */
 .checkbox:checked ~ .background {

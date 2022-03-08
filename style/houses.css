@@ -28,6 +28,8 @@
 }
 
 .house_interior {
+    position: relative;
+    z-index: 1;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
     width: 400px;
     transition: all 0.3s;
@@ -41,10 +43,10 @@
 }
 
 .house_interior_fullsize {
-    z-index: 1;
+    z-index: 3;
     position: relative;
     transform-origin: left;
-    transform: translate(40%, -50%) scale(2.5);
+    transform: translate(40%, -50%) scale(2.2);
 }
 
 .house_chara {
