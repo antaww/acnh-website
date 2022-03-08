@@ -6,8 +6,6 @@
 // )
 
 window.addEventListener("load", function () {
-    console.log("page loaded")
-
     function isVisibleInViewport(element) {
         if (element.offsetWidth || element.offsetHeight || element.getClientRects().length) {
             const rect = element.getBoundingClientRect();
