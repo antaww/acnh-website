@@ -156,7 +156,7 @@ nav .m-menu__overlay {
 .checkbox:checked ~ .button {
     background-color: #feed9b;
     box-shadow: 0px 0px 0px #9e8b57 inset;
-    z-index: 6;
+    z-index: 101;
 }
 
 
