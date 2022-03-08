@@ -46,7 +46,7 @@ func toData(villagerRawData VillagerRawData, houseRawData Houses) simplifiedData
 		Subtype:        villagerRawData.Subtype,
 		FavStyles:      houseRawData.NhDetails.FavStyles,
 		FavColors:      houseRawData.NhDetails.FavColors,
-		VillagerBody:   houseRawData.NhDetails.ImageUrl,
+		VillagerBody:   houseRawData.ImageUrl,
 		HouseInterior:  houseRawData.NhDetails.HouseInteriorUrl,
 		HouseExterior:  houseRawData.NhDetails.HouseExteriorUrl,
 		HouseWallpaper: houseRawData.NhDetails.HouseWallpaper,
