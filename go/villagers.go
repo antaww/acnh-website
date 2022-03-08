@@ -8,7 +8,6 @@ import (
 	"log"
 	"net/http"
 	"strings"
-	"time"
 )
 
 type VillagerRawData struct {
@@ -64,8 +63,7 @@ type VillagerRawData struct {
 func getCharacters() []VillagerRawData {
 	url := "https://acnhapi.com/v1a/villagers/"
 
-	httpClient := http.Client{
-		Timeout: time.Second * 2, // define timeout
+	httpClient := http.Client{ // define timeout
 	}
 
 	//create request

@@ -1,117 +1,221 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>{{.Name}} guide</title>
-        <link rel="stylesheet" href="/static/index.css">
-        <link rel="stylesheet" href="/static/menu.css">
-        <link rel="stylesheet" href="/static/characters.css">
-        <link rel="stylesheet" href="/static/dialogue.css">
-        <link rel="stylesheet" href="/static/houses.css">
-        <link rel="stylesheet" href="/static/background_nook.css">
-        <link rel="icon" href="{{.Icon}}">
-        <script defer src="../scripts/index.js"></script>
-    </head>
-    <body>
-        <div class="hamburger-menu">
-            <nav>
+<head>
+    <meta charset="UTF-8">
+    <title>{{.Name}} guide</title>
+    <link rel="stylesheet" href="/static/index.css">
+    <link rel="stylesheet" href="/static/menu.css">
+    <link rel="stylesheet" href="/static/characters.css">
+    <link rel="stylesheet" href="/static/dialogue.css">
+    <link rel="stylesheet" href="/static/houses.css">
+    <link rel="stylesheet" href="/static/dodoticket.css">
+    <link rel="stylesheet" href="/static/background_nook.css">
+    <link rel="icon" href="{{.Icon}}">
+    <script defer src="../scripts/index.js"></script>
+</head>
+<body>
+<div class="hamburger-menu">
+    <nav>
 
-                <input class="m-menu__checkbox" id="menu__toggle" type="checkbox"/>
-                <label class="menu__btn" for="menu__toggle">
-                    <span></span>
-                </label>
-                <label class="m-menu__overlay" for="menu"></label>
-                <ul class="menu__box">
-                    <li><a class="menu__item" href="/">
-                            <div class="letter_one">H</div>
-                            <div class="letter_two">o</div>
-                            <div class="letter_three">m</div>
-                            <div class="letter_four">e</div>
-                        </a></li>
-                    <li><a class="menu__item" href="/charalist">
-                            <div class="letter_one">V</div>
-                            <div class="letter_two">i</div>
-                            <div class="letter_three">l</div>
-                            <div class="letter_four">l</div>
-                            <div class="letter_five">a</div>
-                            <div class="letter_six">g</div>
-                            <div class="letter_seven">e</div>
-                            <div class="letter_eight">r</div>
-                        </a></li>
-                </ul>
-            </nav>
+        <input class="m-menu__checkbox" id="menu__toggle" type="checkbox"/>
+        <label class="menu__btn" for="menu__toggle">
+            <span></span>
+        </label>
+        <label class="m-menu__overlay" for="menu"></label>
+        <ul class="menu__box">
+            <li><a class="menu__item" href="/">
+                    <div class="letter_one">H</div>
+                    <div class="letter_two">o</div>
+                    <div class="letter_three">m</div>
+                    <div class="letter_four">e</div>
+                </a></li>
+            <li><a class="menu__item" href="/charalist">
+                    <div class="letter_one">V</div>
+                    <div class="letter_two">i</div>
+                    <div class="letter_three">l</div>
+                    <div class="letter_four">l</div>
+                    <div class="letter_five">a</div>
+                    <div class="letter_six">g</div>
+                    <div class="letter_seven">e</div>
+                    <div class="letter_eight">r</div>
+                </a></li>
+        </ul>
+    </nav>
+</div>
+<div class="animated-background">
+    <div class="title">
+        <div class="subtitle">
+            <img src="http://acnhapi.com/favicon.ico">
+            <h1>Animal Crossing</h1>
         </div>
-        <div class="animated-background">
-            <div class="title">
-                <div class="subtitle">
-                    <img src="http://acnhapi.com/favicon.ico">
-                    <h1>Animal Crossing</h1>
+
+        <h1 style="font-size: 5vw">{{.Name}} guide</h1>
+    </div>
+    <div class="house_container">
+        <img class="house_interior" src={{.HouseInterior}}>
+        <img class="house_exterior" src={{.HouseExterior}}>
+        <img class="house_chara" src={{.VillagerBody}}>
+
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <defs>
+                <filter id="old-goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                                   result="goo"/>
+                    <feBlend in="SourceGraphic" in2="goo"/>
+                </filter>
+                <filter id="fancy-goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                                   result="goo"/>
+                    <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+                </filter>
+            </defs>
+        </svg>
+        <div class="dialogue">
+            <div class="dialogue-blobs">
+                <div class="dialogue-blob-top"></div>
+                <div class="dialogue-blob-bottom"></div>
+                <div class="dialogue-text">
+                    {{.Saying}}
                 </div>
-
-                <h1 style="font-size: 5vw">{{.Name}} guide</h1>
             </div>
-            <img class="chara_img" style="border: 5px solid {{.BubbleColor}};" src={{.Image}}><br>
-            <div class="house_container">
-                <img class="house_interior" src={{.HouseInterior}}>
-                <img class="house_exterior" src={{.HouseExterior}}>
-                <img class="house_chara" src={{.VillagerBody}}>
-
-                <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-                    <defs>
-                        <filter id="old-goo">
-                            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
-                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
-                                           result="goo"/>
-                            <feBlend in="SourceGraphic" in2="goo"/>
-                        </filter>
-                        <filter id="fancy-goo">
-                            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
-                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
-                                           result="goo"/>
-                            <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
-                        </filter>
-                    </defs>
+            <div class="dialogue-character-wrap">
+                <div class="dialogue-character"
+                     style="background-color: {{.BubbleColor}}; color: {{.TextColor}}">
+                    {{.Name}}
+                </div>
+            </div>
+            <a href="#">
+                <svg class="arrow" width="45" height="25" viewBox="0 0 45 25" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22.5 25C18.0184 25 7.59473 12.6404 1.55317 4.96431C-0.122281 2.83559 1.72264 -0.179893 4.39835 0.243337C10.2831 1.17415 18.2164 2.28736 22.5 2.28736C26.7836 2.28736 34.7169 1.17415 40.6017 0.243339C43.2774 -0.17989 45.1223 2.83559 43.4468 4.96431C37.4053 12.6404 26.9816 25 22.5 25Z"
+                          fill="#F1AE04"/>
                 </svg>
-                <div class="dialogue">
-                    <div class="dialogue-blobs">
-                        <div class="dialogue-blob-top"></div>
-                        <div class="dialogue-blob-bottom"></div>
-                        <div class="dialogue-text">
-                            {{.Saying}}
-                        </div>
-                    </div>
-                    <div class="dialogue-character-wrap">
-                        <div class="dialogue-character"
-                             style="background-color: {{.BubbleColor}}; color: {{.TextColor}}">
-                            {{.Name}}
-                        </div>
-                    </div>
-                    <a href="#">
-                        <svg class="arrow" width="45" height="25" viewBox="0 0 45 25" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22.5 25C18.0184 25 7.59473 12.6404 1.55317 4.96431C-0.122281 2.83559 1.72264 -0.179893 4.39835 0.243337C10.2831 1.17415 18.2164 2.28736 22.5 2.28736C26.7836 2.28736 34.7169 1.17415 40.6017 0.243339C43.2774 -0.17989 45.1223 2.83559 43.4468 4.96431C37.4053 12.6404 26.9816 25 22.5 25Z"
-                                  fill="#F1AE04"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-
-            {{/*    <h3 style="color: {{.TextColor}}">TextColor {{.TextColor}}</h3>*/}}
-            {{/*    <h3 style="color: {{.BubbleColor}}">BubbleColor {{.BubbleColor}}</h3>*/}}
-            <h3>Species : {{.Species}}</h3>
-            <h3>Gender : {{.Gender}}</h3>
-            <h3>Birthday : {{.Birth}}</h3>
-            <h3>Personality : {{.Personality}}</h3>
-            <h3>Subtype : {{.Subtype}}</h3>
-            <h3>Hobby : {{.Hobby}}</h3>
-            <h3>Favorites Styles : {{.FavStyles}}</h3>
-            <h3>Favorites Colors : {{.FavColors}}</h3>
-            <h3>HouseWallpaper : {{.HouseWallpaper}}</h3>
-            <h3>HouseFlooring : {{.HouseFlooring}}</h3>
-            <h3>HouseMusic : {{.HouseMusic}}</h3>
-            <h3>HouseMusicNote : {{.HouseMusicNote}}</h3>
-
-
+            </a>
         </div>
-    </body>
+    </div>
+
+    {{/*    <h3 style="color: {{.TextColor}}">TextColor {{.TextColor}}</h3>*/}}
+    {{/*    <h3 style="color: {{.BubbleColor}}">BubbleColor {{.BubbleColor}}</h3>*/}}
+    {{/*    <h3>Species : {{.Species}}</h3>*/}}
+    {{/*    <h3>Gender : {{.Gender}}</h3>*/}}
+    {{/*    <h3>Birthday : {{.Birth}}</h3>*/}}
+    {{/*    <h3>Personality : {{.Personality}}</h3>*/}}
+    {{/*    <h3>Subtype : {{.Subtype}}</h3>*/}}
+    {{/*    <h3>Hobby : {{.Hobby}}</h3>*/}}
+    {{/*    <h3>Favorites Styles : {{.FavStyles}}</h3>*/}}
+    {{/*    <h3>Favorites Colors : {{.FavColors}}</h3>*/}}
+    {{/*    <h3>HouseWallpaper : {{.HouseWallpaper}}</h3>*/}}
+    {{/*    <h3>HouseFlooring : {{.HouseFlooring}}</h3>*/}}
+    {{/*    <h3>HouseMusic : {{.HouseMusic}}</h3>*/}}
+    {{/*    <h3>HouseMusicNote : {{.HouseMusicNote}}</h3>*/}}
+    <div class="frame">
+        <div class="ticket-top">
+            <div>
+                <p class="subline">BOARDING PASS</p>
+                <p class="headline-slim">ECONOMY CLASS</p>
+
+            </div>
+{{/*            <div class="column-small">*/}}
+{{/*                <p class="category">Name of passenger*/}}
+{{/*                <p>*/}}
+{{/*                <p id="userName">{{.Name}}*/}}
+{{/*                <p>*/}}
+{{/*            </div>*/}}
+            <img id="portrait"  src={{.Image}}><br>
+        </div>
+        <div class="ticket-middle">
+            <div class="column wide">
+                <p class="places" id="dpartureName">MYSTERY ISLAND</p>
+                <p class="subline">DEPARTURE</p>
+            </div>
+            <div class="column wide">
+                <p class="places" id="islandName">DAWN ISLAND</p>
+                <p class="subline">DESTINATION</p>
+        </div>
+        <div class="divider"></div>
+        <div class="column-small">
+            <p class="category">Species
+            <p>
+            <p id="date">{{.Species}}
+            <p>
+        </div>
+        <div class="column-small">
+            <p class="category">Gender
+            <p>
+            <p id="time">{{.Gender}}
+            <p>
+        </div>
+        <div class="column-small">
+            <p class="category">Personality
+            <p>
+            <p>{{.Personality}}
+            <p>
+        </div>
+        <div class="bg-image"></div>
+        <div class="column-small">
+            <p class="category">Flight
+            <p>
+            <p>{{.Hobby}}
+            <p>
+        </div>
+        <div class="column-small">
+            <p class="category">Birthday
+            <p>
+            <p>{{.Birth}}
+            <p>
+        </div>
+        <div class="column-small">
+            <p class="category">HouseWallpaper
+            <p>
+            <p>{{.HouseWallpaper}}
+            <p>
+        </div>
+        <div class="column-small">
+            <p class="category">HouseFlooring
+            <p>
+            <p>{{.HouseFlooring}}
+            <p>
+        </div>
+        <div class="column-small">
+            <p class="category">HouseMusic
+            <p>
+            <p>{{.HouseMusic}}
+            <p>
+        </div>
+        {{/*            <div class="column-small">*/}}
+        {{/*                <p class="category">Gate*/}}
+        {{/*                <p>*/}}
+        {{/*                <p>20*/}}
+        {{/*                <p>*/}}
+        {{/*            </div>*/}}
+        {{/*            <div class="column-small">*/}}
+        {{/*                <p class="category">Seat*/}}
+        {{/*                <p>*/}}
+        {{/*                <p>20N*/}}
+        {{/*                <p>*/}}
+        {{/*            </div>*/}}
+        {{/*            <div class="column-small">*/}}
+        {{/*                <p class="category">Gate*/}}
+        {{/*                <p>*/}}
+        {{/*                <p>20*/}}
+        {{/*                <p>*/}}
+        {{/*            </div>*/}}
+        {{/*            <div class="column-small">*/}}
+        {{/*                <p class="category">Seat*/}}
+        {{/*                <p>*/}}
+        {{/*                <p>20N*/}}
+        {{/*                <p>*/}}
+        {{/*            </div>*/}}
+    </div>
+    <div class="ticket-bottom">
+        <div class="logo">
+            <img src="https://i.imgur.com/dHRpApi.png"/>
+        </div>
+    </div>
+</div>
+
+</div>
+</body>
 </html>
