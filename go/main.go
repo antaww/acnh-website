@@ -114,9 +114,10 @@ func main() {
 				fmt.Println(villager, "=> introuvable")
 			} else {
 				http.Redirect(w, r, fmt.Sprintf("/%s", strings.ToLower(villager)), http.StatusSeeOther)
-
 			}
-
+			species := r.FormValue("species")
+			http.Redirect(w, r, species, http.StatusSeeOther)
+			fmt.Println(species)
 		}
 	})
 
