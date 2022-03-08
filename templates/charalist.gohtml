@@ -167,11 +167,11 @@
                 <input type="submit" value="submit"/>
             </label>
         </form>
-        <form>
+        <form method="POST">
             <select id="menu-select" onchange="this.form.submit()" name="species">
-                <optgroup label="Sushi" selected>
-                    <option value="thon">Thon</option>
-                </optgroup>
+                <option value="" selected disabled hidden>Species</option>
+                <option value="thon">Thon</option>
+                <option value="saumon">Saumon</option>
             </select>
         </form>
 
