@@ -170,48 +170,54 @@
         <form method="POST">
             <select id="menu-select" onchange="this.form.submit()" name="species">
                 <option value="" selected disabled hidden>Species</option>
-                    <option value="alligator">alligator</option>
-                    <option value="anteater">anteater</option>
-                    <option value="bear">bear</option>
-                    <option value="bird">bird</option>
-                    <option value="bull">bull</option>
-                    <option value="cat">cat</option>
-                    <option value="cub">cub</option>
-                    <option value="chicken">chicken</option>
-                    <option value="cow">cow</option>
-                    <option value="deer">deer</option>
-                    <option value="dog">dog</option>
-                    <option value="duck">duck</option>
-                    <option value="duck">duck</option>
-                    <option value="eagle">eagle</option>
-                    <option value="elephant">elephant</option>
-                    <option value="frog">frog</option>
-                    <option value="goat">goat</option>
-                    <option value="gorilla">gorilla</option>
-                    <option value="hamster">hamster</option>
-                    <option value="hippo">hippo</option>
-                    <option value="koala">koala</option>
-                    <option value="kangaroo">kangaroo</option>
-                    <option value="lion">lion</option>
-                    <option value="monkey">monkey</option>
-                    <option value="mouse">mouse</option>
-                    <option value="octopus">octopus</option>
-                    <option value="ostrich">ostrich</option>
-                    <option value="penguin">penguin</option>
-                    <option value="pig">pig</option>
-                    <option value="rabbit">rabbit</option>
-                    <option value="rhino">rhino</option>
-                    <option value="sheep">sheep</option>
-                    <option value="squirrel">squirrel</option>
-                    <option value="tiger">tiger</option>
-                    <option value="wolf">wolf</option>
+                <option value="Alligator">Alligator</option>
+                <option value="Anteater">Anteater</option>
+                <option value="Bear">Bear</option>
+                <option value="Bird">Bird</option>
+                <option value="Bull">Bull</option>
+                <option value="Cat">Cat</option>
+                <option value="Cub">Cub</option>
+                <option value="Chicken">Chicken</option>
+                <option value="Cow">Cow</option>
+                <option value="Deer">Deer</option>
+                <option value="Dog">Dog</option>
+                <option value="Duck">Duck</option>
+                <option value="Eagle">Eagle</option>
+                <option value="Elephant">Elephant</option>
+                <option value="Frog">Frog</option>
+                <option value="Goat">Goat</option>
+                <option value="Gorilla">Gorilla</option>
+                <option value="Hamster">Hamster</option>
+                <option value="Hippo">Hippo</option>
+                <option value="Koala">Koala</option>
+                <option value="Kangaroo">Kangaroo</option>
+                <option value="Lion">Lion</option>
+                <option value="Monkey">Monkey</option>
+                <option value="Mouse">Mouse</option>
+                <option value="Octopus">Octopus</option>
+                <option value="Ostrich">Ostrich</option>
+                <option value="Penguin">Penguin</option>
+                <option value="Pig">Pig</option>
+                <option value="Rabbit">Rabbit</option>
+                <option value="Rhino">Rhino</option>
+                <option value="Sheep">Sheep</option>
+                <option value="Squirrel">Squirrel</option>
+                <option value="Tiger">Tiger</option>
+                <option value="Wolf">Wolf</option>
             </select>
         </form>
 
         <div class="all_chara">
+            {{$isEmpty := true}}
+            {{range $index, $check := .}}
+                {{if ne $check.SelectedSpeccy ""}}
+                    {{$isEmpty = false}}
+                {{end}}
+            {{end}}
+
             {{range $index, $value := .}}
-                    <div class="chara_box" style="border: {{.BubbleColor}}99 solid 10px;
-                            ">
+                {{if $isEmpty}}
+                    <div class="chara_box" style="border: {{.BubbleColor}}99 solid 10px;">
                         <div class="box_content">
                             <a href="/character?name={{$value.Name.NameEUen}}">
                                 <img class="chara_img" src={{$value.ImageUri}}>
@@ -220,6 +226,17 @@
                             </a>
                         </div>
                     </div>
+                {{else if eq $value.Species $value.SelectedSpeccy}}
+                    <div class="chara_box" style="border: {{.BubbleColor}}99 solid 10px;">
+                        <div class="box_content">
+                            <a href="/character?name={{$value.Name.NameEUen}}">
+                                <img class="chara_img" src={{$value.ImageUri}}>
+                                <p class="chara_name" style="color: {{$value.TextColor}}"
+                                   content-data="{{$value.Name.NameEUen}}">{{$value.Name.NameEUen}}</p>
+                            </a>
+                        </div>
+                    </div>
+                {{end}}
             {{end}}
         </div>
 

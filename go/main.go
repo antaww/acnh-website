@@ -69,7 +69,6 @@ func main() {
 	//println("House Exterior : ", hou.NhDetails.HouseExteriorUrl)
 	//}
 	for _, character := range characters {
-
 		http.HandleFunc(fmt.Sprintf("/%s", strings.ToLower(character.Name.NameEUen)), func(writer http.ResponseWriter, request *http.Request) {
 			name := strings.TrimPrefix(request.URL.Path, "/")
 			simplifiedVillager := getSimplified(name, characters, houses)
@@ -98,6 +97,10 @@ func main() {
 	})
 
 	http.HandleFunc("/charalist", func(w http.ResponseWriter, r *http.Request) {
+		for _, chara := range characters {
+			print(chara.SelectedSpeccy)
+			break
+		}
 		path := TrimURLPrefix(r.URL.Path)
 		switch r.Method {
 		case "GET":
@@ -118,11 +121,25 @@ func main() {
 			species := r.FormValue("species")
 			if species != "" {
 				fmt.Println("espèce choisie : " + species)
-				http.Redirect(w, r, species, http.StatusSeeOther)
-				for _, chara := range characters {
-					if strings.ToLower(chara.Species) == species {
-						println("Villagers : ", chara.Name.NameEUen, "\nspecie : ", chara.Species)
+				//http.Redirect(w, r, species, http.StatusSeeOther)
+				fmt.Println("characters len = ", len(characters)-1)
+				for i, chara := range characters {
+					if chara.Species == species {
+						println("Villager : ", chara.Name.NameEUen, " speccy : ", chara.Species)
+						characters[i].SelectedSpeccy = species
+						fmt.Println("debug speccy1")
+						fmt.Println(chara.SelectedSpeccy)
+						fmt.Println("debug speccy2")
 					}
+					fmt.Println("i = ", i)
+					if i == len(characters)-1 {
+						templ.ExecuteTemplate(w, "charalist.gohtml", characters)
+						for i := range characters {
+							characters[i].SelectedSpeccy = ""
+						}
+						fmt.Println("charalist F5")
+					}
+					i++
 				}
 			}
 		}
