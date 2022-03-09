@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,500,700,800,900&display=swap");
+
+#search-bar {
+    width: 150px;
+    padding: 13px;
+    border-style: none;
+    border-bottom: medium currentcolor;
+    border-radius: 0.5em;
+    font-size: 16px;
+    background-color: #f8eebc;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 600;
+    box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.2);
+    transition: all .3s;
+    user-select: text;
+}
+
+#search-bar:focus {
+    outline: none;
+    background-color: #e0d6a6;
+    box-shadow: 0 0 0 3px #ffffff87;
+}
+
+#search-bar:placeholder-shown ~ .search-btn {
+    pointer-events: none;
+}
+
+#search-bar:focus ~ #search-bar::placeholder {
+    display: none;
+}
+
+.search-btn {
+    width: fit-content;
+    border-style: none;
+    border-bottom-style: none;
+    border-bottom: medium currentcolor;
+    border-radius: 0.5em;
+    font-size: 16px;
+    background-color: #e3dbaf;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 600;
+    height: fit-content;
+    padding: 13px;
+    box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.2);
+}
+
+.search-btn:hover {
+    background-color: #f8eebc;
+}
+
+.search_bar_form {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 600;
+    user-select: none;
+}
+
+#menu-select {
+    width: 150px;
+    padding: 13px;
+    border-style: none;
+    border-bottom: medium currentcolor;
+    border-radius: 0.5em;
+    font-size: 16px;
+    background-color: #f8eebc;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 600;
+    box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.2);
+    transition: all .3s;
+    user-select: none;
+}
+
+#menu-select:focus {
+    outline: none;
+    background-color: #e0d6a6;
+    box-shadow: 0 0 0 3px #ffffff87;
+}
+
+.menu_select_option {
+    background-color: red !important;
+}
+
+.menu_select_form {
+    margin: 10px;
+}

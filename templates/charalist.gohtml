@@ -9,7 +9,10 @@
         <link rel="stylesheet" href="/static/dialogue.css">
         <link rel="stylesheet" href="/static/background_nook.css">
         <link rel="stylesheet" href="/static/loader.css">
+        <link rel="stylesheet" href="/static/forms.css">
         <link rel="icon" href="http://acnhapi.com/favicon.ico">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="../scripts/index.js" defer></script>
         <script src="../scripts/loader.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
@@ -161,16 +164,17 @@
 
 
         <h1>Villagers List</h1>
-        <form method="POST">
+        <form method="POST" class="search_bar_form">
             <label>Chercher
-                <input autocomplete="off" autofill="off" name="name" type="text" value=""/>
-                <input type="submit" value="submit"/>
+                <input autocomplete="off" autofill="off" name="name" type="text" value="" id="search-bar"
+                       placeholder="Admiral"/>
+                <button type="submit" name="submit" class="search-btn"><i class="fa fa-search"></i></button>
             </label>
         </form>
-        <form method="POST">
+        <form method="POST" class="menu_select_form">
             <select id="menu-select" onchange="this.form.submit()" name="species">
                 <option value="" selected disabled hidden>Species</option>
-                <option value="Alligator">Alligator</option>
+                <option value="Alligator" class="menu_select_option">Alligator</option>
                 <option value="Anteater">Anteater</option>
                 <option value="Bear">Bear</option>
                 <option value="Bird">Bird</option>
