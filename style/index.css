@@ -4,6 +4,10 @@
     src: url("/fonts/FinkHeavy.otf") format("opentype");
 }
 
+* {
+    scroll-behavior: smooth;
+}
+
 /*animal crossing title style*/
 h1 {
     font-family: "FinkHeavy";

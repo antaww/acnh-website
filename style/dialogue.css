@@ -28,8 +28,8 @@
     top: -40px;
     left: 165px;
     z-index: 2;
+    user-select: text;
 }
-
 
 
 /*saying box in dialogue*/

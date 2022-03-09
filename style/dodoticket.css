@@ -139,9 +139,10 @@ button:active {
 
 .logo img {
     width: 160px;
+    user-select: none;
 }
 
-.places{
+.places {
     font-size: 2em;
     color: black;
     font-weight: bold;
@@ -154,15 +155,16 @@ button:active {
     margin: 0;
 }
 
-#portrait{
+#portrait {
     /*box-shadow: 0 6px 5px rgba(0, 0, 0, 0.4);*/
     width: 100px;
     transition: all 0.3s;
     border-radius: 55px;
     margin-left: auto;
+    user-select: none;
 }
 
-.stamp{
+.stamp {
     z-index: 5;
 }
 
