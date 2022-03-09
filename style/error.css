@@ -14,7 +14,7 @@ body {
     min-height: 300px;
     min-width: 1024px;
     margin: auto;
-    flex-flow: wrap;
+    width: 60%;
 }
 
 .resetti_img {
