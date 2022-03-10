@@ -157,6 +157,7 @@
                             <div class="letter_six">g</div>
                             <div class="letter_seven">e</div>
                             <div class="letter_eight">r</div>
+                            <div class="letter_nine">s</div>
                         </a></li>
                 </ul>
             </nav>
@@ -211,9 +212,7 @@
                 <option value="Wolf">Wolf</option>
             </select>
         </form>
-
         <div class="all_chara">
-
             {{range $index, $value := .}}
                 {{if $value.IsEmpty}}
                     <div class="chara_box" style="border: {{.BubbleColor}}99 solid 10px;">
@@ -238,7 +237,5 @@
                 {{end}}
             {{end}}
         </div>
-
-
     </body>
 </html>

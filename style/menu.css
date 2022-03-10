@@ -102,7 +102,11 @@ nav .m-menu__overlay {
     animation: bounce .5s ease .7s;
 }
 
-.letter_one, .letter_two, .letter_three, .letter_four, .letter_five, .letter_six, .letter_seven, .letter_eight {
+.menu__item:hover .letter_nine {
+    animation: bounce .5s ease .8s;
+}
+
+.letter_one, .letter_two, .letter_three, .letter_four, .letter_five, .letter_six, .letter_seven, .letter_eight, .letter_nine {
     display: inline-block;
     letter-spacing: -7px;
 }
