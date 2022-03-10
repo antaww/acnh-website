@@ -34,6 +34,7 @@ type VillagerRawData struct {
 	Birthday          string `json:"birthday"`
 	Species           string `json:"species"`
 	SelectedSpeccy    string
+	IsEmpty           bool
 	Gender            string `json:"gender"`
 	Subtype           string `json:"subtype"`
 	Hobby             string `json:"hobby"`

@@ -101,9 +101,13 @@ func main() {
 			print(chara.SelectedSpeccy)
 			break
 		}
+		for i := range characters {
+			characters[i].IsEmpty = true
+		}
 		path := TrimURLPrefix(r.URL.Path)
 		switch r.Method {
 		case "GET":
+
 			templ.ExecuteTemplate(w, "charalist.gohtml", characters)
 		case "POST":
 			villager := r.FormValue("name")
@@ -119,17 +123,26 @@ func main() {
 				}
 			}
 			species := r.FormValue("species")
-			if species != "" {
-				fmt.Println("espèce choisie : " + species)
+			if species == "All" {
+				for i := range characters {
+					characters[i].IsEmpty = true
+				}
+				templ.ExecuteTemplate(w, "charalist.gohtml", characters)
+
+			} else if species != "" {
+				for i := range characters {
+					characters[i].IsEmpty = false
+				}
+				//fmt.Println("espèce choisie : " + species)
 				//http.Redirect(w, r, species, http.StatusSeeOther)
-				fmt.Println("characters len = ", len(characters)-1)
+				//fmt.Println("characters len = ", len(characters)-1)
 				for i, chara := range characters {
 					if chara.Species == species {
-						println("Villager : ", chara.Name.NameEUen, " speccy : ", chara.Species)
+						//println("Villager : ", chara.Name.NameEUen, " speccy : ", chara.Species)
 						characters[i].SelectedSpeccy = species
-						fmt.Println("debug speccy1")
-						fmt.Println(chara.SelectedSpeccy)
-						fmt.Println("debug speccy2")
+						//fmt.Println("debug speccy1")
+						//fmt.Println(chara.SelectedSpeccy)
+						//fmt.Println("debug speccy2")
 					}
 					fmt.Println("i = ", i)
 					if i == len(characters)-1 {
@@ -137,7 +150,7 @@ func main() {
 						for i := range characters {
 							characters[i].SelectedSpeccy = ""
 						}
-						fmt.Println("charalist F5")
+						//fmt.Println("charalist F5")
 					}
 					i++
 				}

@@ -167,13 +167,14 @@
         <form method="POST" class="search_bar_form">
             <label>Chercher
                 <input autocomplete="off" autofill="off" name="name" type="text" value="" id="search-bar"
-                       placeholder="Admiral"/>
+                       placeholder="Apollo"/>
                 <button type="submit" name="submit" class="search-btn"><i class="fa fa-search"></i></button>
             </label>
         </form>
         <form method="POST" class="menu_select_form">
             <select id="menu-select" onchange="this.form.submit()" name="species">
                 <option value="" selected disabled hidden>Species</option>
+                <option value="All">All</option>
                 <option value="Alligator" class="menu_select_option">Alligator</option>
                 <option value="Anteater">Anteater</option>
                 <option value="Bear">Bear</option>
@@ -212,15 +213,9 @@
         </form>
 
         <div class="all_chara">
-            {{$isEmpty := true}}
-            {{range $index, $check := .}}
-                {{if ne $check.SelectedSpeccy ""}}
-                    {{$isEmpty = false}}
-                {{end}}
-            {{end}}
 
             {{range $index, $value := .}}
-                {{if $isEmpty}}
+                {{if $value.IsEmpty}}
                     <div class="chara_box" style="border: {{.BubbleColor}}99 solid 10px;">
                         <div class="box_content">
                             <a href="/character?name={{$value.Name.NameEUen}}">
