@@ -17,7 +17,9 @@
         <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MotionPathPlugin.min.js"></script>
     </head>
     <body>
-        <h1>Houseware</h1>
+        <div class="subtitle">
+            <h1>Housewares List</h1>
+        </div>
         {{/*        start island*/}}
         <div class="island_container">
             <svg viewBox="0 0 446 540" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"
@@ -181,7 +183,7 @@
                                     <img class="houseware_img" src="{{.ImageURL}}" alt="">
                                 {{end}}
                             {{end}}
-                            <p class="chara_name" content-data="{{$value.Name}}">{{$value.Name}}</p>
+                            <p class="houseware_name">{{$value.Name}}</p>
                         </a>
                     </div>
                 </div>

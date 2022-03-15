@@ -38,6 +38,15 @@
     z-index: -1;
 }
 
+.houseware_name {
+    text-shadow: 2px 0 0 #060606, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+    font-size: 32px;
+    margin: 0;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    color: white;
+}
+
 /*character image*/
 
 .chara_img {
