@@ -23,6 +23,11 @@ h3 {
     font-size: 2vw;
 }
 
+.tomnook {
+    position: absolute;
+    filter: drop-shadow(0 0 0.3rem black);
+}
+
 
 :any-link {
     text-decoration: none;

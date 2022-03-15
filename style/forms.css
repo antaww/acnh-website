@@ -30,6 +30,7 @@
 }
 
 .search-btn {
+    transition: all .3s;
     width: fit-content;
     border-style: none;
     border-bottom-style: none;
@@ -75,8 +76,12 @@
     box-shadow: 0 0 0 3px #ffffff87;
 }
 
-.menu_select_option {
-    background-color: red !important;
+#menu-select:hover {
+    cursor: pointer;
+}
+
+option:hover {
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .menu_select_form {
