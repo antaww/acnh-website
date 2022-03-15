@@ -52,9 +52,8 @@ func main() {
 	handleDirectory("./scripts", "/scripts/")
 
 	characters := getCharacters()
-
-	println("\n")
 	houses := getHouses()
+	housewares := getHouseware()
 
 	sort.Slice(characters, func(indexFirst, indexSecond int) bool {
 		return characters[indexFirst].Name.NameEUen < characters[indexSecond].Name.NameEUen
@@ -75,6 +74,21 @@ func main() {
 			println("Villager : ", simplifiedVillager.Name)
 			fmt.Println(request.URL, "url request")
 			err := templ.ExecuteTemplate(writer, "character.gohtml", simplifiedVillager)
+			if err != nil {
+				log.Fatal(err)
+			}
+		})
+	}
+
+	for i, houseware := range housewares {
+		housewName := strings.ReplaceAll(houseware.Name, " ", "")
+		housewName = strings.ToLower(housewName)
+		println(housewName)
+		housewares[i].NameSimplified = housewName
+		simplifiedname := getSimplifiedHouseware(housewName, housewares)
+		http.HandleFunc(fmt.Sprintf("/%s"+"_houseware", housewName), func(writer http.ResponseWriter, request *http.Request) {
+			fmt.Println(request.URL, "url request")
+			err := templ.ExecuteTemplate(writer, "houseware.gohtml", simplifiedname)
 			if err != nil {
 				log.Fatal(err)
 			}
@@ -168,6 +182,23 @@ func main() {
 			fmt.Println("name =>", name)
 			http.Redirect(w, r, fmt.Sprintf("/%s", name), http.StatusSeeOther)
 		}
+	})
+
+	http.HandleFunc("/houseware", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Println("debug1")
+		queries := r.URL.Query()
+		if queries.Has("name") {
+			fmt.Println("debug2")
+			name := r.URL.Query().Get("name")
+			name = strings.ToLower(name)
+			strings.ReplaceAll(name, " ", "")
+			fmt.Println("houseware =>", name)
+			http.Redirect(w, r, fmt.Sprintf("/%s"+"_houseware", name), http.StatusSeeOther)
+		}
+	})
+
+	http.HandleFunc("/housewaresList", func(w http.ResponseWriter, r *http.Request) {
+		templ.ExecuteTemplate(w, "housewaresList.gohtml", housewares)
 	})
 
 	fmt.Println("Server started on localhost:8010")

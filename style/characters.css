@@ -39,12 +39,24 @@
 }
 
 /*character image*/
+
 .chara_img {
-    user-select: none;
     box-shadow: 0 6px 5px rgba(0, 0, 0, 0.4);
+    user-select: none;
     width: 200px;
     transition: all 0.3s;
     border-radius: 55px;
+}
+
+.houseware_img {
+    user-select: none;
+    width: 200px;
+    transition: all 0.3s;
+    filter: drop-shadow(0 0 0.3rem black);
+}
+
+.houseware_img:hover {
+    transform: translateY(-2%);
 }
 
 .chara_img:hover {
