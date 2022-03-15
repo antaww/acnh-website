@@ -83,7 +83,7 @@ func main() {
 	for i, houseware := range housewares {
 		housewName := strings.ReplaceAll(houseware.Name, " ", "")
 		housewName = strings.ToLower(housewName)
-		println(housewName)
+		//println(housewName)
 		housewares[i].NameSimplified = housewName
 		simplifiedname := getSimplifiedHouseware(housewName, housewares)
 		http.HandleFunc(fmt.Sprintf("/%s"+"_houseware", housewName), func(writer http.ResponseWriter, request *http.Request) {

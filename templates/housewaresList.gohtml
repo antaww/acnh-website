@@ -156,7 +156,18 @@
                         <div class="letter_seven">e</div>
                         <div class="letter_eight">r</div>
                         <div class="letter_nine">s</div>
-
+                    </a></li>
+                <li><a class="menu__item" href="/housewaresList">
+                        <div class="letter_one">H</div>
+                        <div class="letter_two">o</div>
+                        <div class="letter_three">u</div>
+                        <div class="letter_four">s</div>
+                        <div class="letter_five">e</div>
+                        <div class="letter_six">w</div>
+                        <div class="letter_seven">a</div>
+                        <div class="letter_eight">r</div>
+                        <div class="letter_nine">e</div>
+                        <div class="letter_ten">s</div>
                     </a></li>
             </ul>
         </nav>
@@ -165,12 +176,12 @@
                 <div class="chara_box" style="border: #fff solid 10px;">
                     <div class="box_content">
                         <a href="/houseware?name={{$value.NameSimplified}}">
-                        {{range $index2, $value2 :=  $value.Variations}}
-                            {{if lt $index2 1}}
-                                <img class="houseware_img" src="{{.ImageURL}}" alt="">
+                            {{range $index2, $value2 :=  $value.Variations}}
+                                {{if lt $index2 1}}
+                                    <img class="houseware_img" src="{{.ImageURL}}" alt="">
+                                {{end}}
                             {{end}}
-                        {{end}}
-                        <p class="chara_name" content-data="{{$value.Name}}">{{$value.Name}}</p>
+                            <p class="chara_name" content-data="{{$value.Name}}">{{$value.Name}}</p>
                         </a>
                     </div>
                 </div>
