@@ -178,53 +178,55 @@
         <div class="subtitle">
             <h1>Villagers List</h1>
         </div>
-        <form method="POST" class="search_bar_form">
-            <label>Chercher
-                <input autocomplete="off" autofill="off" name="name" type="text" value="" id="search-bar"
-                       placeholder="Apollo"/>
-                <button type="submit" name="submit" class="search-btn"><i class="fa fa-search"></i></button>
-            </label>
-        </form>
-        <form method="POST" class="menu_select_form">
-            <select id="menu-select" onchange="this.form.submit()" name="species">
-                <option value="" selected disabled hidden>Species</option>
-                <option value="All">All</option>
-                <option value="Alligator">Alligator</option>
-                <option value="Anteater">Anteater</option>
-                <option value="Bear">Bear</option>
-                <option value="Bird">Bird</option>
-                <option value="Bull">Bull</option>
-                <option value="Cat">Cat</option>
-                <option value="Cub">Cub</option>
-                <option value="Chicken">Chicken</option>
-                <option value="Cow">Cow</option>
-                <option value="Deer">Deer</option>
-                <option value="Dog">Dog</option>
-                <option value="Duck">Duck</option>
-                <option value="Eagle">Eagle</option>
-                <option value="Elephant">Elephant</option>
-                <option value="Frog">Frog</option>
-                <option value="Goat">Goat</option>
-                <option value="Gorilla">Gorilla</option>
-                <option value="Hamster">Hamster</option>
-                <option value="Hippo">Hippo</option>
-                <option value="Koala">Koala</option>
-                <option value="Kangaroo">Kangaroo</option>
-                <option value="Lion">Lion</option>
-                <option value="Monkey">Monkey</option>
-                <option value="Mouse">Mouse</option>
-                <option value="Octopus">Octopus</option>
-                <option value="Ostrich">Ostrich</option>
-                <option value="Penguin">Penguin</option>
-                <option value="Pig">Pig</option>
-                <option value="Rabbit">Rabbit</option>
-                <option value="Rhino">Rhino</option>
-                <option value="Sheep">Sheep</option>
-                <option value="Squirrel">Squirrel</option>
-                <option value="Tiger">Tiger</option>
-                <option value="Wolf">Wolf</option>
-            </select>
-        </form>
+        <div class="forms">
+            <form method="POST" class="search_bar_form">
+                <label>
+                    <input autocomplete="off" autofill="off" name="name" type="text" value="" id="search-bar"
+                           placeholder="Apollo"/>
+                    <button type="submit" name="submit" class="search-btn"><i class="fa fa-search"></i></button>
+                </label>
+            </form>
+            <form method="POST" class="menu_select_form">
+                <select id="menu-select" onchange="this.form.submit()" name="species">
+                    <option value="" selected disabled hidden>Species</option>
+                    <option value="All">All</option>
+                    <option value="Alligator">Alligator</option>
+                    <option value="Anteater">Anteater</option>
+                    <option value="Bear">Bear</option>
+                    <option value="Bird">Bird</option>
+                    <option value="Bull">Bull</option>
+                    <option value="Cat">Cat</option>
+                    <option value="Cub">Cub</option>
+                    <option value="Chicken">Chicken</option>
+                    <option value="Cow">Cow</option>
+                    <option value="Deer">Deer</option>
+                    <option value="Dog">Dog</option>
+                    <option value="Duck">Duck</option>
+                    <option value="Eagle">Eagle</option>
+                    <option value="Elephant">Elephant</option>
+                    <option value="Frog">Frog</option>
+                    <option value="Goat">Goat</option>
+                    <option value="Gorilla">Gorilla</option>
+                    <option value="Hamster">Hamster</option>
+                    <option value="Hippo">Hippo</option>
+                    <option value="Koala">Koala</option>
+                    <option value="Kangaroo">Kangaroo</option>
+                    <option value="Lion">Lion</option>
+                    <option value="Monkey">Monkey</option>
+                    <option value="Mouse">Mouse</option>
+                    <option value="Octopus">Octopus</option>
+                    <option value="Ostrich">Ostrich</option>
+                    <option value="Penguin">Penguin</option>
+                    <option value="Pig">Pig</option>
+                    <option value="Rabbit">Rabbit</option>
+                    <option value="Rhino">Rhino</option>
+                    <option value="Sheep">Sheep</option>
+                    <option value="Squirrel">Squirrel</option>
+                    <option value="Tiger">Tiger</option>
+                    <option value="Wolf">Wolf</option>
+                </select>
+            </form>
+        </div>
         <div class="all_chara">
             {{range $index, $value := .}}
                 {{if $value.IsEmpty}}
