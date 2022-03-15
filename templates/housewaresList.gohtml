@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Home</title>
+        <title>houseware</title>
         <link rel="stylesheet" href="/static/index.css">
         <link rel="stylesheet" href="/static/menu.css">
         <link rel="stylesheet" href="/static/characters.css">
@@ -17,6 +17,7 @@
         <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MotionPathPlugin.min.js"></script>
     </head>
     <body>
+        <h1>Houseware</h1>
         {{/*        start island*/}}
         <div class="island_container">
             <svg viewBox="0 0 446 540" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"
@@ -155,78 +156,25 @@
                         <div class="letter_seven">e</div>
                         <div class="letter_eight">r</div>
                         <div class="letter_nine">s</div>
+
                     </a></li>
             </ul>
         </nav>
-        {{/*        </nav>*/}}
-        {{/*        </div>*/}}
-        <div class="subtitle">
-            <img src="http://acnhapi.com/favicon.ico">
-            <h1>Animal Crossing: New Horizons Guide</h1>
-        </div>
-        <img class="tomnook" src="image/uniqueCharacters/tomnook.png">
-
-        <div class="today_birthday">
-            <p class="chara_birthday title_birthday">Today's birthday!</p>
-            <div class="all_chara">
-                {{range .}}
-                    {{if isBirthday .Birthday}}
-                        <div class="chara_box" style="border: {{.BubbleColor}}99 solid 10px;">
-                            <div class="box_content">
-                                <a href="/character?name={{.Name.NameEUen}}">
-                                    <img class="chara_img" src={{.ImageUri}}>
-                                    <p class="chara_name" style="color: {{.TextColor}}"
-                                       content-data="{{.Name.NameEUen}}">{{.Name.NameEUen}}</p>
-                                </a>
-                                <p class="chara_name chara_birthday">{{.Birthday}}</p>
-                                <img class="confetti" src="/image/decorations/confetti.png">
-                            </div>
-                        </div>
-                    {{end}}
-                {{end}}
-            </div>
-            <div class="firework" id="firework1">
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-            </div>
-            <div class="firework" id="firework2">
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-            </div>
-            <div class="firework" id="firework3">
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-                <div class="explosion"></div>
-            </div>
+        <div class="all_chara">
+            {{range $index, $value := .}}
+                <div class="chara_box" style="border: #fff solid 10px;">
+                    <div class="box_content">
+                        <a href="/houseware?name={{$value.NameSimplified}}">
+                        {{range $index2, $value2 :=  $value.Variations}}
+                            {{if lt $index2 1}}
+                                <img class="houseware_img" src="{{.ImageURL}}" alt="">
+                            {{end}}
+                        {{end}}
+                        <p class="chara_name" content-data="{{$value.Name}}">{{$value.Name}}</p>
+                        </a>
+                    </div>
+                </div>
+            {{end}}
         </div>
     </body>
 </html>

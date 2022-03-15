@@ -175,9 +175,12 @@ gsap.to("#fish", {
 });
 
 document.body.style.overflowY = "hidden";
+console.log("hiddden")
 window.addEventListener("load", function () {
     console.log("page loaded");
     const island = document.querySelector(".island_container")
     island.classList.toggle("hidden")
     document.body.style.overflowY = "auto";
+    console.log("auto")
+
 })

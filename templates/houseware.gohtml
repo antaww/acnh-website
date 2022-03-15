@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>houseware</title>
-    <link rel="stylesheet" href="/static/index.css">
-</head>
-<body>
-<h1>Houseware</h1>
-{{/*{{range .}}*/}}
-{{/*    {{.ImageUri}}*/}}
-{{/*    Price: {{.SellPrice}}*/}}
-{{/*{{end}}*/}}
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>{{.Name}}</title>
+        <link rel="stylesheet" href="/static/index.css">
+        <link rel="stylesheet" href="/static/menu.css">
+        <link rel="stylesheet" href="/static/characters.css">
+        <link rel="stylesheet" href="/static/dialogue.css">
+        <link rel="stylesheet" href="/static/birthday.css">
+        <link rel="stylesheet" href="/static/background_nook.css">
+        <link rel="stylesheet" href="/static/loader.css">
+        <link rel="icon" href="http://acnhapi.com/favicon.ico">
+        <script src="../scripts/index.js" defer></script>
+        <script src="../scripts/loader.js" defer></script>
+    </head>
+    <body>
+        {{.Name}}
+        {{.NameSimplified}}
+        {{range $value := .ImageURL}}
+            <img src="{{$value}}" alt="">
+        {{end}}
+
+    </body>
 </html>
