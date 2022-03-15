@@ -1,4 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Patrick+Hand&family=Roboto+Mono:wght@300&family=Yanone+Kaffeesatz&display=swap'); /*import animal crossing font*/
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Patrick+Hand&family=Roboto+Mono:wght@300&family=Yanone+Kaffeesatz&display=swap');
+
+:root {
+    --drop-shadow: drop-shadow(0 0 0.3rem black);
+    --menu-color: #feed9b;
+    --title-color: #F1E369;
+    --forms-shadow: 0px 6px 13px rgba(0, 0, 0, 0.2);
+    --ticket-shadow: 0px 10px 20px rgb(0 0 0 / 20%);
+}
+
+/*import animal crossing font*/
 @font-face {
     font-family: "FinkHeavy";
     src: url("/fonts/FinkHeavy.otf") format("opentype");
@@ -16,7 +26,7 @@ h1 {
     margin: 30px 0 -10px 0;
     line-height: 1;
     text-shadow: 2px 2px 3px black;
-    color: #F1E369;
+    color: var(--title-color);
 }
 
 h3 {
@@ -25,7 +35,7 @@ h3 {
 
 .tomnook {
     position: absolute;
-    filter: drop-shadow(0 0 0.3rem black);
+    filter: var(--drop-shadow);
 }
 
 

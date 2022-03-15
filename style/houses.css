@@ -25,7 +25,7 @@
 
 .house_exterior {
     width: 50%;
-    filter: drop-shadow(0 0 0.3rem black);
+    filter: var(--drop-shadow);
 }
 
 .house_interior {
@@ -51,7 +51,7 @@
 }
 
 .house_chara {
-    filter: drop-shadow(0 0 0.3rem black);
+    filter: var(--drop-shadow);
     width: 12%;
     position: relative;
     left: -70px;

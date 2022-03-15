@@ -31,7 +31,7 @@
     border-top-right-radius: 5em;
     color: #fbfcf6;
     font-weight: 600;
-    box-shadow: 0px 10px 20px rgb(0 0 0 / 20%);
+    box-shadow: var(--ticket-shadow);
 }
 
 button {
@@ -61,7 +61,7 @@ button:active {
     width: 100%;
     padding: 30px 50px;
     background-color: #fff9e5;
-    box-shadow: 0px 10px 20px rgb(0 0 0 / 20%);
+    box-shadow: var(--ticket-shadow);
 }
 
 .oneliner {
@@ -128,7 +128,7 @@ button:active {
     border-bottom-left-radius: 5em;
     border-bottom-right-radius: 5em;
     background-color: #5cbff7;
-    box-shadow: 0px 10px 20px rgb(0 0 0 / 20%);
+    box-shadow: var(--ticket-shadow);
     margin-bottom: 20px;
     z-index: 2;
 }
