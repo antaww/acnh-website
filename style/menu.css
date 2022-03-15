@@ -226,3 +226,8 @@ nav .m-menu__overlay {
     top: 0;
     transform: rotate(-135deg);
 }
+
+hr {
+    width: 30%;
+    border-bottom: 1px solid #7a673f;
+}
