@@ -107,6 +107,14 @@ type SimplifiedHouseware struct {
 	Name           string
 	NameSimplified string
 	ImageURL       []string
+	Buy            []struct {
+		Price    int
+		Currency string
+	}
+	From    string
+	Note    string
+	Themes  []string
+	Version string
 }
 
 func toDataHouseware(housewaredata HousewareRawData) SimplifiedHouseware {
@@ -114,10 +122,41 @@ func toDataHouseware(housewaredata HousewareRawData) SimplifiedHouseware {
 	for i := range housewaredata.Variations {
 		images = append(images, housewaredata.Variations[i].ImageURL)
 	}
+	var buy []struct {
+		Price    int
+		Currency string
+	}
+	type buyData struct {
+		Price    int
+		Currency string
+	}
+	for i := range housewaredata.Buy {
+		data := buyData{Price: housewaredata.Buy[i].Price, Currency: housewaredata.Buy[i].Currency}
+		//buy[i].Price = housewaredata.Buy[i].Price
+		//buy[i].Currency = housewaredata.Buy[i].Currency
+		buy = append(buy, data)
+	}
+	var from string
+	for i := range housewaredata.Availability {
+		from = housewaredata.Availability[i].From
+	}
+	var note string
+	for i := range housewaredata.Availability {
+		note = housewaredata.Availability[i].Note
+	}
+	var themes []string
+	for i := range housewaredata.Themes {
+		themes = append(themes, housewaredata.Themes[i])
+	}
 	return SimplifiedHouseware{
 		Name:           housewaredata.Name,
 		NameSimplified: housewaredata.NameSimplified,
 		ImageURL:       images,
+		Buy:            buy,
+		From:           from,
+		Note:           note,
+		Themes:         themes,
+		Version:        housewaredata.VersionAdded,
 	}
 }
 
