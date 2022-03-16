@@ -11,7 +11,10 @@
         <link rel="stylesheet" href="/static/dodoticket.css">
         <link rel="stylesheet" href="/static/background_nook.css">
         <link rel="stylesheet" href="/static/loader.css">
-        <link rel="icon" href="{{.ImageURL}}">
+        <link rel="stylesheet" href="/static/houseware.css">
+        {{range $value := .ImageURL}}
+            <link rel="icon" href="{{$value}}">
+        {{end}}
         <script defer src="../scripts/index.js"></script>
         <script src="../scripts/loader.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
@@ -172,11 +175,12 @@
                 <hr>
             </ul>
         </nav>
-        {{.Name}}
-        {{.NameSimplified}}
-        {{range $value := .ImageURL}}
-            <img src="{{$value}}" alt="">
-        {{end}}
+        <div class="houseware_card">
+            {{.Name}}
+            {{range $value := .ImageURL}}
+                <img src="{{$value}}" alt="" class="houseware_img">
+            {{end}}
+        </div>
 
     </body>
 </html>

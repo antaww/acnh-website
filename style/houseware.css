@@ -1,0 +1,13 @@
+.houseware_card {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 600;
+    box-shadow: var(--forms-shadow);
+    transition: all .3s;
+    user-select: text;
+    background-color: var(--title-color);
+    margin: auto;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}

@@ -164,10 +164,10 @@ func main() {
 	})
 
 	http.HandleFunc("/character", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Println("debug1")
+		//fmt.Println("debug1")
 		queries := r.URL.Query()
 		if queries.Has("name") {
-			fmt.Println("debug2")
+			//fmt.Println("debug2")
 			name := r.URL.Query().Get("name")
 			name = strings.ToLower(name)
 			fmt.Println("name =>", name)
@@ -176,10 +176,10 @@ func main() {
 	})
 
 	http.HandleFunc("/houseware", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Println("debug1")
+		//fmt.Println("debug1")
 		queries := r.URL.Query()
 		if queries.Has("name") {
-			fmt.Println("debug2")
+			//fmt.Println("debug2")
 			name := r.URL.Query().Get("name")
 			name = strings.ToLower(name)
 			strings.ReplaceAll(name, " ", "")
