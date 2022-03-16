@@ -180,7 +180,46 @@
             {{range $value := .ImageURL}}
                 <img src="{{$value}}" alt="" class="houseware_img">
             {{end}}
+            <p>
+                {{if eq (len .Buy) 0}}
+                    This item is not purchasable
+                {{else if eq (len .Buy) 1}}
+                    Price :
+                    {{range $value := .Buy}}
+                        {{$value.Price}}
+                        {{if eq $value.Currency "Poki"}}
+                            <img src="https://dodo.ac/np/images/1/16/Poki_NH_Inv_Icon.png" alt="">
+                        {{else if eq $value.Currency "Bells"}}
+                            <img src="https://dodo.ac/np/images/0/0d/Bell_CF_Icon_L.png" alt="">
+                        {{else if eq $value.Currency "Nook Miles"}}
+                            <img src="https://dodo.ac/np/images/1/10/Nook_Miles_NH_Icon.png" alt="">
+                        {{else if eq $value.Currency "Nook Points"}}
+                            <img src="https://img.game8.co/3341561/aed75e8282bd1a5ff89f94450317606a.png/show" alt="">
+                        {{end}}
+                    {{end}}
+                {{else if eq (len .Buy) 2}}
+                    Price :
+                    {{range $value := .Buy}}
+                        {{$value.Price}}
+                        {{if eq $value.Currency "Poki"}}
+                            <img src="https://dodo.ac/np/images/1/16/Poki_NH_Inv_Icon.png" alt="">
+                        {{else if eq $value.Currency "Bells"}}
+                            <img src="https://dodo.ac/np/images/0/0d/Bell_CF_Icon_L.png" alt="">
+                        {{else if eq $value.Currency "Nook Miles"}}
+                            <img src="https://dodo.ac/np/images/1/10/Nook_Miles_NH_Icon.png" alt="">
+                        {{else if eq $value.Currency "Nook Points"}}
+                            <img src="https://img.game8.co/3341561/aed75e8282bd1a5ff89f94450317606a.png/show" alt="">
+                        {{end}}
+                    {{end}}
+                {{end}}
+            </p>
+            <p>From : {{.From}}</p>
+            <p>Note : {{.Note}}</p>
+            <p>Themes : {{range $value := .Themes}}
+                    {{$value}}
+                {{end}}
+            </p>
+            <p>Version where it was added : {{.Version}}</p>
         </div>
-
     </body>
 </html>
