@@ -5,17 +5,17 @@
     padding: 13px;
     border-style: none;
     border-bottom: medium currentcolor;
-    border-radius: 0.5em;
+    border-radius: 0.5em 0em 0em 0.5em;
     font-size: 16px;
     background-color: #f8eebc;
     font-family: "M PLUS Rounded 1c", sans-serif;
     font-weight: 600;
-    box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--forms-shadow);
     transition: all .3s;
     user-select: text;
 }
 
-#search-bar:focus {
+#search-bar:focus, #search-bar:focus ~ .search-btn {
     outline: none;
     background-color: #e0d6a6;
     box-shadow: 0 0 0 3px #ffffff87;
@@ -30,19 +30,20 @@
 }
 
 .search-btn {
+    margin-left: -4px;
     transition: all .3s;
     width: fit-content;
     border-style: none;
     border-bottom-style: none;
     border-bottom: medium currentcolor;
-    border-radius: 0.5em;
+    border-radius: 0em 0.5em 0.5em 0em;
     font-size: 16px;
     background-color: #e3dbaf;
     font-family: "M PLUS Rounded 1c", sans-serif;
     font-weight: 600;
     height: fit-content;
     padding: 13px;
-    box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--forms-shadow);
 }
 
 .search-btn:hover {
@@ -53,9 +54,12 @@
     font-family: "M PLUS Rounded 1c", sans-serif;
     font-weight: 600;
     user-select: none;
+    width: fit-content;
+    margin: 10px;
 }
 
 #menu-select {
+    color: #736e57;
     width: 150px;
     padding: 13px;
     border-style: none;
@@ -65,7 +69,7 @@
     background-color: #f8eebc;
     font-family: "M PLUS Rounded 1c", sans-serif;
     font-weight: 600;
-    box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--forms-shadow);
     transition: all .3s;
     user-select: none;
 }
@@ -86,4 +90,11 @@ option:hover {
 
 .menu_select_form {
     margin: 10px;
+    width: fit-content;
+}
+
+.forms {
+    display: flex;
+    flex-flow: row;
+    margin-left: 50px;
 }

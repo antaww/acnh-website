@@ -27,10 +27,11 @@ window.addEventListener("load", function () {
 
 });
 
-const house_interior = document.querySelector(".house_interior")
-const dialogue = document.querySelector(".dialogue")
-house_interior.addEventListener('click', event => {
-    console.log("house interior clicked")
-    house_interior.classList.toggle("house_interior_fullsize")
-    dialogue.style.zIndex = "1";
+
+const menu_btn = document.querySelector(".button")
+menu_btn.addEventListener('click', event => {
+    console.log("menu button clicked")
+    document.body.classList.toggle("no-scroll")
+    console.log("body noscroll")
 })
+

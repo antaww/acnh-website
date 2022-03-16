@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title>{{.Name}}</title>
@@ -7,14 +7,13 @@
         <link rel="stylesheet" href="/static/menu.css">
         <link rel="stylesheet" href="/static/characters.css">
         <link rel="stylesheet" href="/static/dialogue.css">
-        <link rel="stylesheet" href="/static/birthday.css">
+        <link rel="stylesheet" href="/static/houses.css">
+        <link rel="stylesheet" href="/static/dodoticket.css">
         <link rel="stylesheet" href="/static/background_nook.css">
         <link rel="stylesheet" href="/static/loader.css">
-        <link rel="icon" href="http://acnhapi.com/favicon.ico">
-        <script src="../scripts/index.js" defer></script>
+        <link rel="icon" href="{{.ImageURL}}">
+        <script defer src="../scripts/index.js"></script>
         <script src="../scripts/loader.js" defer></script>
-        <link rel="stylesheet"
-              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
         <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MotionPathPlugin.min.js"></script>
     </head>
@@ -170,6 +169,7 @@
                         <div class="letter_nine">e</div>
                         <div class="letter_ten">s</div>
                     </a></li>
+                <hr>
             </ul>
         </nav>
         {{.Name}}

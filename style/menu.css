@@ -47,7 +47,7 @@ nav .m-menu__overlay {
     margin: 0;
     padding: 80px 0;
     list-style: none;
-    background-color: #feed9b;
+    background-color: var(--menu-color);
     box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
     transition-duration: .25s;
     z-index: 100;
@@ -147,7 +147,7 @@ nav .m-menu__overlay {
 .button {
     user-select: none;
     position: relative;
-    background-color: #f1e369;
+    background-color: var(--title-color);
     height: 3rem;
     width: 3rem;
     border-radius: 50%;
@@ -162,7 +162,7 @@ nav .m-menu__overlay {
 }
 
 .checkbox:checked ~ .button {
-    background-color: #feed9b;
+    background-color: var(--menu-color);
     box-shadow: 0px 0px 0px #9e8b57 inset;
     z-index: 101;
 }
@@ -225,4 +225,9 @@ nav .m-menu__overlay {
 .checkbox:checked + .button .icon::after {
     top: 0;
     transform: rotate(-135deg);
+}
+
+hr {
+    width: 30%;
+    border-bottom: 1px solid #7a673f;
 }
