@@ -11,7 +11,10 @@
         <link rel="stylesheet" href="/static/dodoticket.css">
         <link rel="stylesheet" href="/static/background_nook.css">
         <link rel="stylesheet" href="/static/loader.css">
-        <link rel="icon" href="{{.ImageURL}}">
+        <link rel="stylesheet" href="/static/houseware.css">
+        {{range $value := .ImageURL}}
+            <link rel="icon" href="{{$value}}">
+        {{end}}
         <script defer src="../scripts/index.js"></script>
         <script src="../scripts/loader.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
@@ -172,16 +175,17 @@
                 <hr>
             </ul>
         </nav>
-        {{.Name}}
-        {{range $value := .Versions}}
-            <img src="{{$value.ImageURL}}" alt="">
-            <p>Colors :
+        <div class="houseware_card">
+            {{.Name}}
+            {{range $value := .Versions}}
+                <img src="{{$value.ImageURL}}" alt="" class="houseware_img">
+                Colors :
                 {{range $value := $value.Colors}}
                     {{$value}}
                 {{end}}
-            </p>
-        {{end}}
-        <p>{{if eq (len .Buy) 0}}
+
+            {{end}}
+            {{if eq (len .Buy) 0}}
                 This item is not purchasable.
             {{else if eq (len .Buy) 1}}
                 Price :
@@ -195,6 +199,7 @@
                         <img src="https://dodo.ac/np/images/1/10/Nook_Miles_NH_Icon.png" alt="">
                     {{else if eq $value.Currency "Nook Points"}}
                         <img src="https://img.game8.co/3341561/aed75e8282bd1a5ff89f94450317606a.png/show" alt="">
+
                     {{end}}
                 {{end}}
             {{else if eq (len .Buy) 2}}
@@ -212,31 +217,35 @@
                     {{end}}
                 {{end}}
             {{end}}
-        </p>
-        <p>Sell price : {{.Sell}}<img src="https://dodo.ac/np/images/0/0d/Bell_CF_Icon_L.png" alt=""></p>
-        <p>Availability :
-            {{range $value := .Availability}}
-                From : {{$value.From}}
-                Note : {{$value.Note}}
-            {{end}}
-        </p>
-        <p>{{if eq (len .Themes) 0}}
-                This furniture has no specific theme.
-            {{else if eq (len .Themes) 1}}
-                Theme :
-                {{range $value := .Themes}}
-                    {{$value}}
+
+
+            <p>Sell price : {{.Sell}}<img src="https://dodo.ac/np/images/0/0d/Bell_CF_Icon_L.png" alt=""></p>
+            <p>Availability :
+                {{range $value := .Availability}}
+                    From : {{$value.From}}
+                    Note : {{$value.Note}}
                 {{end}}
-            {{else}}
-                Themes :
-                {{range $value := .Themes}}
-                    {{$value}}
+            </p>
+            <p>{{if eq (len .Themes) 0}}
+                    This furniture has no specific theme.
+                {{else if eq (len .Themes) 1}}
+                    Theme :
+                    {{range $value := .Themes}}
+                        {{$value}}
+                    {{end}}
+                {{else}}
+                    Themes :
+                    {{range $value := .Themes}}
+                        {{$value}}
+                    {{end}}
                 {{end}}
-            {{end}}
-        </p>
-        <p>Version where it was added : {{.VersionAdded}}</p>
-        <p>Category : {{.Category}}</p>
-        <p>Series : {{.ItemSeries}}</p>
-        <p>Tag : {{.Tag}}</p>
+            </p>
+            <div class="houseware_info">
+                {{.VersionAdded}}
+            </div>
+            Category : {{.Category}}
+            Series : {{.ItemSeries}}
+            Tag : {{.Tag}}
+        </div>
     </body>
 </html>

@@ -1,0 +1,27 @@
+.houseware_card {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 600;
+    box-shadow: var(--forms-shadow);
+    transition: all .3s;
+    user-select: text;
+    background-image: url('/image/background/dots.png');
+    background-color: #fdfdea;
+    background-size: 32px 32px;
+    margin: auto;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.houseware_info {
+    background-color: #e8e7bf;
+    border-radius: 8px;
+    margin: 4px;
+    padding: 4px 8px;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    color: #5a350a;
+    font-weight: bold;
+    box-shadow: var(--forms-shadow);
+    width: fit-content;
+}
