@@ -195,6 +195,41 @@
                     {{if eq $value "Black"}}
                         <div class="houseware_info" style="background-color: #4f4c4b">{{$value}}</div>
                     {{end}}
+                    {{if eq $value "Blue"}}
+                        <div class="houseware_info" style="background-color: #4e79cc">{{$value}}</div>
+                    {{end}}
+                    {{if eq $value "Brown"}}
+                        <div class="houseware_info" style="background-color: #a98155">{{$value}}</div>
+                    {{end}}
+                    {{if eq $value "Colorful"}}
+                        <div class="houseware_info"
+                             style="background-image: url('/image/background/color_gradient.jpg');
+                             background-size: cover;">{{$value}}</div>
+                    {{end}}
+                    {{if eq $value "Green"}}
+                        <div class="houseware_info" style="background-color: #74B746;">{{$value}}</div>
+                    {{end}}
+                    {{if eq $value "Aqua"}}
+                        <div class="houseware_info" style="background-color: #82D7DC;">{{$value}}</div>
+                    {{end}}
+                    {{if eq $value "Orange"}}
+                        <div class="houseware_info" style="background-color: #EE9A5D;">{{$value}}</div>
+                    {{end}}
+                    {{if eq $value "Pink"}}
+                        <div class="houseware_info" style="background-color: #FF7183;">{{$value}}</div>
+                    {{end}}
+                    {{if eq $value "Purple"}}
+                        <div class="houseware_info" style="background-color: #7C51BB;">{{$value}}</div>
+                    {{end}}
+                    {{if eq $value "Red"}}
+                        <div class="houseware_info" style="background-color: #E45B3F;">{{$value}}</div>
+                    {{end}}
+                    {{if eq $value "White"}}
+                        <div class="houseware_info" style="background-color: #F0EEDB;">{{$value}}</div>
+                    {{end}}
+                    {{if eq $value "Yellow"}}
+                        <div class="houseware_info" style="background-color: #F4BF42;">{{$value}}</div>
+                    {{end}}
                 {{end}}
 
             {{end}}
@@ -207,7 +242,7 @@
                     {{if eq $value.Currency "Poki"}}
                         <img src="https://dodo.ac/np/images/1/16/Poki_NH_Inv_Icon.png" alt="">
                     {{else if eq $value.Currency "Bells"}}
-                        <img src="https://dodo.ac/np/images/0/0d/Bell_CF_Icon_L.png" alt="">
+                        <img src="https://dodo.ac/np/images/d/d2/30%2C000_Bells_NH_Inv_Icon.png" alt="">
                     {{else if eq $value.Currency "Nook Miles"}}
                         <img src="https://dodo.ac/np/images/1/10/Nook_Miles_NH_Icon.png" alt="">
                     {{else if eq $value.Currency "Nook Points"}}
@@ -222,7 +257,7 @@
                     {{if eq $value.Currency "Poki"}}
                         <img src="https://dodo.ac/np/images/1/16/Poki_NH_Inv_Icon.png" alt="">
                     {{else if eq $value.Currency "Bells"}}
-                        <img src="https://dodo.ac/np/images/0/0d/Bell_CF_Icon_L.png" alt="">
+                        <img src="https://dodo.ac/np/images/d/d2/30%2C000_Bells_NH_Inv_Icon.png" alt="">
                     {{else if eq $value.Currency "Nook Miles"}}
                         <img src="https://dodo.ac/np/images/1/10/Nook_Miles_NH_Icon.png" alt="">
                     {{else if eq $value.Currency "Nook Points"}}
@@ -232,7 +267,8 @@
             {{end}}
 
 
-            <p>Sell price : {{.Sell}}<img src="https://dodo.ac/np/images/0/0d/Bell_CF_Icon_L.png" alt=""></p>
+            <p>Sell price : {{.Sell}}<img src="https://dodo.ac/np/images/d/d2/30%2C000_Bells_NH_Inv_Icon.png" alt="">
+            </p>
             <p>Availability :
                 {{range $value := .Availability}}
                     From : {{$value.From}}

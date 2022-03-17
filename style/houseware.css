@@ -13,9 +13,13 @@
     border-radius: 8px;
     text-align: center;
     max-height: 35em;
-    overflow: scroll;
-    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    overflow: auto;
+    min-height: inherit;
 }
+
 
 .houseware_info {
     background-color: #e8e7bf;
@@ -23,7 +27,7 @@
     margin: 4px;
     padding: 4px 8px;
     font-family: "M PLUS Rounded 1c", sans-serif;
-    color: #5a350a;
+    color: #2a2828;
     font-weight: bold;
     box-shadow: var(--forms-shadow);
     width: fit-content;
