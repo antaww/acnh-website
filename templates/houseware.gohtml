@@ -173,12 +173,16 @@
             </ul>
         </nav>
         {{.Name}}
-        {{range $value := .ImageURL}}
-            <img src="{{$value}}" alt="">
+        {{range $value := .Versions}}
+            <img src="{{$value.ImageURL}}" alt="">
+            <p>Colors :
+                {{range $value := $value.Colors}}
+                    {{$value}}
+                {{end}}
+            </p>
         {{end}}
-        <p>
-            {{if eq (len .Buy) 0}}
-                This item is not purchasable
+        <p>{{if eq (len .Buy) 0}}
+                This item is not purchasable.
             {{else if eq (len .Buy) 1}}
                 Price :
                 {{range $value := .Buy}}
@@ -209,12 +213,30 @@
                 {{end}}
             {{end}}
         </p>
-        <p>From : {{.From}}</p>
-        <p>Note : {{.Note}}</p>
-        <p>Themes : {{range $value := .Themes}}
-                {{$value}}
+        <p>Sell price : {{.Sell}}<img src="https://dodo.ac/np/images/0/0d/Bell_CF_Icon_L.png" alt=""></p>
+        <p>Availability :
+            {{range $value := .Availability}}
+                From : {{$value.From}}
+                Note : {{$value.Note}}
             {{end}}
         </p>
-        <p>Version where it was added : {{.Version}}</p>
+        <p>{{if eq (len .Themes) 0}}
+                This furniture has no specific theme.
+            {{else if eq (len .Themes) 1}}
+                Theme :
+                {{range $value := .Themes}}
+                    {{$value}}
+                {{end}}
+            {{else}}
+                Themes :
+                {{range $value := .Themes}}
+                    {{$value}}
+                {{end}}
+            {{end}}
+        </p>
+        <p>Version where it was added : {{.VersionAdded}}</p>
+        <p>Category : {{.Category}}</p>
+        <p>Series : {{.ItemSeries}}</p>
+        <p>Tag : {{.Tag}}</p>
     </body>
 </html>
