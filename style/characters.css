@@ -63,9 +63,9 @@
 
 .houseware_img {
     user-select: none;
-    width: 150px;
     transition: all 0.3s;
     filter: var(--drop-shadow);
+    width: 125px;
 }
 
 .houseware_img:hover {
