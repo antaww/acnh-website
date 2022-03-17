@@ -61,17 +61,6 @@
     border-radius: 55px;
 }
 
-.houseware_img {
-    user-select: none;
-    transition: all 0.3s;
-    filter: var(--drop-shadow);
-    width: 125px;
-}
-
-.houseware_img:hover {
-    transform: translateY(-2%);
-}
-
 .chara_img:hover {
     transform: translateY(-2%);
 }

@@ -12,8 +12,10 @@
         <link rel="stylesheet" href="/static/background_nook.css">
         <link rel="stylesheet" href="/static/loader.css">
         <link rel="stylesheet" href="/static/houseware.css">
-        {{range $value := .ImageURL}}
-            <link rel="icon" href="{{$value}}">
+        {{range $index, $value := .Versions}}
+            {{if eq $index 0}}
+                <link rel="icon" href="{{$value.ImageURL}}">
+            {{end}}
         {{end}}
         <script defer src="../scripts/index.js"></script>
         <script src="../scripts/loader.js" defer></script>
@@ -177,11 +179,22 @@
         </nav>
         <div class="houseware_card">
             {{.Name}}
-            {{range $value := .Versions}}
-                <img src="{{$value.ImageURL}}" alt="" class="houseware_img">
-                Colors :
+            {{range $index, $value := .Versions}}
+                {{if eq $index 0}}
+                    <img src="{{$value.ImageURL}}" alt="" class="houseware_img">
+                {{else}}
+                    <img src="{{$value.ImageURL}}" alt="" class="houseware_variations">
+                {{end}}
                 {{range $value := $value.Colors}}
-                    {{$value}}
+                    {{if eq $value "Gray"}}
+                        <div class="houseware_info" style="background-color: #c4bca4">{{$value}}</div>
+                    {{end}}
+                    {{if eq $value "Beige"}}
+                        <div class="houseware_info" style="background-color: #e1c699">{{$value}}</div>
+                    {{end}}
+                    {{if eq $value "Black"}}
+                        <div class="houseware_info" style="background-color: #4f4c4b">{{$value}}</div>
+                    {{end}}
                 {{end}}
 
             {{end}}

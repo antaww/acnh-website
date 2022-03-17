@@ -12,6 +12,9 @@
     padding: 10px;
     border-radius: 8px;
     text-align: center;
+    max-height: 35em;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 .houseware_info {
@@ -24,4 +27,19 @@
     font-weight: bold;
     box-shadow: var(--forms-shadow);
     width: fit-content;
+}
+
+.houseware_img {
+    user-select: none;
+    transition: all 0.3s;
+    filter: var(--drop-shadow);
+    width: 125px;
+}
+
+.houseware_img:hover {
+    transform: translateY(-2%);
+}
+
+.houseware_variations {
+    width: 30px;
 }
