@@ -179,60 +179,60 @@
         </nav>
         <div class="houseware_card">
             {{.Name}}
-            {{range $index, $value := .Versions}}
-                {{if eq $index 0}}
-                    <img src="{{$value.ImageURL}}" alt="" class="houseware_img">
-                {{else}}
-                    <img src="{{$value.ImageURL}}" alt="" class="houseware_variations">
-                {{end}}
-                {{range $value := $value.Colors}}
-                    {{if eq $value "Gray"}}
-                        <div class="houseware_info" style="background-color: #c4bca4">{{$value}}</div>
-                    {{end}}
-                    {{if eq $value "Beige"}}
-                        <div class="houseware_info" style="background-color: #e1c699">{{$value}}</div>
-                    {{end}}
-                    {{if eq $value "Black"}}
-                        <div class="houseware_info" style="background-color: #4f4c4b">{{$value}}</div>
-                    {{end}}
-                    {{if eq $value "Blue"}}
-                        <div class="houseware_info" style="background-color: #4e79cc">{{$value}}</div>
-                    {{end}}
-                    {{if eq $value "Brown"}}
-                        <div class="houseware_info" style="background-color: #a98155">{{$value}}</div>
-                    {{end}}
-                    {{if eq $value "Colorful"}}
-                        <div class="houseware_info"
-                             style="background-image: url('/image/background/color_gradient.jpg');
+            <div class="houseware_variations_box">
+                {{range $index, $value := .Versions}}
+                    <div class="houseware_box_item">
+                        <img src="{{$value.ImageURL}}" alt="" class="houseware_img">
+                        {{range $value := $value.Colors}}
+                            {{if eq $value "Gray"}}
+                                <div class="houseware_info color" style="background-color: #c4bca4">{{$value}}</div>
+                            {{end}}
+                            {{if eq $value "Beige"}}
+                                <div class="houseware_info color" style="background-color: #e1c699">{{$value}}</div>
+                            {{end}}
+                            {{if eq $value "Black"}}
+                                <div class="houseware_info color" style="background-color: #4f4c4b">{{$value}}</div>
+                            {{end}}
+                            {{if eq $value "Blue"}}
+                                <div class="houseware_info color" style="background-color: #4e79cc">{{$value}}</div>
+                            {{end}}
+                            {{if eq $value "Brown"}}
+                                <div class="houseware_info color" style="background-color: #a98155">{{$value}}</div>
+                            {{end}}
+                            {{if eq $value "Colorful"}}
+                                <div class="houseware_info color"
+                                     style="background-image: url('/image/background/color_gradient.jpg');
                              background-size: cover;">{{$value}}</div>
-                    {{end}}
-                    {{if eq $value "Green"}}
-                        <div class="houseware_info" style="background-color: #74B746;">{{$value}}</div>
-                    {{end}}
-                    {{if eq $value "Aqua"}}
-                        <div class="houseware_info" style="background-color: #82D7DC;">{{$value}}</div>
-                    {{end}}
-                    {{if eq $value "Orange"}}
-                        <div class="houseware_info" style="background-color: #EE9A5D;">{{$value}}</div>
-                    {{end}}
-                    {{if eq $value "Pink"}}
-                        <div class="houseware_info" style="background-color: #FF7183;">{{$value}}</div>
-                    {{end}}
-                    {{if eq $value "Purple"}}
-                        <div class="houseware_info" style="background-color: #7C51BB;">{{$value}}</div>
-                    {{end}}
-                    {{if eq $value "Red"}}
-                        <div class="houseware_info" style="background-color: #E45B3F;">{{$value}}</div>
-                    {{end}}
-                    {{if eq $value "White"}}
-                        <div class="houseware_info" style="background-color: #F0EEDB;">{{$value}}</div>
-                    {{end}}
-                    {{if eq $value "Yellow"}}
-                        <div class="houseware_info" style="background-color: #F4BF42;">{{$value}}</div>
-                    {{end}}
+                            {{end}}
+                            {{if eq $value "Green"}}
+                                <div class="houseware_info color" style="background-color: #74B746;">{{$value}}</div>
+                            {{end}}
+                            {{if eq $value "Aqua"}}
+                                <div class="houseware_info color" style="background-color: #82D7DC;">{{$value}}</div>
+                            {{end}}
+                            {{if eq $value "Orange"}}
+                                <div class="houseware_info color" style="background-color: #EE9A5D;">{{$value}}</div>
+                            {{end}}
+                            {{if eq $value "Pink"}}
+                                <div class="houseware_info color" style="background-color: #FF7183;">{{$value}}</div>
+                            {{end}}
+                            {{if eq $value "Purple"}}
+                                <div class="houseware_info color" style="background-color: #7C51BB;">{{$value}}</div>
+                            {{end}}
+                            {{if eq $value "Red"}}
+                                <div class="houseware_info color" style="background-color: #E45B3F;">{{$value}}</div>
+                            {{end}}
+                            {{if eq $value "White"}}
+                                <div class="houseware_info color" style="background-color: #F0EEDB;">{{$value}}</div>
+                            {{end}}
+                            {{if eq $value "Yellow"}}
+                                <div class="houseware_info color" style="background-color: #F4BF42;">{{$value}}</div>
+                            {{end}}
+                        {{end}}
+                    </div>
                 {{end}}
-
-            {{end}}
+            </div>
+            <hr>
             {{if eq (len .Buy) 0}}
                 This item is not purchasable.
             {{else if eq (len .Buy) 1}}
