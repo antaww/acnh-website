@@ -41,7 +41,8 @@
 }
 
 .houseware_card .houseware_img {
-    width: 70px;
+    width: 120px;
+    margin-right: 10px;
 }
 
 .houseware_img:not(.houseware_card):hover {
@@ -108,4 +109,39 @@
 
 .houseware_undername {
     padding: 10px;
+}
+
+/*slider*/
+
+.prev, .next {
+    z-index: 1;
+    border: 1px solid black;
+    font-size: 10px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.next {
+    right: 0;
+}
+
+.slider-1.sliderContainer {
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-1 .sliderContent {
+    display: flex;
+    position: relative;
+    transition: all 0.6s ease;
+    left: 0;
+}
+
+.slider-1 .sliderContent .houseware_box_item {
+    position: relative;
+    max-width: 100vw;
+    min-width: 100vw;
+    text-align: center;
 }

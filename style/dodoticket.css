@@ -34,26 +34,6 @@
     box-shadow: var(--ticket-shadow);
 }
 
-button {
-    min-height: 46px;
-    min-width: 160px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5em;
-    background-color: #f9d12f;
-    font-family: "M PLUS Rounded 1c", sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-}
-
-button:focus {
-    outline: none;
-}
-
-button:active {
-    background-color: #e0ba21;
-}
-
 .ticket-middle {
     position: relative;
     display: grid;
