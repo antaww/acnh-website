@@ -17,6 +17,7 @@
     height: inherit;
     overflow: auto;
     min-height: inherit;
+    max-width: 450px;
 }
 
 
@@ -47,8 +48,16 @@
     transform: translateY(-2%);
 }
 
-houseware_variations_box {
-    flex-flow: row wrap;
+.meli {
+    position: absolute;
+    left: -5%;
+    top: 28%;
+}
+
+.melo {
+    position: absolute;
+    right: 5%;
+    top: 28%;
 }
 
 .houseware_info.color {
@@ -90,10 +99,13 @@ houseware_variations_box {
 
 .houseware_card_name {
     background-color: var(--menu-color);
+    padding: 10px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
 }
 
 .houseware_undername {
     padding: 10px;
 }
-
-

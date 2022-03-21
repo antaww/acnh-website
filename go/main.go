@@ -58,6 +58,7 @@ func main() {
 	sort.Slice(characters, func(indexFirst, indexSecond int) bool {
 		return characters[indexFirst].Name.NameEUen < characters[indexSecond].Name.NameEUen
 	})
+
 	//for _, chara := range characters {
 	//	println("Villagers : ", chara.Name.NameEUen)
 	//}

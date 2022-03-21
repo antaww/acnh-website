@@ -177,6 +177,7 @@
                 <hr>
             </ul>
         </nav>
+        <img class="meli" src="image/uniqueCharacters/meli.png" alt="">
         <div class="houseware_card">
             <div class="houseware_card_name">
                 {{.Name}}
@@ -244,40 +245,41 @@
                     {{end}}
                 </div>
                 <hr>
-                {{if eq (len .Buy) 0}}
-                    This item is not purchasable.
-                {{else if eq (len .Buy) 1}}
-                    Price :
-                    {{range $value := .Buy}}
-                        {{$value.Price}}
-                        {{if eq $value.Currency "Poki"}}
-                            <img src="https://dodo.ac/np/images/1/16/Poki_NH_Inv_Icon.png" alt="">
-                        {{else if eq $value.Currency "Bells"}}
-                            <img src="https://dodo.ac/np/images/d/d2/30%2C000_Bells_NH_Inv_Icon.png" alt="">
-                        {{else if eq $value.Currency "Nook Miles"}}
-                            <img src="https://dodo.ac/np/images/1/10/Nook_Miles_NH_Icon.png" alt="">
-                        {{else if eq $value.Currency "Nook Points"}}
-                            <img src="https://img.game8.co/3341561/aed75e8282bd1a5ff89f94450317606a.png/show" alt="">
-
+                <p>
+                    {{if eq (len .Buy) 0}}
+                        This item is not purchasable.
+                    {{else if eq (len .Buy) 1}}
+                        Price :
+                        {{range $value := .Buy}}
+                            {{$value.Price}}
+                            {{if eq $value.Currency "Poki"}}
+                                <img src="https://dodo.ac/np/images/1/16/Poki_NH_Inv_Icon.png" alt="">
+                            {{else if eq $value.Currency "Bells"}}
+                                <img src="https://dodo.ac/np/images/d/d2/30%2C000_Bells_NH_Inv_Icon.png" alt="">
+                            {{else if eq $value.Currency "Nook Miles"}}
+                                <img src="https://dodo.ac/np/images/1/10/Nook_Miles_NH_Icon.png" alt="">
+                            {{else if eq $value.Currency "Nook Points"}}
+                                <img src="https://img.game8.co/3341561/aed75e8282bd1a5ff89f94450317606a.png/show"
+                                     alt="">
+                            {{end}}
+                        {{end}}
+                    {{else if eq (len .Buy) 2}}
+                        Price :
+                        {{range $value := .Buy}}
+                            {{$value.Price}}
+                            {{if eq $value.Currency "Poki"}}
+                                <img src="https://dodo.ac/np/images/1/16/Poki_NH_Inv_Icon.png" alt="">
+                            {{else if eq $value.Currency "Bells"}}
+                                <img src="https://dodo.ac/np/images/d/d2/30%2C000_Bells_NH_Inv_Icon.png" alt="">
+                            {{else if eq $value.Currency "Nook Miles"}}
+                                <img src="https://dodo.ac/np/images/1/10/Nook_Miles_NH_Icon.png" alt="">
+                            {{else if eq $value.Currency "Nook Points"}}
+                                <img src="https://img.game8.co/3341561/aed75e8282bd1a5ff89f94450317606a.png/show"
+                                     alt="">
+                            {{end}}
                         {{end}}
                     {{end}}
-                {{else if eq (len .Buy) 2}}
-                    Price :
-                    {{range $value := .Buy}}
-                        {{$value.Price}}
-                        {{if eq $value.Currency "Poki"}}
-                            <img src="https://dodo.ac/np/images/1/16/Poki_NH_Inv_Icon.png" alt="">
-                        {{else if eq $value.Currency "Bells"}}
-                            <img src="https://dodo.ac/np/images/d/d2/30%2C000_Bells_NH_Inv_Icon.png" alt="">
-                        {{else if eq $value.Currency "Nook Miles"}}
-                            <img src="https://dodo.ac/np/images/1/10/Nook_Miles_NH_Icon.png" alt="">
-                        {{else if eq $value.Currency "Nook Points"}}
-                            <img src="https://img.game8.co/3341561/aed75e8282bd1a5ff89f94450317606a.png/show" alt="">
-                        {{end}}
-                    {{end}}
-                {{end}}
-
-
+                </p>
                 <p>Sell price : {{.Sell}}<img src="https://dodo.ac/np/images/d/d2/30%2C000_Bells_NH_Inv_Icon.png"
                                               alt="">
                 </p>
@@ -309,5 +311,6 @@
                 Tag : {{.Tag}}
             </div>
         </div>
+        <img class="melo" src="image/uniqueCharacters/melo.png" alt="">
     </body>
 </html>
