@@ -9,7 +9,6 @@
     background-size: 32px 32px;
     margin: auto;
     width: fit-content;
-    padding: 10px;
     border-radius: 8px;
     text-align: center;
     max-height: 35em;
@@ -76,4 +75,25 @@ houseware_variations_box {
     display: flex;
     flex-flow: column;
 }
+
+.houseware_box_item {
+    text-align: left;
+    display: flex;
+}
+
+.color {
+    width: fit-content;
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.houseware_card_name {
+    background-color: var(--menu-color);
+}
+
+.houseware_undername {
+    padding: 10px;
+}
+
 
