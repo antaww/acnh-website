@@ -177,124 +177,132 @@
                 <hr>
             </ul>
         </nav>
-        <div class="houseware_card">
-            {{.Name}}
-            {{range $index, $value := .Versions}}
-                {{if eq $index 0}}
-                    <img src="{{$value.ImageURL}}" alt="" class="houseware_img">
-                {{else}}
-                    <img src="{{$value.ImageURL}}" alt="" class="houseware_variations">
-                {{end}}
-                {{range $value := $value.Colors}}
-                    {{if eq $value "Gray"}}
-                        <div class="houseware_info" style="background-color: #c4bca4">{{$value}}</div>
+        <div class="box">
+
+            <img class="meli" src="image/uniqueCharacters/meli.png" alt="">
+
+            <div class="houseware_card">
+                {{.Name}}
+                {{range $index, $value := .Versions}}
+                    {{if eq $index 0}}
+                        <img src="{{$value.ImageURL}}" alt="" class="houseware_img">
+                    {{else}}
+                        <img src="{{$value.ImageURL}}" alt="" class="houseware_variations">
                     {{end}}
-                    {{if eq $value "Beige"}}
-                        <div class="houseware_info" style="background-color: #e1c699">{{$value}}</div>
-                    {{end}}
-                    {{if eq $value "Black"}}
-                        <div class="houseware_info" style="background-color: #4f4c4b">{{$value}}</div>
-                    {{end}}
-                    {{if eq $value "Blue"}}
-                        <div class="houseware_info" style="background-color: #4e79cc">{{$value}}</div>
-                    {{end}}
-                    {{if eq $value "Brown"}}
-                        <div class="houseware_info" style="background-color: #a98155">{{$value}}</div>
-                    {{end}}
-                    {{if eq $value "Colorful"}}
-                        <div class="houseware_info"
-                             style="background-image: url('/image/background/color_gradient.jpg');
+                    {{range $value := $value.Colors}}
+                        {{if eq $value "Gray"}}
+                            <div class="houseware_info" style="background-color: #c4bca4">{{$value}}</div>
+                        {{end}}
+                        {{if eq $value "Beige"}}
+                            <div class="houseware_info" style="background-color: #e1c699">{{$value}}</div>
+                        {{end}}
+                        {{if eq $value "Black"}}
+                            <div class="houseware_info" style="background-color: #4f4c4b">{{$value}}</div>
+                        {{end}}
+                        {{if eq $value "Blue"}}
+                            <div class="houseware_info" style="background-color: #4e79cc">{{$value}}</div>
+                        {{end}}
+                        {{if eq $value "Brown"}}
+                            <div class="houseware_info" style="background-color: #a98155">{{$value}}</div>
+                        {{end}}
+                        {{if eq $value "Colorful"}}
+                            <div class="houseware_info"
+                                 style="background-image: url('/image/background/color_gradient.jpg');
                              background-size: cover;">{{$value}}</div>
+                        {{end}}
+                        {{if eq $value "Green"}}
+                            <div class="houseware_info" style="background-color: #74B746;">{{$value}}</div>
+                        {{end}}
+                        {{if eq $value "Aqua"}}
+                            <div class="houseware_info" style="background-color: #82D7DC;">{{$value}}</div>
+                        {{end}}
+                        {{if eq $value "Orange"}}
+                            <div class="houseware_info" style="background-color: #EE9A5D;">{{$value}}</div>
+                        {{end}}
+                        {{if eq $value "Pink"}}
+                            <div class="houseware_info" style="background-color: #FF7183;">{{$value}}</div>
+                        {{end}}
+                        {{if eq $value "Purple"}}
+                            <div class="houseware_info" style="background-color: #7C51BB;">{{$value}}</div>
+                        {{end}}
+                        {{if eq $value "Red"}}
+                            <div class="houseware_info" style="background-color: #E45B3F;">{{$value}}</div>
+                        {{end}}
+                        {{if eq $value "White"}}
+                            <div class="houseware_info" style="background-color: #F0EEDB;">{{$value}}</div>
+                        {{end}}
+                        {{if eq $value "Yellow"}}
+                            <div class="houseware_info" style="background-color: #F4BF42;">{{$value}}</div>
+                        {{end}}
                     {{end}}
-                    {{if eq $value "Green"}}
-                        <div class="houseware_info" style="background-color: #74B746;">{{$value}}</div>
+
+                {{end}}
+                {{if eq (len .Buy) 0}}
+                    This item is not purchasable.
+                {{else if eq (len .Buy) 1}}
+                    Price :
+                    {{range $value := .Buy}}
+                        {{$value.Price}}
+                        {{if eq $value.Currency "Poki"}}
+                            <img src="https://dodo.ac/np/images/1/16/Poki_NH_Inv_Icon.png" alt="">
+                        {{else if eq $value.Currency "Bells"}}
+                            <img src="https://dodo.ac/np/images/d/d2/30%2C000_Bells_NH_Inv_Icon.png" alt="">
+                        {{else if eq $value.Currency "Nook Miles"}}
+                            <img src="https://dodo.ac/np/images/1/10/Nook_Miles_NH_Icon.png" alt="">
+                        {{else if eq $value.Currency "Nook Points"}}
+                            <img src="https://img.game8.co/3341561/aed75e8282bd1a5ff89f94450317606a.png/show" alt="">
+
+                        {{end}}
                     {{end}}
-                    {{if eq $value "Aqua"}}
-                        <div class="houseware_info" style="background-color: #82D7DC;">{{$value}}</div>
-                    {{end}}
-                    {{if eq $value "Orange"}}
-                        <div class="houseware_info" style="background-color: #EE9A5D;">{{$value}}</div>
-                    {{end}}
-                    {{if eq $value "Pink"}}
-                        <div class="houseware_info" style="background-color: #FF7183;">{{$value}}</div>
-                    {{end}}
-                    {{if eq $value "Purple"}}
-                        <div class="houseware_info" style="background-color: #7C51BB;">{{$value}}</div>
-                    {{end}}
-                    {{if eq $value "Red"}}
-                        <div class="houseware_info" style="background-color: #E45B3F;">{{$value}}</div>
-                    {{end}}
-                    {{if eq $value "White"}}
-                        <div class="houseware_info" style="background-color: #F0EEDB;">{{$value}}</div>
-                    {{end}}
-                    {{if eq $value "Yellow"}}
-                        <div class="houseware_info" style="background-color: #F4BF42;">{{$value}}</div>
+                {{else if eq (len .Buy) 2}}
+                    Price :
+                    {{range $value := .Buy}}
+                        {{$value.Price}}
+                        {{if eq $value.Currency "Poki"}}
+                            <img src="https://dodo.ac/np/images/1/16/Poki_NH_Inv_Icon.png" alt="">
+                        {{else if eq $value.Currency "Bells"}}
+                            <img src="https://dodo.ac/np/images/d/d2/30%2C000_Bells_NH_Inv_Icon.png" alt="">
+                        {{else if eq $value.Currency "Nook Miles"}}
+                            <img src="https://dodo.ac/np/images/1/10/Nook_Miles_NH_Icon.png" alt="">
+                        {{else if eq $value.Currency "Nook Points"}}
+                            <img src="https://img.game8.co/3341561/aed75e8282bd1a5ff89f94450317606a.png/show" alt="">
+                        {{end}}
                     {{end}}
                 {{end}}
 
-            {{end}}
-            {{if eq (len .Buy) 0}}
-                This item is not purchasable.
-            {{else if eq (len .Buy) 1}}
-                Price :
-                {{range $value := .Buy}}
-                    {{$value.Price}}
-                    {{if eq $value.Currency "Poki"}}
-                        <img src="https://dodo.ac/np/images/1/16/Poki_NH_Inv_Icon.png" alt="">
-                    {{else if eq $value.Currency "Bells"}}
-                        <img src="https://dodo.ac/np/images/d/d2/30%2C000_Bells_NH_Inv_Icon.png" alt="">
-                    {{else if eq $value.Currency "Nook Miles"}}
-                        <img src="https://dodo.ac/np/images/1/10/Nook_Miles_NH_Icon.png" alt="">
-                    {{else if eq $value.Currency "Nook Points"}}
-                        <img src="https://img.game8.co/3341561/aed75e8282bd1a5ff89f94450317606a.png/show" alt="">
 
+                <p>Sell price : {{.Sell}}<img src="https://dodo.ac/np/images/d/d2/30%2C000_Bells_NH_Inv_Icon.png"
+                                              alt="">
+                </p>
+                <p>Availability :
+                    {{range $value := .Availability}}
+                        From : {{$value.From}}
+                        Note : {{$value.Note}}
                     {{end}}
-                {{end}}
-            {{else if eq (len .Buy) 2}}
-                Price :
-                {{range $value := .Buy}}
-                    {{$value.Price}}
-                    {{if eq $value.Currency "Poki"}}
-                        <img src="https://dodo.ac/np/images/1/16/Poki_NH_Inv_Icon.png" alt="">
-                    {{else if eq $value.Currency "Bells"}}
-                        <img src="https://dodo.ac/np/images/d/d2/30%2C000_Bells_NH_Inv_Icon.png" alt="">
-                    {{else if eq $value.Currency "Nook Miles"}}
-                        <img src="https://dodo.ac/np/images/1/10/Nook_Miles_NH_Icon.png" alt="">
-                    {{else if eq $value.Currency "Nook Points"}}
-                        <img src="https://img.game8.co/3341561/aed75e8282bd1a5ff89f94450317606a.png/show" alt="">
+                </p>
+                <p>{{if eq (len .Themes) 0}}
+                        This furniture has no specific theme.
+                    {{else if eq (len .Themes) 1}}
+                        Theme :
+                        {{range $value := .Themes}}
+                            {{$value}}
+                        {{end}}
+                    {{else}}
+                        Themes :
+                        {{range $value := .Themes}}
+                            {{$value}}
+                        {{end}}
                     {{end}}
-                {{end}}
-            {{end}}
-
-
-            <p>Sell price : {{.Sell}}<img src="https://dodo.ac/np/images/d/d2/30%2C000_Bells_NH_Inv_Icon.png" alt="">
-            </p>
-            <p>Availability :
-                {{range $value := .Availability}}
-                    From : {{$value.From}}
-                    Note : {{$value.Note}}
-                {{end}}
-            </p>
-            <p>{{if eq (len .Themes) 0}}
-                    This furniture has no specific theme.
-                {{else if eq (len .Themes) 1}}
-                    Theme :
-                    {{range $value := .Themes}}
-                        {{$value}}
-                    {{end}}
-                {{else}}
-                    Themes :
-                    {{range $value := .Themes}}
-                        {{$value}}
-                    {{end}}
-                {{end}}
-            </p>
-            <div class="houseware_info">
-                {{.VersionAdded}}
+                </p>
+                <div class="houseware_info">
+                    {{.VersionAdded}}
+                </div>
+                Category : {{.Category}}
+                Series : {{.ItemSeries}}
+                Tag : {{.Tag}}
             </div>
-            Category : {{.Category}}
-            Series : {{.ItemSeries}}
-            Tag : {{.Tag}}
+            <img class="melo" src="image/uniqueCharacters/melo.png" alt="">
         </div>
+
     </body>
 </html>

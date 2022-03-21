@@ -47,3 +47,20 @@
 .houseware_variations {
     width: 30px;
 }
+
+.box {
+    display: flex;
+    justify-content: center;
+}
+
+.meli{
+    position: absolute;
+    left: -5%;
+    top: 28%;
+}
+
+.melo{
+    position: absolute;
+    right: 5%;
+    top: 28%;
+}

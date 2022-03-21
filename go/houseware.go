@@ -67,8 +67,9 @@ type SimplifiedHouseware struct {
 		Note string
 	}
 	Versions []struct {
-		ImageURL string
-		Colors   []string
+		ImageURL   string
+		Colors     []string
+		ColorsText []string
 	}
 	Themes       []string
 	Category     string
@@ -111,12 +112,14 @@ func toDataHouseware(housewaredata HousewareRawData) SimplifiedHouseware {
 	}
 
 	var versions []struct {
-		ImageURL string
-		Colors   []string
+		ImageURL   string
+		Colors     []string
+		ColorsText []string
 	}
 	type versionsData struct {
-		ImageURL string
-		Colors   []string
+		ImageURL   string
+		Colors     []string
+		ColorsText []string
 	}
 	for i := range housewaredata.Variations {
 		data := versionsData{ImageURL: housewaredata.Variations[i].ImageURL, Colors: housewaredata.Variations[i].Colors}
