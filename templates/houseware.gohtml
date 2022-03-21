@@ -235,6 +235,7 @@
                 {{end}}
             </div>
             <hr>
+            <p>
             {{if eq (len .Buy) 0}}
                 This item is not purchasable.
             {{else if eq (len .Buy) 1}}
@@ -266,6 +267,7 @@
                     {{end}}
                 {{end}}
             {{end}}
+            </p>
             <p>Sell price : {{.Sell}}<img src="https://dodo.ac/np/images/d/d2/30%2C000_Bells_NH_Inv_Icon.png"
                                           alt="">
             </p>
