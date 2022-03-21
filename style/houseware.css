@@ -33,17 +33,22 @@
     width: fit-content;
 }
 
-.houseware_img {
+.houseware_img:not(.houseware_card) {
     user-select: none;
     transition: all 0.3s;
     filter: var(--drop-shadow);
     width: 125px;
 }
 
-.houseware_img:hover {
+.houseware_card .houseware_img {
+    width: 70px;
+}
+
+.houseware_img:not(.houseware_card):hover {
     transform: translateY(-2%);
 }
 
+<<<<<<< HEAD
 .houseware_variations {
     width: 30px;
 }
@@ -63,4 +68,33 @@
     position: absolute;
     right: 5%;
     top: 28%;
+}
+
+houseware_variations_box {
+    flex-flow: row wrap;
+}
+
+.houseware_info.color {
+    display: none;
+}
+
+.houseware_img:hover ~ .houseware_info.color {
+    display: block;
+    animation: smooth-spawn .3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes smooth-spawn {
+    from {
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.houseware_variations_box {
+    display: flex;
+    flex-flow: column;
 }
