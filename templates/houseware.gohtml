@@ -183,6 +183,17 @@
             <div class="houseware_card_name">
                 {{.Name}}
             </div>
+            <div class="houseware_info_box_category">
+                {{if eq .Category ""}}
+                {{else}}
+                    <div class="houseware_info">
+                        {{.VersionAdded}}
+                    </div>
+                {{end}}
+                <div class="houseware_info">
+                    {{.Category}}
+                </div>
+            </div>
             <div class="houseware_undername">
                 <div class="houseware_variations_box">
                     <section class="sliderContainer slider-1">
@@ -213,8 +224,7 @@
                                     {{end}}
                                     {{if eq $value "Colorful"}}
                                         <div class="houseware_info color"
-                                             style="background-image: url('/image/background/color_gradient.jpg');
-                             background-size: cover;">{{$value}}</div>
+                                             style="background-image: url('/image/background/color_gradient.jpg'); background-size: cover;">{{$value}}</div>
                                     {{end}}
                                     {{if eq $value "Green"}}
                                         <div class="houseware_info color"
@@ -254,14 +264,20 @@
                         </div>
                     </section>
                 </div>
-                <button class="prev"><span class="material-icons">chevron_left</span></button>
-                <button class="next"><span class="material-icons">chevron_right</span></button>
+                {{if eq (len .Versions) 1}}
+                {{else}}
+                    <button class="prev"><span class="material-icons">chevron_left</span></button>
+                    <button class="next"><span class="material-icons">chevron_right</span></button>
+                {{end}}
                 <hr>
-                <p>
+
+
+                <div class="houseware_info_box">
                     {{if eq (len .Buy) 0}}
-                        This item is not purchasable.
+                    This item is not purchasable.
                     {{else if eq (len .Buy) 1}}
-                        Price :
+                    Price :
+                    <div class="houseware_info price">
                         {{range $value := .Buy}}
                             {{$value.Price}}
                             {{if eq $value.Currency "Poki"}}
@@ -274,11 +290,17 @@
                             {{else if eq $value.Currency "Nook Points"}}
                                 <img src="https://img.game8.co/3341561/aed75e8282bd1a5ff89f94450317606a.png/show"
                                      alt="">
+                            {{else if eq $value.Currency "Heart Crystals"}}
+                                <img src="https://dodo.ac/np/images/a/ac/Heart_Crystal_NH_Icon.png"
+                                     alt="">
                             {{end}}
                         {{end}}
+                    </div>
                     {{else if eq (len .Buy) 2}}
-                        Price :
-                        {{range $value := .Buy}}
+                    Price :
+
+                    {{range $value := .Buy}}
+                        <div class="houseware_info price">
                             {{$value.Price}}
                             {{if eq $value.Currency "Poki"}}
                                 <img src="https://dodo.ac/np/images/1/16/Poki_NH_Inv_Icon.png" alt="">
@@ -290,40 +312,87 @@
                             {{else if eq $value.Currency "Nook Points"}}
                                 <img src="https://img.game8.co/3341561/aed75e8282bd1a5ff89f94450317606a.png/show"
                                      alt="">
+                            {{else if eq $value.Currency "Heart Crystals"}}
+                                <img src="https://dodo.ac/np/images/a/ac/Heart_Crystal_NH_Icon.png"
+                                     alt="">
                             {{end}}
-                        {{end}}
+                        </div>
+
                     {{end}}
-                </p>
-                <p>Sell price : {{.Sell}}<img
-                            src="https://dodo.ac/np/images/d/d2/30%2C000_Bells_NH_Inv_Icon.png"
-                            alt="">
-                </p>
-                <p>Availability :
+                </div>
+            {{end}}
+                <div class="houseware_info_box">
+                    <p>Sell price :</p>
+                    <div class="houseware_info price">
+                        {{.Sell}}<img src="https://dodo.ac/np/images/d/d2/30%2C000_Bells_NH_Inv_Icon.png"
+                                      alt="">
+                    </div>
+                </div>
+                <hr>
+                <div class="availability">
+                    Availability :
+                </div>
+                <div class="houseware_info_box_availability">
+
                     {{range $value := .Availability}}
-                        From : {{$value.From}}
-                        Note : {{$value.Note}}
+                        <div class="availability">
+                            {{if eq $value.From ""}}
+                            {{else}}
+                                From :
+                                <div class="houseware_info">
+                                    {{$value.From}}
+                                </div>
+                            {{end}}
+                            {{if eq $value.Note ""}}
+                            {{else}}
+                                Note :
+                                <div class="houseware_info">
+                                    {{$value.Note}}
+                                </div>
+                            {{end}}
+                        </div>
                     {{end}}
-                </p>
-                <p>{{if eq (len .Themes) 0}}
-                        This furniture has no specific theme.
+                </div>
+                <hr>
+
+                <div class="houseware_info_box">
+                    {{if eq (len .Themes) 0}}
                     {{else if eq (len .Themes) 1}}
                         Theme :
-                        {{range $value := .Themes}}
-                            {{$value}}
-                        {{end}}
+                        <div class="houseware_info">
+                            {{range $value := .Themes}}
+                                {{$value}}
+                            {{end}}
+                        </div>
                     {{else}}
                         Themes :
                         {{range $value := .Themes}}
-                            {{$value}}
+                            <div class="houseware_info">
+                                {{$value}}
+                            </div>
                         {{end}}
                     {{end}}
-                </p>
-                <div class="houseware_info">
-                    {{.VersionAdded}}
                 </div>
-                Category : {{.Category}}
-                Series : {{.ItemSeries}}
-                Tag : {{.Tag}}
+
+
+                {{if eq .ItemSeries ""}}
+                {{else}}
+                    <div class="houseware_info_box">
+                        <p>Series :</p>
+                        <div class="houseware_info">
+                            {{.ItemSeries}}
+                        </div>
+                    </div>
+                {{end}}
+                {{if eq .Tag ""}}
+                {{else}}
+                    <div class="houseware_info_box">
+                        <p>Tag :</p>
+                        <div class="houseware_info">
+                            {{.Tag}}
+                        </div>
+                    </div>
+                {{end}}
             </div>
         </div>
         <img class="melo" src="image/uniqueCharacters/melo.png" alt="">
