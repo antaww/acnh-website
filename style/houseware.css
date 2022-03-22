@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
 .houseware_card {
     font-family: "M PLUS Rounded 1c", sans-serif;
     font-weight: 600;
@@ -18,6 +20,7 @@
     overflow: auto;
     min-height: inherit;
     max-width: 450px;
+    margin-top: 70px;
 }
 
 
@@ -62,12 +65,11 @@
 }
 
 .houseware_info.color {
-    display: none;
+    display: block;
 }
 
-.houseware_img:hover ~ .houseware_info.color {
-    display: block;
-    animation: smooth-spawn .3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+.color_animation {
+    animation: smooth-spawn .3s cubic-bezier(0.68, -0.55, 0.265, 1.55) .5s;
 }
 
 @keyframes smooth-spawn {
@@ -115,12 +117,19 @@
 
 .prev, .next {
     z-index: 1;
-    border: 1px solid black;
-    font-size: 10px;
-    height: 20px;
-    width: 20px;
     cursor: pointer;
-    transform: translateY(-50%);
+    border-radius: 2rem;
+    background-color: #e2d88bb0;
+    border: none;
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.2);
+    transition: all .3s;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.prev:hover, .next:hover {
+    transform: scale(1.1);
+    background-color: var(--title-color);
 }
 
 .next {
