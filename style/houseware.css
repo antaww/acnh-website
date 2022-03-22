@@ -4,8 +4,9 @@
     box-shadow: var(--forms-shadow);
     transition: all .3s;
     user-select: text;
-    background-image: url('/image/background/dots.png');
-    background-color: #fdfdea;
+    background-color: var(--menu-color);
+
+
     background-size: 32px 32px;
     margin: auto;
     width: fit-content;
@@ -17,7 +18,7 @@
     height: inherit;
     overflow: auto;
     min-height: inherit;
-    max-width: 450px;
+    min-width: 450px;
 }
 
 
@@ -98,7 +99,6 @@
 }
 
 .houseware_card_name {
-    background-color: var(--menu-color);
     padding: 10px;
     font-size: 30px;
     display: flex;
@@ -108,4 +108,43 @@
 
 .houseware_undername {
     padding: 10px;
+    background-image: url('/image/background/dots.png');
+    background-color: #fdfdea;
+}
+
+.houseware_info_box {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.availability {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.houseware_info_box_availability {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+.houseware_info_box_category {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+
+
+}
+
+.price {
+    display: flex;
+    align-items: center;
+}
+
+.price img{
+    width: 55px;
 }

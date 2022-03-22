@@ -42,6 +42,13 @@ h3 {
     filter: var(--drop-shadow);
 }
 
+.isabelle {
+    position: absolute;
+    filter: var(--drop-shadow);
+    right: 5%;
+    width: 336px;
+}
+
 
 :any-link {
     text-decoration: none;
