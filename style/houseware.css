@@ -57,12 +57,14 @@
     position: absolute;
     left: -5%;
     top: 28%;
+    z-index: -1;
 }
 
 .melo {
     position: absolute;
     right: 5%;
     top: 28%;
+    z-index: -1;
 }
 
 .houseware_info.color {
@@ -152,6 +154,7 @@
 .price img {
     width: 55px;
 }
+
 /*slider*/
 
 .prev, .next {
