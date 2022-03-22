@@ -124,7 +124,6 @@
     box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.2);
     transition: all .3s;
     color: black;
-    margin-bottom: 10px;
 }
 
 .prev:hover, .next:hover {
