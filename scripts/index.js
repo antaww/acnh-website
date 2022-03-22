@@ -34,4 +34,3 @@ menu_btn.addEventListener('click', event => {
     document.body.classList.toggle("no-scroll")
     console.log("body noscroll")
 })
-
