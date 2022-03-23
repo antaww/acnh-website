@@ -136,7 +136,6 @@
 }
 
 #portrait {
-    /*box-shadow: 0 6px 5px rgba(0, 0, 0, 0.4);*/
     width: 100px;
     transition: all 0.3s;
     border-radius: 55px;

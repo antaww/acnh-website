@@ -37,7 +37,6 @@
     width: 4px;
     height: 80px;
     transform-origin: 50% 100%;
-    /* background-color: rgba(0,0,0,.2); */
     overflow: hidden;
     transform: scale(1.5);
     transform: translateY(1.2);
