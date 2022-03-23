@@ -105,16 +105,6 @@ func getCharacters() []VillagerRawData {
 	return response
 }
 
-//func acnh(name string, response []VillagerRawData) simplifiedData {
-//	var index int
-//	for i, data := range response {
-//		if strings.ToLower(data.Name.NameEUen) == strings.ToLower(name) {
-//			index = i
-//		}
-//	}
-//	return response[index].toData()
-//}
-
 func characterExistence(name string, response []VillagerRawData) bool {
 	for _, data := range response {
 		if strings.ToLower(data.Name.NameEUen) == strings.ToLower(name) {

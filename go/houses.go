@@ -53,9 +53,7 @@ type Houses struct {
 func getHouses() []Houses {
 	url := "https://api.nookipedia.com/villagers?nhdetails=true&game=nh&api_key=72f07541-84d2-4033-a088-93efa4297f71"
 
-	httpClient := http.Client{
-		//Timeout: time.Second * 2, // define timeout
-	}
+	httpClient := http.Client{}
 
 	//create request
 	req, err := http.NewRequest(http.MethodGet, url, nil)

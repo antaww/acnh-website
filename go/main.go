@@ -59,15 +59,6 @@ func main() {
 		return characters[indexFirst].Name.NameEUen < characters[indexSecond].Name.NameEUen
 	})
 
-	//for _, chara := range characters {
-	//	println("Villagers : ", chara.Name.NameEUen)
-	//}
-	//for _, hou := range houses {
-	//println("Villagers : ", hou.Name)
-	//println("Villagers T POSE : ", hou.NhDetails.ImageUrl)
-	//println("House Interior : ", hou.NhDetails.HouseInteriorUrl)
-	//println("House Exterior : ", hou.NhDetails.HouseExteriorUrl)
-	//}
 	for _, character := range characters {
 		http.HandleFunc(fmt.Sprintf("/%s", strings.ToLower(character.Name.NameEUen)), func(writer http.ResponseWriter, request *http.Request) {
 			name := strings.TrimPrefix(request.URL.Path, "/")
@@ -84,7 +75,6 @@ func main() {
 	for i, houseware := range housewares {
 		housewName := strings.ReplaceAll(houseware.Name, " ", "")
 		housewName = strings.ToLower(housewName)
-		//println(housewName)
 		housewares[i].NameSimplified = housewName
 		simplifiedname := getSimplifiedHouseware(housewName, housewares)
 		http.HandleFunc(fmt.Sprintf("/%s"+"_houseware", housewName), func(writer http.ResponseWriter, request *http.Request) {
@@ -165,10 +155,8 @@ func main() {
 	})
 
 	http.HandleFunc("/character", func(w http.ResponseWriter, r *http.Request) {
-		//fmt.Println("debug1")
 		queries := r.URL.Query()
 		if queries.Has("name") {
-			//fmt.Println("debug2")
 			name := r.URL.Query().Get("name")
 			name = strings.ToLower(name)
 			fmt.Println("name =>", name)
@@ -177,10 +165,8 @@ func main() {
 	})
 
 	http.HandleFunc("/houseware", func(w http.ResponseWriter, r *http.Request) {
-		//fmt.Println("debug1")
 		queries := r.URL.Query()
 		if queries.Has("name") {
-			//fmt.Println("debug2")
 			name := r.URL.Query().Get("name")
 			name = strings.ToLower(name)
 			strings.ReplaceAll(name, " ", "")
