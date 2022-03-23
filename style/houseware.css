@@ -126,8 +126,9 @@
 
 .availability {
     display: flex;
-    align-items: center;
     margin: 10px;
+    flex-direction: column;
+    align-items: center;
 }
 
 .houseware_info_box_availability {
