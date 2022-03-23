@@ -63,7 +63,6 @@ func main() {
 		http.HandleFunc(fmt.Sprintf("/%s", strings.ToLower(character.Name.NameEUen)), func(writer http.ResponseWriter, request *http.Request) {
 			name := strings.TrimPrefix(request.URL.Path, "/")
 			simplifiedVillager := getSimplified(name, characters, houses)
-			println("Villager : ", simplifiedVillager.Name)
 			fmt.Println(request.URL, "url request")
 			err := templ.ExecuteTemplate(writer, "character.gohtml", simplifiedVillager)
 			if err != nil {
@@ -97,26 +96,19 @@ func main() {
 			templ.ExecuteTemplate(w, "test.gohtml", houses)
 		} else if !characterExistence(path, characters) {
 			errorHandler(w, r, http.StatusNotFound)
-			fmt.Println(path, "=> introuvable")
 		}
 	})
 
 	http.HandleFunc("/charalist", func(w http.ResponseWriter, r *http.Request) {
-		for _, chara := range characters {
-			print(chara.SelectedSpeccy)
-			break
-		}
 		for i := range characters {
 			characters[i].IsEmpty = true
 		}
 		path := TrimURLPrefix(r.URL.Path)
 		switch r.Method {
 		case "GET":
-
 			templ.ExecuteTemplate(w, "charalist.gohtml", characters)
 		case "POST":
 			villager := r.FormValue("name")
-			fmt.Println(villager)
 			if villager != "" {
 				if !characterExistence(villager, characters) {
 					path = villager
@@ -159,7 +151,6 @@ func main() {
 		if queries.Has("name") {
 			name := r.URL.Query().Get("name")
 			name = strings.ToLower(name)
-			fmt.Println("name =>", name)
 			http.Redirect(w, r, fmt.Sprintf("/%s", name), http.StatusSeeOther)
 		}
 	})
@@ -170,7 +161,6 @@ func main() {
 			name := r.URL.Query().Get("name")
 			name = strings.ToLower(name)
 			strings.ReplaceAll(name, " ", "")
-			fmt.Println("houseware =>", name)
 			http.Redirect(w, r, fmt.Sprintf("/%s"+"_houseware", name), http.StatusSeeOther)
 		}
 	})

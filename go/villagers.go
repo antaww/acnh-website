@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"io"
 	"io/ioutil"
 	"log"
@@ -108,10 +107,8 @@ func getCharacters() []VillagerRawData {
 func characterExistence(name string, response []VillagerRawData) bool {
 	for _, data := range response {
 		if strings.ToLower(data.Name.NameEUen) == strings.ToLower(name) {
-			fmt.Println("dans func : perso existant")
 			return true
 		}
 	}
-	fmt.Println("dans func : perso inexistant")
 	return false
 }
